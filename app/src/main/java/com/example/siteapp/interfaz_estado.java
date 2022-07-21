@@ -341,6 +341,7 @@ public class interfaz_estado extends General {
                 parametros.put("idIncidencia", idIncidencia);
                 //parametros.put("tipo", tipo);
                 return parametros;
+                ///
             }
         };
         requestQueue = Volley.newRequestQueue(getApplicationContext());
