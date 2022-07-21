@@ -49,8 +49,8 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
     String cedula;
     String estado;
     String departamento;
-    String trampa;
     String comentario;
+    String tipo;
     RequestQueue requestQueue;
     Context ct;
 
@@ -68,16 +68,15 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
         comentario = getIntent().getStringExtra("comentario");
         cedula = getIntent().getStringExtra("cedula");
         departamento = getIntent().getStringExtra("departamento");
-        //trampa = getIntent().getStringExtra("trampa");
+        tipo = getIntent().getStringExtra("tipo");
+        Log.i("result0","estado:"+estado);
 
         SharedPreferences admin=this.getSharedPreferences("x",MODE_PRIVATE);
         ct=view.getContext();
 
         String tip_usuario=admin.getString("tip_usuario","");
 
-
         if(tip_usuario.equals("T") || tip_usuario.equals("D")) {
-
             v29.btnestado.setVisibility(View.VISIBLE);
         }else{
 
@@ -85,8 +84,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
         }
 
 
-        if(tip_usuario.equals("C")) {
-
+        if(tip_usuario.equals("C") && estado.equals("Encurso")) {
             v29.btnestad.setVisibility(View.VISIBLE);
         }else{
 
@@ -103,6 +101,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
                 intent.putExtra("idIncidencia",idIncidencia);
                 intent.putExtra("cedula",cedula);
                 intent.putExtra("departamento",departamento);
+                intent.putExtra("tipo",tipo);
                 startActivity(intent);
             }
 

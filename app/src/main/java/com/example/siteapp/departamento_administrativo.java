@@ -40,7 +40,7 @@ public class departamento_administrativo extends General {
     private ActivityDepartamentoAdministrativoBinding v4;
     RequestQueue requestQueue;
     DatePickerDialog.OnDateSetListener setListener1;
-
+    int val;
     private ListView lv2;
     Context ct;
 
@@ -89,6 +89,7 @@ public class departamento_administrativo extends General {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             //valor=lv2.getItemAtPosition(position).toString();
+                            val = position;
                             final String[] valor1 = {""};
                             valor1[0] = problemas1[position];
                             Toast.makeText(getApplicationContext(),"Su incidencia es " + valor1[0], Toast.LENGTH_SHORT).show();
@@ -134,8 +135,8 @@ public class departamento_administrativo extends General {
                                             protected Map<String, String> getParams () throws AuthFailureError {
                                                 Map<String,String> parametros = new HashMap<String, String>();
                                                 //parametros.put("id".toString().toString());
-                                                parametros.put("tipo",valor1[0].toString());
-                                                Log.i("olivertipo",valor1[0]);
+                                                parametros.put("tipoo", String.valueOf(val));
+                                                Log.i("olivertipo", String.valueOf(val));
                                                 parametros.put("departamento", String.valueOf(2));
                                                 parametros.put("comentario",v4.txp4adm.getText().toString());
                                                 SharedPreferences admin=ct.getSharedPreferences("x",MODE_PRIVATE);

@@ -32,6 +32,7 @@
         android:gravity="center"
         android:text="Puedes visualizar las incidencias hechas por los usuarios de acuerdo a tus requerimientos y asignarles un estado "
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

@@ -50,7 +50,7 @@ public class adapter_notify1 extends RecyclerView.Adapter<adapter_notify1.adapte
 
 
                 switch (origen) {
-                    case "n":
+                    case "1":
                         Intent intent=new Intent(v.getContext(),interfaz_noti_detalle.class);
                         //intent.putExtra("estado",estado);
                         intent.putExtra("comentario",comentario);
@@ -62,7 +62,7 @@ public class adapter_notify1 extends RecyclerView.Adapter<adapter_notify1.adapte
 
 
                         break;
-                    case "s":
+                    case "2":
                         intent = new Intent(v.getContext(), interfaz_suge_detalle.class);
                         //intent.putExtra("estado",estado);
                         intent.putExtra("comentario",comentario);

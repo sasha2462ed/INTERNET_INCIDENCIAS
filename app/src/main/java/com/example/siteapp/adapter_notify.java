@@ -64,10 +64,10 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
 
 
                 switch (origen) {
-                    case "n":
+                    case "1":
 
 
-                        String URL="http://192.168.101.5/conexion_php/modificar_estado_noti.php";
+                        String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
                         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -109,10 +109,10 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
 
 
                         break;
-                    case "s":
+                    case "2":
 
 
-                        URL = "http://192.168.101.5/conexion_php/modificar_estado_suge.php";
+                        URL = "http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
                         stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {

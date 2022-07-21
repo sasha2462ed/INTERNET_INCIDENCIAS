@@ -10,6 +10,7 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_aviso.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_consultar.xml" value="0.264" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_dependiente.xml" value="0.16" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_dependientes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_envio_notificacion.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_estado.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_estado_user.xml" value="0.21195652173913043" />
@@ -29,6 +30,7 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.264" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_menu_onboarding.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_mpchart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_oanbording.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_onboarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_fr_in_ad.xml" value="0.2390625" />
@@ -63,6 +65,7 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/graficos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/incidencias_dependientes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/item_notificacion.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/onboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/regresar.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/menu/sesion.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.26614583333333336" />

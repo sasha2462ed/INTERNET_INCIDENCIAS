@@ -1,5 +1,6 @@
 package com.example.siteapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -9,6 +10,9 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding v1;
     Context ct;
     CheckBox sesion;
+    SharedPreferences app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         View view = v1.getRoot();
         setContentView(view);
 
+        app=getApplicationContext().getSharedPreferences("myApp",MODE_PRIVATE);
         sesion=v1.checkBox;
         ct=view.getContext();
         SharedPreferences admin=getApplicationContext().getSharedPreferences("x",MODE_PRIVATE);
@@ -61,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Campo nombre vacio", Toast.LENGTH_SHORT).show();
                 } else {
                     if (v1.txp2.getText().toString().isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Campo cedula vacio", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Campo contrasena vacio", Toast.LENGTH_SHORT).show();
                     } else {
                         validarUsuario("http://192.168.101.5/conexion_php/validar_usuario.php");
                     }
@@ -111,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(MainActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error al conectarse al servidor", Toast.LENGTH_SHORT).show();
             }
 
         }){
@@ -137,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             activity= new Intent(getBaseContext(), interfaz_usuario.class);
 
         } else if (type.equals("D")){
-            activity= new Intent(getBaseContext(), interfaz_dependiente.class);
+            activity= new Intent(getBaseContext(), interfaz_dependientes.class);
         }
 
         startActivity(activity);
@@ -151,5 +158,37 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflador=getMenuInflater();
+        inflador.inflate(R.menu.onboard,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        switch (item.getItemId())
+        {
+
+            case R.id.guia:
+
+                SharedPreferences.Editor data=app.edit();
+                data.remove("status");
+                data.apply();
+
+                Intent intent = new Intent( getApplicationContext(),menuOnboarding.class);
+                startActivity(intent);
+
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

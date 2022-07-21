@@ -40,7 +40,7 @@ public class interfaz_envio_notificacion extends General {
         v10.botonnotificaciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registroNotificacion("http://192.168.101.5/conexion_php/insertar_notificacion.php");
+                registroNotificacion("http://192.168.101.5/conexion_php/insertar_notisug.php");
 
             }
         });
@@ -104,7 +104,8 @@ public class interfaz_envio_notificacion extends General {
                 parametros.put("descripcion",v10.textonotificacion.getText().toString());
                 SharedPreferences admin=getApplicationContext().getSharedPreferences("x",MODE_PRIVATE);
                 String id=admin.getString("id","");
-                parametros.put("id_tecnico", id);
+                parametros.put("id_usuarios", id);
+                parametros.put("id_tip_noti", String.valueOf(1));
                 return parametros;
             }
         };

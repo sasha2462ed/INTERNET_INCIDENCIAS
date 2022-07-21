@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -52,7 +53,6 @@ public class interfaz_usuario extends General {
     private static final String CHANNEL_NAME = "CHANNEL_NAME";
     private PendingIntent pendingIntent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +63,8 @@ public class interfaz_usuario extends General {
 
 
         ct=view.getContext();
-        new Anyclass().execute();
+        time time = new time();
+        time.execute();
 
         ///****************//////
         ////**********///////////
@@ -126,7 +127,6 @@ public class interfaz_usuario extends General {
                         JSONArray object= null;
                         object = new JSONArray(response);
                         Log.i("result","Data: "+response);
-
                         for(int i=0;i<object.length();i++) {
                             JSONObject indicencia = object.getJSONObject(0);
                             indicencia.getString("CI");
@@ -291,7 +291,8 @@ public class interfaz_usuario extends General {
 ////***************//////
 
     public void ejecutar (){
-        new Anyclass().execute();
+        time time = new time();
+        time.execute();
     }
 
 ////********///////
@@ -308,38 +309,49 @@ public class interfaz_usuario extends General {
     }
 
     /***********/////////
-    public class Anyclass extends AsyncTask<Void, Integer, Boolean> {
+    public class time extends AsyncTask<Void, Integer, Boolean> {
 ///*********//////
 
-
+        @SuppressLint("WrongThread")
         @Override
         protected Boolean doInBackground(Void... voids) {
 
-     /*
-            while(true){
-                inc();
-                hilo();
-            }
- */
-            boolean cot = true;
-            while (cot==true) {
-                for (int i = 1; i < 3; i++) {
+                for (int i = 1; i <=1; i++) {
                     hilo();
-                    if (i < 3) {
-                        cot=false;
+                    if(i<=1){
+                        //cancel(true);
+                        //new time().execute();
+                        //finishAffinity();
+                        //finish();
+                        //cancel(true);
+                        Runtime.getRuntime().gc();
+                        System.gc();
+
+                    }else{
+                        cancel(true);
+                        //new time().execute();
+                        Runtime.getRuntime().gc();
+                        System.gc();
                     }
-                }
+
             }
             return true;
         }
 
             @Override
             protected void onPostExecute (Boolean aBoolean){
-                if( isCancelled() ) {
-                    return;
-                }
+                //super.onPostExecute(aBoolean);
+                Runtime.getRuntime().gc();
+                System.gc();
+                Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
+                new time().execute();
+                //cancel(true);
 
-                ejecutar();
             }
+        @Override
+        protected void onCancelled(){
+            super.onCancelled();
+            cancel(true);
         }
+    }
 }

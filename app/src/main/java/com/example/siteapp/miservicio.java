@@ -1,43 +1,41 @@
-package com.example.siteapp;
-
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.app.TaskStackBuilder;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.IBinder;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-
+//package com.example.siteapp;
+//
+//import android.app.Notification;
+//import android.app.NotificationChannel;
+//import android.app.NotificationManager;
+//import android.app.PendingIntent;
+//import android.app.Service;
+//import android.app.TaskStackBuilder;
+//import android.content.Context;
+//import android.content.Intent;
+//import android.os.Build;
+//import android.os.IBinder;
+//import android.util.Log;
+//import android.widget.Toast;
+//
+//import androidx.annotation.RequiresApi;
+//import androidx.core.app.NotificationCompat;
+//import androidx.core.app.NotificationManagerCompat;
+//
+//import com.android.volley.AuthFailureError;
+//import com.android.volley.Request;
+//import com.android.volley.RequestQueue;
+//import com.android.volley.Response;
+//import com.android.volley.VolleyError;
+//import com.android.volley.toolbox.StringRequest;
+//import com.android.volley.toolbox.Volley;
+//
+//import org.json.JSONArray;
+//import org.json.JSONException;
+//import org.json.JSONObject;
+//
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.util.Objects;
+//
 //public class miservicio extends Service {
 //    public miservicio() {
 //
-//
-//        super();
 //    }
 //    private static final String CHANNEL_ID = "CHANNEL_ID";
 //    private static final String CHANNEL_NAME = "CHANNEL_NAME";
@@ -47,16 +45,21 @@ import java.util.Objects;
 //    @Override
 //    public int onStartCommand(Intent intent, int flags, int startId) {
 //
-//        for (int i = 1; i < 5; i++) {
-//            inc();
-//            i++;
-//        }
+//        hilo();
 //
 //       return START_STICKY;
 //
 //    }
 //    /***************************/
+//    public void hilo (){
+//        try{
+//            Thread.sleep(2000);
+//            inc();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
 //
+//        }
+//    }
 //    public int inc(){
 //        String URL = "http://192.168.101.5/conexion_php/item_notificacion.php";
 //        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {

@@ -1,5 +1,6 @@
 package com.example.siteapp;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -61,8 +62,8 @@ public class interfaz_dependiente extends General {
 
         SharedPreferences admin=this.getSharedPreferences("x",MODE_PRIVATE);
         ct=view.getContext();
-        Anyclass Anyclass = new Anyclass();
-        Anyclass.execute();
+        time time = new time();
+        time.execute();
 
         ///******/////////////////
         String URL3 = "http://192.168.101.5/conexion_php/item_notificacion.php";
@@ -307,7 +308,8 @@ public class interfaz_dependiente extends General {
 ////***************//////
 
     public void ejecutar (){
-        new Anyclass().execute();
+        time time = new time();
+        time.execute();
     }
 
 ////********///////
@@ -381,38 +383,50 @@ public class interfaz_dependiente extends General {
     }
 
     /***********/////////
-    public class Anyclass extends AsyncTask<Void, Integer, Boolean> {
+    public class time extends AsyncTask<Void, Integer, Boolean> {
 ///*********//////
 
-
+        @SuppressLint("WrongThread")
         @Override
         protected Boolean doInBackground(Void... voids) {
 
-     /*
-            while(true){
-                inc();
+            for (int i = 1; i <=1; i++) {
                 hilo();
-            }
- */
-            boolean cot = true;
-            while (cot==true) {
-                for (int i = 1; i < 5; i++) {
-                    hilo();
-                    if (i < 5) {
-                        cot=false;
-                    }
+                if(i<=1){
+                    //cancel(true);
+                    //new time().execute();
+                    //finishAffinity();
+                    //finish();
+                    //cancel(true);
+                    Runtime.getRuntime().gc();
+                    System.gc();
+
+                }else{
+                    cancel(true);
+                    //new time().execute();
+                    Runtime.getRuntime().gc();
+                    System.gc();
                 }
+
             }
             return true;
         }
 
         @Override
         protected void onPostExecute (Boolean aBoolean){
-            if( isCancelled() ) {
-                return;
-            }
+            //super.onPostExecute(aBoolean);
 
-            ejecutar();
+            Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
+            Runtime.getRuntime().gc();
+            System.gc();
+            new time().execute();
+            //cancel(true);
+
+        }
+        @Override
+        protected void onCancelled(){
+            super.onCancelled();
+            cancel(true);
         }
     }
 }

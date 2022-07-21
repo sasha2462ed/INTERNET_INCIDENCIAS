@@ -42,7 +42,7 @@ public class interfaz_sugerencia extends General {
         v9.botonsugerencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registroSugerencias("http://192.168.101.5/conexion_php/insertar_sugerencia.php");
+                registroSugerencias("http://192.168.101.5/conexion_php/insertar_notisug.php");
 
             }
         });
@@ -104,7 +104,8 @@ public class interfaz_sugerencia extends General {
                 parametros.put("descripcion",v9.textosugerencia.getText().toString());
                 SharedPreferences admin=getApplicationContext().getSharedPreferences("x",MODE_PRIVATE);
                 String id=admin.getString("id","");
-                parametros.put("id_usuario", id);
+                parametros.put("id_usuarios", id);
+                parametros.put("id_tip_noti", String.valueOf(2));
                 return parametros;
             }
         };

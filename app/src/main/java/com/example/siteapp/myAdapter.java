@@ -57,6 +57,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
                     intent.putExtra("departamento", departamento);
                     intent.putExtra("estado",holder.estado.getText().toString());
                     intent.putExtra("comentario",holder.comentario.getText().toString());
+                    intent.putExtra("tipo",holder.tipo.getText().toString());
                     v.getContext().startActivity(intent);
 
             }

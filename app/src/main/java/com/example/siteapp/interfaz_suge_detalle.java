@@ -50,7 +50,7 @@ public class interfaz_suge_detalle extends General {
             @Override
             public void onClick(View v) {
 
-                String URL="http://192.168.101.5/conexion_php/modificar_estado_suge.php";
+                String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
 
 
 

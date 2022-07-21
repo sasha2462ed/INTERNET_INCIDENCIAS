@@ -51,7 +51,7 @@ public class interfaz_noti_detalle extends General {
             @Override
             public void onClick(View v) {
 
-                String URL="http://192.168.101.5/conexion_php/modificar_estado_noti.php";
+                String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                     @Override
@@ -63,6 +63,7 @@ public class interfaz_noti_detalle extends General {
 
                             Intent intent = new Intent( getApplicationContext(),interfaz_notificaciones.class);
                             startActivity(intent);
+
 
                     }
 
@@ -88,6 +89,35 @@ public class interfaz_noti_detalle extends General {
 
             }
         });
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
     }
 }

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -24,10 +26,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Cache;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.NoCache;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityInterfazTecnicoBinding;
@@ -43,8 +47,8 @@ import java.util.Objects;
 public class interfaz_tecnico extends General {
 
     private ActivityInterfazTecnicoBinding v6;
-
-    int count;
+    RequestQueue requestQueue = null;
+    int count=0;
     MenuItem menuItem;
     Context ct;
     TextView notification;
@@ -52,6 +56,7 @@ public class interfaz_tecnico extends General {
     private static final String CHANNEL_ID = "CHANNEL_ID";
     private static final String CHANNEL_NAME = "CHANNEL_NAME";
     private PendingIntent pendingIntent;
+    String items= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +68,8 @@ public class interfaz_tecnico extends General {
         SharedPreferences admin=this.getSharedPreferences("x",MODE_PRIVATE);
         ct=view.getContext();
 
-        Anyclass Anyclass = new Anyclass();
-        Anyclass.execute();
+        time time = new time();
+        time.execute();
 
 
 
@@ -117,26 +122,26 @@ public class interfaz_tecnico extends General {
 
     /////////////////////*****notificacion desde aqui*****/////////////
 
-    public int inc(){
-        String URL = "http://192.168.101.5/conexion_php/item_notificacion.php";
+    public void inc(){
+
+        String URL = "http://192.168.101.5/conexion_php/item_sugerencia.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(String response) {
+
                 if(!response.isEmpty()) {
+
                     try {
-                        JSONArray object= null;
-                        object = new JSONArray(response);
-                        Log.i("result","Data: "+response);
+                        //AppController.getInstance().getRequestQueue().getCache().remove(key);
 
-                        for(int i=0;i<object.length();i++) {
-                            JSONObject indicencia1 = object.getJSONObject(1);
-                            indicencia1.getString("CII");
-                            int items = Integer.parseInt(indicencia1.getString("CII").toString());
-                            Log.i("results", String.valueOf(items));
+                        JSONObject objUser= new JSONObject(response);
+                        items = String.valueOf(Integer.parseInt(objUser.getString("CI")));
+                        Log.i("results", String.valueOf(items));
 
-                            count=items;
-                            if (count==0){}else{
+                        count= Integer.parseInt(items);
+                        if (count==0){}else{
                             menuItem.setActionView(R.layout.notificacion_badgee);
                             // get the view from the nav item
                             View view = menuItem.getActionView();
@@ -157,41 +162,91 @@ public class interfaz_tecnico extends General {
                             });}
 
 
-                            if (Objects.equals(String.valueOf(items),"0")) {
-                                deleteNotificationChannel();
+                        if(Integer.parseInt(items) == 0){
+                            items = null;
+                            objUser = null;
+                            objUser= new JSONObject(response);
+                            deleteNotificationChannel();
+                            new time().execute();
+
+
+                        } else {
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                                showNotification();
+
+                                Runtime.getRuntime().gc();
+                                System.gc();
+
                             } else {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                                    showNotification();
-                                } else {
-                                    showNewNotification();
-                                }
+                                showNewNotification();
+                                Runtime.getRuntime().gc();
+                                System.gc();
                             }
                         }
-                    }
+
+
+
+
+
+
+                        }
+
+
                     catch (JSONException e) {
-                        e.printStackTrace();
+                    Log.i("Error",e.getMessage());
                     }
                 }else{
+                    new time().execute();
                 }
             }
-        }, new Response.ErrorListener(){
+        },
+                new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
-
-        }){
+        })
+        {
             @Override
             protected Map<String, String> getParams () throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String, String>();
+                parametros.clear();
                 return parametros;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.getCache().clear();
         requestQueue.add(stringRequest);
+        requestQueue.cancelAll(requestQueue);
+        /*
+        stringRequest.setShouldCache(false);
 
-        return count;
+        requestQueue.getCache().remove(URL);
+        requestQueue.stop();
+        close();
+        delete();
 
+
+
+        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+            @Override
+            public void onRequestFinished(Request<Object> request) {
+                requestQueue.getCache().clear();
+                stringRequest.setShouldCache(false);
+            }
+        });
+
+
+         */
+
+
+
+
+
+    }
+
+    private void delete() {
     }
 
 /////////******aqui termina notificacion**/////////////
@@ -298,7 +353,8 @@ public class interfaz_tecnico extends General {
 ////***************//////
 
     public void ejecutar (){
-        new Anyclass().execute();
+        time time = new time();
+        time.execute();
     }
 
 ////********///////
@@ -306,7 +362,7 @@ public class interfaz_tecnico extends General {
     /////////***********////////    /
     public void hilo (){
         try{
-            Thread.sleep(3000);
+            Thread.sleep(4500);
             inc();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -315,38 +371,55 @@ public class interfaz_tecnico extends General {
     }
 
     /***********/////////
-    public class Anyclass extends AsyncTask<Void, Integer, Boolean> {
+    public class time extends AsyncTask<Void, Integer, Boolean> {
 ///*********//////
 
-
+        @SuppressLint("WrongThread")
         @Override
         protected Boolean doInBackground(Void... voids) {
 
-     /*
-            while(true){
-                inc();
+            for (int i = 0; i <=1; i++) {
                 hilo();
-            }
- */
-            boolean cot = true;
-            while (cot==true) {
-                for (int i = 1; i < 3; i++) {
-                    hilo();
-                    if (i < 3) {
-                        cot=false;
-                    }
+                if(i<=1){
+                    //cancel(true);
+                    //new time().execute();
+                    //finishAffinity();
+                    //finish();
+                    //cancel(true);
+                    //close();
+                    Runtime.getRuntime().gc();
+                    System.gc();
+                    //onStop();
+                    break;
+
+                }else{
+                    cancel(true);
+                    //new time().execute();
+                    Runtime.getRuntime().gc();
+                    System.gc();
+                    break;
                 }
+
             }
             return true;
         }
 
         @Override
         protected void onPostExecute (Boolean aBoolean){
-            if( isCancelled() ) {
-                return;
-            }
+            //super.onPostExecute(aBoolean);
+             //onStart();
+            Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
+            Runtime.getRuntime().gc();
+            System.gc();
+            //new time().execute();
+            //cancel(true);
 
-            ejecutar();
+        }
+        @Override
+        protected void onCancelled(){
+            super.onCancelled();
+            cancel(true);
         }
     }
+
 }

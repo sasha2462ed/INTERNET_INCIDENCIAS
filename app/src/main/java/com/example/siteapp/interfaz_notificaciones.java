@@ -54,7 +54,7 @@ public class interfaz_notificaciones extends General {
 
         itemRec=new ArrayList();
 
-        String URL = "http://192.168.101.5/conexion_php/buscar_notificacion.php";
+        String URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -78,7 +78,6 @@ public class interfaz_notificaciones extends General {
                                     notificacion.getString("comentario").toString(),
                                     notificacion.getString("idNoti").toString(),
                                     notificacion.getString("origen").toString()
-
 
                                     )
                             );
@@ -109,6 +108,7 @@ public class interfaz_notificaciones extends General {
             @Override
             protected Map<String, String> getParams () throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String, String>();
+                parametros.put("id_tip_noti", String.valueOf(1));
                 parametros.put("estado", "NV");
                 return parametros;
             }
@@ -124,7 +124,7 @@ public class interfaz_notificaciones extends General {
 
         itemRec1=new ArrayList();
 
-        URL = "http://192.168.101.5/conexion_php/buscar_notificacion1.php";
+        URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
 
         stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -148,8 +148,6 @@ public class interfaz_notificaciones extends General {
                                             notificacion.getString("comentario").toString(),
                                             notificacion.getString("idNoti").toString(),
                                             notificacion.getString("origen").toString()
-
-
 
                                     )
                             );
@@ -178,6 +176,7 @@ public class interfaz_notificaciones extends General {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("id_tip_noti", String.valueOf(1));
                 parametros.put("estado", "V");
                 return parametros;
             }

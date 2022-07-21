@@ -27,11 +27,11 @@
     <TextView
         android:id="@+id/txvbo03"
         android:layout_width="282dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
         android:gravity="center"
         android:text="Puedes visualizar el comportamiento de las incidencias por medio de graficas."
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

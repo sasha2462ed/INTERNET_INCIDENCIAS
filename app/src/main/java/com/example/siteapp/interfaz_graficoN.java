@@ -228,7 +228,7 @@ public class interfaz_graficoN extends General {
 
                                                                             graph.getViewport().setScrollable(true);
                                                                             graph.getViewport().setScrollableY(true);
-                                                                            graph.getViewport().setScalable(false);
+                                                                            graph.getViewport().setScalable(true);
                                                                             graph.getViewport().setScalableY(true);
                                                                             //graph.getLegendRenderer().setVisible(true);
                                                                             graph.addSeries(series);
@@ -272,7 +272,7 @@ public class interfaz_graficoN extends General {
                                                                                 }
                                                                             });
                                                                             //**** tamanio texto y color de las variables de las barras
-                                                                            //series.setSpacing(50);
+                                                                            series.setSpacing(70);
                                                                             series.setValuesOnTopSize(60);
                                                                             series.setDrawValuesOnTop(true);
                                                                             series.setValuesOnTopColor(Color.CYAN);

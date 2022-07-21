@@ -127,6 +127,7 @@ public class graficos extends General {
                             graph.removeAllSeries();
 
                             BarGraphSeries<DataPoint> series = new BarGraphSeries<>(cordenadas);
+
                             graph.getViewport().setXAxisBoundsManual(true);
                             graph.getViewport().setMinX(0);
                             graph.getViewport().setMaxX(barras.length()-1);
@@ -137,7 +138,7 @@ public class graficos extends General {
 
                             graph.getViewport().setScrollable(true);
                             graph.getViewport().setScrollableY(true);
-                            graph.getViewport().setScalable(false);
+                            graph.getViewport().setScalable(true);
                             graph.getViewport().setScalableY(true);
                             //graph.getLegendRenderer().setVisible(true);
                             graph.addSeries(series);
@@ -170,6 +171,8 @@ public class graficos extends General {
                             //staticLabelsFormatter.setVerticalLabels(mes);
                             graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
+                            /////********////
+
                             ////*******////////
 
                             series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
@@ -181,7 +184,7 @@ public class graficos extends General {
                             });
 
                             //**** tamanio texto y color de las variables de las barras
-                            //series.setSpacing(50);
+                            series.setSpacing(50);
                             series.setValuesOnTopSize(60);
                             series.setDrawValuesOnTop(true);
                             series.setValuesOnTopColor(Color.CYAN);
