@@ -1,21 +1,17 @@
 package com.example.siteapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.siteapp.databinding.ActivityInterfazMostrarGraficasBinding;
-import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasAdministrativasBinding;
 
 public class interfaz_mostrar_graficas extends General {
 
@@ -56,7 +52,7 @@ public class interfaz_mostrar_graficas extends General {
 
             case R.id.ap:
 
-                intent = new Intent(getApplicationContext(), graficos.class);
+                intent = new Intent(getApplicationContext(), interfaz_graficos.class);
                 startActivity(intent);
 
                 break;

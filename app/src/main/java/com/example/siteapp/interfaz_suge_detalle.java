@@ -28,7 +28,6 @@ public class interfaz_suge_detalle extends General {
     String idNoti;
     String origen;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +48,8 @@ public class interfaz_suge_detalle extends General {
         v58.btns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
+                String ip = getString(R.string.ip);
+                String URL=ip+"/conexion_php/modificar_estado_notificaciones.php";
 
 
 
@@ -84,15 +83,10 @@ public class interfaz_suge_detalle extends General {
                         return parametros;
                     }
                 };
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
-
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
             }
         });
-
-
-
 
     }
 }

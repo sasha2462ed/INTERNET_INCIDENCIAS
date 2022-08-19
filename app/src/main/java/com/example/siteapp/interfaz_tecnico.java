@@ -47,8 +47,7 @@ import java.util.Objects;
 public class interfaz_tecnico extends General {
 
     private ActivityInterfazTecnicoBinding v6;
-    RequestQueue requestQueue = null;
-    int count=0;
+    int count= 0;
     MenuItem menuItem;
     Context ct;
     TextView notification;
@@ -56,7 +55,8 @@ public class interfaz_tecnico extends General {
     private static final String CHANNEL_ID = "CHANNEL_ID";
     private static final String CHANNEL_NAME = "CHANNEL_NAME";
     private PendingIntent pendingIntent;
-    String items= null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,25 +123,32 @@ public class interfaz_tecnico extends General {
     /////////////////////*****notificacion desde aqui*****/////////////
 
     public void inc(){
-
-        String URL = "http://192.168.101.5/conexion_php/item_sugerencia.php";
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/item_sugerencia.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
 
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(String response) {
 
-                if(!response.isEmpty()) {
+                if(response.equals("1")) {
 
-                    try {
+
                         //AppController.getInstance().getRequestQueue().getCache().remove(key);
-
+/*
                         JSONObject objUser= new JSONObject(response);
                         items = String.valueOf(Integer.parseInt(objUser.getString("CI")));
                         Log.i("results", String.valueOf(items));
 
-                        count= Integer.parseInt(items);
-                        if (count==0){}else{
+ */
+
+                        //count= Integer.parseInt(items);
+/*
+                        if (count==0){}else{}
+
+ */
+
+                            //count=1;
                             menuItem.setActionView(R.layout.notificacion_badgee);
                             // get the view from the nav item
                             View view = menuItem.getActionView();
@@ -149,7 +156,7 @@ public class interfaz_tecnico extends General {
                             notification = view.findViewById(R.id.notification);
                             //notification.setEnabled(false);
                             // set the pending notifications value
-                            notification.setText(String.valueOf(count));
+                            notification.setText(null);
 
                             notification.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -159,13 +166,28 @@ public class interfaz_tecnico extends General {
                                     startActivity(intent);
 
                                 }
-                            });}
+                            });
 
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                            showNotification();
+                            //Runtime.getRuntime().gc();
+                            //System.gc();
 
+                        } else {
+                            showNewNotification();
+                            //Runtime.getRuntime().gc();
+                            //System.gc();
+                        }
+
+                        nov();
+/*
                         if(Integer.parseInt(items) == 0){
                             items = null;
+
                             objUser = null;
                             objUser= new JSONObject(response);
+
+
                             deleteNotificationChannel();
                             new time().execute();
 
@@ -185,19 +207,20 @@ public class interfaz_tecnico extends General {
                             }
                         }
 
+ */
+
+                    Runtime.getRuntime().gc();
+                    System.gc();
+                    //onDestroy();
+                    new time().execute();
 
 
-
-
-
-                        }
-
-
-                    catch (JSONException e) {
-                    Log.i("Error",e.getMessage());
-                    }
                 }else{
                     new time().execute();
+                    //deleteNotificationChannel();
+                    Runtime.getRuntime().gc();
+                    System.gc();
+
                 }
             }
         },
@@ -211,39 +234,38 @@ public class interfaz_tecnico extends General {
             @Override
             protected Map<String, String> getParams () throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String, String>();
-                parametros.clear();
+               // parametros.clear();
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.getCache().clear();
-        requestQueue.add(stringRequest);
-        requestQueue.cancelAll(requestQueue);
-        /*
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
         stringRequest.setShouldCache(false);
 
-        requestQueue.getCache().remove(URL);
-        requestQueue.stop();
-        close();
-        delete();
+    }
 
+    public void nov (){
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/modificar_estado_notificaciones_nov.php";
 
-
-        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
-            public void onRequestFinished(Request<Object> request) {
-                requestQueue.getCache().clear();
-                stringRequest.setShouldCache(false);
+            public void onResponse(String response) {
             }
-        });
 
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-         */
+            }
 
-
-
-
-
+        }){
+            @Override
+            protected Map<String, String> getParams () throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+                return parametros;
+            }
+        };
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
     private void delete() {
@@ -296,6 +318,8 @@ public class interfaz_tecnico extends General {
     }
 //////////*****************////////////
     /***************************/
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showNotification() {
@@ -362,7 +386,7 @@ public class interfaz_tecnico extends General {
     /////////***********////////    /
     public void hilo (){
         try{
-            Thread.sleep(4500);
+            Thread.sleep(5000);
             inc();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -377,6 +401,8 @@ public class interfaz_tecnico extends General {
         @SuppressLint("WrongThread")
         @Override
         protected Boolean doInBackground(Void... voids) {
+
+            /*
 
             for (int i = 0; i <=1; i++) {
                 hilo();
@@ -402,17 +428,31 @@ public class interfaz_tecnico extends General {
 
             }
             return true;
+
+             */
+
+            while(true){
+                //inc();
+                hilo();
+            }
         }
 
         @Override
         protected void onPostExecute (Boolean aBoolean){
             //super.onPostExecute(aBoolean);
              //onStart();
+            /*
             Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
             Runtime.getRuntime().gc();
             System.gc();
+
+             */
             //new time().execute();
             //cancel(true);
+            Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
+            Runtime.getRuntime().gc();
+            Runtime.getRuntime().gc();
+            System.gc();
 
         }
         @Override

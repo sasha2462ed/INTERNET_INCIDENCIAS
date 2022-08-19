@@ -10,19 +10,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.siteapp.databinding.ActivityOanbordingBinding;
-import com.example.siteapp.databinding.ActivityOnboardingBinding;
+import com.example.siteapp.databinding.ActivityInterfazOnboardingBinding;
 
-public class onboarding extends AppCompatActivity {
+public class interfaz_onboarding extends AppCompatActivity {
 
-    ActivityOnboardingBinding views;
+    ActivityInterfazOnboardingBinding views;
     int screens=0;
     SharedPreferences app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        views=ActivityOnboardingBinding.inflate(getLayoutInflater());
+        views=ActivityInterfazOnboardingBinding.inflate(getLayoutInflater());
         setContentView(views.getRoot());
 
         views.btnNex.setOnClickListener(new View.OnClickListener() {

@@ -19,7 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityOanbordingBinding;
+import com.example.siteapp.databinding.ActivityInterfazOanbordingBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,16 +27,16 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class oanbording extends AppCompatActivity  {
+public class interfaz_oanbording extends AppCompatActivity  {
 
-    ActivityOanbordingBinding views;
+    ActivityInterfazOanbordingBinding views;
     int screens=0;
 
     SharedPreferences app;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        views=ActivityOanbordingBinding.inflate(getLayoutInflater());
+        views=ActivityInterfazOanbordingBinding.inflate(getLayoutInflater());
         setContentView(views.getRoot());
         //views.btnNext.setOnClickListener(this);
 

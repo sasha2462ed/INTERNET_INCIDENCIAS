@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
@@ -23,6 +22,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityMainBinding;
@@ -55,9 +55,12 @@ public class MainActivity extends AppCompatActivity {
         boolean login=admin.getBoolean("estado",false);
         String tip_usuario=admin.getString("tip_usuario","");
 
+        String ip = getString(R.string.ip);
+
         if(login){
             iniSesion(tip_usuario);
         }
+
 
         v1.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     if (v1.txp2.getText().toString().isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Campo contrasena vacio", Toast.LENGTH_SHORT).show();
                     } else {
-                        validarUsuario("http://192.168.101.5/conexion_php/validar_usuario.php");
+                        validarUsuario(ip+"/conexion_php/validar_usuario.php");
                     }
                 }
             }
@@ -129,8 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
 
@@ -182,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 data.remove("status");
                 data.apply();
 
-                Intent intent = new Intent( getApplicationContext(),menuOnboarding.class);
+                Intent intent = new Intent( getApplicationContext(), interfaz_menuOnboarding.class);
                 startActivity(intent);
 
                 break;

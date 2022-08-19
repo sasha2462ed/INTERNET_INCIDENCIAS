@@ -50,8 +50,8 @@ public class interfaz_noti_detalle extends General {
         v55.btnn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
+                String ip = getString(R.string.ip);
+                String URL=ip+"/conexion_php/modificar_estado_notificaciones.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                     @Override
@@ -84,8 +84,7 @@ public class interfaz_noti_detalle extends General {
                         return parametros;
                     }
                 };
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
             }
         });

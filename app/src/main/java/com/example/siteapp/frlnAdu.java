@@ -58,13 +58,13 @@ public class frlnAdu extends Fragment {
                              Bundle savedInstanceState) {
         layout= FragmentFrlnAduBinding.inflate(inflater,container,false);
         View v=layout.getRoot();
-
+        String ip = getString(R.string.ip);
         RecyclerView list=layout.lista;
         ArrayList<Incidencias> itemRec;
 
         itemRec=new ArrayList();
 
-        String URL = "http://192.168.101.5/conexion_php/buscar_incidencias.php";
+        String URL = ip+"/conexion_php/buscar_incidencias.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -127,9 +127,7 @@ public class frlnAdu extends Fragment {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-        requestQueue.add(stringRequest);
-
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
         return v;
 
     }

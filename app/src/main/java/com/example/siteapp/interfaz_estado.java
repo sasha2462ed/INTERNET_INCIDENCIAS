@@ -30,8 +30,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityDepartamentoAdministrativoBinding;
-import com.example.siteapp.databinding.ActivityDepartamentoTecnicoBinding;
+
 import com.example.siteapp.databinding.ActivityInterfazEstadoBinding;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
@@ -58,7 +57,6 @@ public class interfaz_estado extends General {
     String tipo;
     int state;
     String stt;
-    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +98,8 @@ public class interfaz_estado extends General {
 
 
         ////////////********************///////////////////////////////////////////
-
-        String URL="http://192.168.101.5/conexion_php/item_estados.php";
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/item_estados.php";
 
         //parametros.put("id".toString().toString());
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
@@ -148,8 +146,8 @@ public class interfaz_estado extends General {
 
                                         }
                                         else {
-
-                                            String URL1 = "http://192.168.101.5/conexion_php/modificar_estado.php";
+                                            String ip = getString(R.string.ip);
+                                            String URL1 = ip+"/conexion_php/modificar_estado.php";
 
                                             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
                                                 @Override
@@ -183,12 +181,12 @@ public class interfaz_estado extends General {
                                                     return parametros;
                                                 }
                                             };
-                                            requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                            requestQueue.add(stringRequest);
+                                            VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
                                             //////************////////
-                                            String URL11 = "http://192.168.101.5/conexion_php/insertar_cierre.php";
+                                            ip = getString(R.string.ip);
+                                            String URL11 = ip+"/conexion_php/insertar_cierre.php";
 
                                             StringRequest stringRequest11 = new StringRequest(Request.Method.POST, URL11, new Response.Listener<String>() {
                                                 @Override
@@ -228,8 +226,7 @@ public class interfaz_estado extends General {
                                                     return parametros;
                                                 }
                                             };
-                                            requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                            requestQueue.add(stringRequest11);
+                                            VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest11);
                                             ///////*********////////
 
 
@@ -273,8 +270,7 @@ public class interfaz_estado extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
         /****************************************/
         /***/
@@ -282,8 +278,8 @@ public class interfaz_estado extends General {
         /****APS/
          /****************************************/
 
-
-        String URL3 = "http://192.168.101.5/conexion_php/detalle_gestionn.php";
+        ip = getString(R.string.ip);
+        String URL3 = ip+"/conexion_php/detalle_gestionn.php";
 
         StringRequest stringRequest1 = new StringRequest(Request.Method.POST,URL3, new Response.Listener<String>() {
             @Override
@@ -344,8 +340,7 @@ public class interfaz_estado extends General {
                 ///
             }
         };
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest1);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest1);
 
 
 

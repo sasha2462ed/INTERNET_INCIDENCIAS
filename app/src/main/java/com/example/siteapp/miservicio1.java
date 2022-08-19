@@ -10,8 +10,6 @@
 //import android.content.Intent;
 //import android.os.Build;
 //import android.os.IBinder;
-//import android.util.Log;
-//import android.view.View;
 //import android.widget.Toast;
 //
 //import androidx.annotation.RequiresApi;
@@ -26,28 +24,16 @@
 //import com.android.volley.toolbox.StringRequest;
 //import com.android.volley.toolbox.Volley;
 //
-//import org.json.JSONArray;
-//import org.json.JSONException;
-//import org.json.JSONObject;
-//
 //import java.util.HashMap;
 //import java.util.Map;
-//import java.util.Objects;
 //
-//public class miservicio extends Service {
-//    public miservicio() {
-//
+//public class miservicio1 extends Service {
+//    public miservicio1() {
 //    }
-//    private static final String CHANNEL_ID = "CHANNEL_ID";
-//    private static final String CHANNEL_NAME = "CHANNEL_NAME";
-//    private PendingIntent pendingIntent;
-//    int count;
-//
 //    @Override
 //    public int onStartCommand(Intent intent, int flags, int startId) {
 //
-//        hilo();
-//
+//        hilo();;
 //
 //        return flags;
 //    }
@@ -73,33 +59,21 @@
 //
 //                if(response.equals("1")) {
 //
-//
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-//                        showNotification();
-//                        //Runtime.getRuntime().gc();
-//                        //System.gc();
-//
-//                    } else {
-//                        showNewNotification();
-//                        //Runtime.getRuntime().gc();
-//                        //System.gc();
-//                    }
-//
 //                    nov();
 //
 //                    Runtime.getRuntime().gc();
 //                    System.gc();
 //                    onDestroy();
 //                    //new time().execute();
-//                    startService(new Intent(getApplicationContext(), miservicio1.class ) );
-//                    stopService(new Intent(getApplicationContext(), miservicio.class ) );
+//                    startService(new Intent(getApplicationContext(), miservicio.class ) );
+//                    stopService(new Intent(getApplicationContext(), miservicio1.class ) );
 //                    //onDestroy();
 //                    //onLowMemory();
 //
 //
 //                }else{
-//                    startService(new Intent(getApplicationContext(), miservicio1.class ) );
-//                    stopService(new Intent(getApplicationContext(), miservicio.class ) );
+//                    startService(new Intent(getApplicationContext(), miservicio.class ) );
+//                    stopService(new Intent(getApplicationContext(), miservicio1.class ) );
 //                    onDestroy();
 //                    //onLowMemory();
 //                    //new time().execute();
@@ -227,68 +201,19 @@
 //
 //     */
 //
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    private void showNotification() {
-//
-//        NotificationChannel CHANNEL = new NotificationChannel (CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
-//        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        manager.createNotificationChannel(CHANNEL);
-//        showNewNotification();
-//
-//    }
-//
-//    private void showNewNotification() {
-//
-//        setPendingIntent(interfaz_aviso.class);
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
-//                .setSmallIcon(R.drawable.ic_notification_add_black_24dp)
-//                .setContentTitle("Usted tiene notificaciones pendientes")
-//                .setContentText("")
-//                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//                .setContentIntent(pendingIntent);
-//        builder.setAutoCancel(true);
-//        builder.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
-//        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getApplicationContext());
-//        managerCompat.notify( 1, builder.build());
-//    }
-//
-//
-//    private void setPendingIntent(Class<?> clsActivity){
-//
-//        Intent intent = new Intent(this, clsActivity);
-//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-//        stackBuilder.addParentStack(clsActivity);
-//        stackBuilder.addNextIntent(intent);
-//        pendingIntent = stackBuilder.getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//    }
-/////*******//////
-//
-//    public void deleteNotificationChannel(){
-//
-//        NotificationManager notificationManager =
-//                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//        // The id of the channel.
-//        String id = "CHANNEL_ID";
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            notificationManager.deleteNotificationChannel(id);
-//        } else {
-//            NotificationManager manager = ((NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE));
-//            manager.cancelAll();
-//
-//        }
-//    }
 //
 //    @Override
 //    public void onDestroy() {
 //        super.onDestroy();
+//        stopService(new Intent(getApplicationContext(), miservicio1.class ) );
 //
-//        stopService(new Intent(getApplicationContext(), miservicio.class ) );
 //    }
 //
 //    private void finishAffinity() {
 //        finishAffinity();
 //    }
+//
+//
 //
 //    @Override
 //    public IBinder onBind(Intent intent) {

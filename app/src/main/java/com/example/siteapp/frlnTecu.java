@@ -69,10 +69,10 @@ public class frlnTecu extends Fragment {
 
         RecyclerView list=layout.lista;
         ArrayList<Incidencias> itemRec;
-
+        String ip = getString(R.string.ip);
         itemRec=new ArrayList();
 
-        String URL = "http://192.168.101.5/conexion_php/buscar_incidencias.php";
+        String URL = ip+"/conexion_php/buscar_incidencias.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -140,8 +140,7 @@ public class frlnTecu extends Fragment {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
 
 
         return v;

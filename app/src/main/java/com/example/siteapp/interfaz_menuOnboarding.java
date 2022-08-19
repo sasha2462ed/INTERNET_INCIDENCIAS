@@ -7,20 +7,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.siteapp.databinding.ActivityMenuOnboardingBinding;
-import com.example.siteapp.databinding.ActivityOanbordingBinding;
+import com.example.siteapp.databinding.ActivityInterfazMenuOnboardingBinding;
 
-public class menuOnboarding extends AppCompatActivity {
 
-    ActivityMenuOnboardingBinding views;
+public class interfaz_menuOnboarding extends AppCompatActivity {
+
+    ActivityInterfazMenuOnboardingBinding views;
     int screens=0;
     SharedPreferences app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_onboarding);
-        views=ActivityMenuOnboardingBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_interfaz_menu_onboarding);
+        views=ActivityInterfazMenuOnboardingBinding.inflate(getLayoutInflater());
         setContentView(views.getRoot());
 
 
@@ -49,7 +49,7 @@ public class menuOnboarding extends AppCompatActivity {
                 data.putString("status","1");
                 data.apply();
 
-                Intent intent = new Intent( getApplicationContext(),oanbording.class);
+                Intent intent = new Intent( getApplicationContext(), interfaz_oanbording.class);
                 startActivity(intent);
 
             }
@@ -64,7 +64,7 @@ public class menuOnboarding extends AppCompatActivity {
                 data.putString("status","1");
                 data.apply();
 
-                Intent intent = new Intent( getApplicationContext(),onboarding.class);
+                Intent intent = new Intent( getApplicationContext(), interfaz_onboarding.class);
                 startActivity(intent);
 
             }

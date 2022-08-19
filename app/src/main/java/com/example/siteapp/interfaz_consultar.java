@@ -34,7 +34,6 @@ import java.util.Map;
 public class interfaz_consultar extends AppCompatActivity {
     private ActivityInterfazConsultarBinding v02;
     String buscar;
-    RequestQueue requestQueue;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -83,18 +82,15 @@ public class interfaz_consultar extends AppCompatActivity {
         });
 
 
-
-        String URL = "http://192.168.101.5/conexion_php/buscar_usuario.php?cedula="+ buscar;
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/buscar_usuario.php?cedula="+ buscar;
 
         JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
-
-
                 if (response != null) {
                     try {
-
 
                         JSONObject jsonObject = null;
                         for (int i = 0; i < response.length(); i++) {
@@ -136,17 +132,15 @@ public class interfaz_consultar extends AppCompatActivity {
 
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
-
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
 
 /*************************//////////////////////////////
 
         v02.btn11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String URL="http://192.168.101.5/conexion_php/modificar_usuario.php";
+                String ip = getString(R.string.ip);
+                String URL=ip+"/conexion_php/modificar_usuario.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                     @Override
@@ -190,9 +184,7 @@ public class interfaz_consultar extends AppCompatActivity {
                         return parametros;
                     }
                 };
-                RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
-
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
             }
         });

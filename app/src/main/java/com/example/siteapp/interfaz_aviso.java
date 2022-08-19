@@ -53,8 +53,8 @@ public class interfaz_aviso extends General {
         ArrayList<list_notificacion> itemRec;
 
         itemRec=new ArrayList();
-
-        String URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/buscar_notificaciones_tip.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -113,8 +113,7 @@ public class interfaz_aviso extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
         //////////////////////
@@ -123,8 +122,7 @@ public class interfaz_aviso extends General {
         ArrayList<list_notificacion1> itemRec1;
 
         itemRec1=new ArrayList();
-
-        URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
+        URL = ip+"/conexion_php/buscar_notificaciones_tip.php";
 
         stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -181,9 +179,7 @@ public class interfaz_aviso extends General {
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
-
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
     }
 

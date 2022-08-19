@@ -62,12 +62,11 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
             public void onClick(View v) {
                 String idNoti = String.valueOf(items.get(position).idNoti);
 
-
                 switch (origen) {
                     case "1":
 
 
-                        String URL="http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
+                        String URL="http://192.168.20.130:8080/conexion_php/modificar_estado_notificaciones.php";
                         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -112,7 +111,7 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
                     case "2":
 
 
-                        URL = "http://192.168.101.5/conexion_php/modificar_estado_notificaciones.php";
+                        URL = "http://192.168.20.130:8080/conexion_php/modificar_estado_notificaciones.php";
                         stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {

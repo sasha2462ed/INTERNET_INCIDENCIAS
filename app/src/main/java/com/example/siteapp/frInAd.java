@@ -82,7 +82,7 @@ public class frInAd extends Fragment {
         layout=FragmentFrInAdBinding.inflate(inflater,container,false);
         View v=layout.getRoot();
         //View vista= inflater.inflate(R.layout.fragment_fr_in_tec, container, false);
-
+        String ip = getString(R.string.ip);
         RecyclerView list=layout.lista;
         ArrayList<Incidencias> itemRec;
 
@@ -91,7 +91,7 @@ public class frInAd extends Fragment {
 
         /****************************************/
 
-        String URL="http://192.168.101.5/conexion_php/item_estados.php";
+        String URL=ip+"/conexion_php/item_estados.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
             @Override
@@ -133,8 +133,8 @@ public class frInAd extends Fragment {
                                 layout.btnFragAd.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-
-                                String URL ="http://192.168.101.5/conexion_php/buscar_incidenciastec.php";
+                                        String ip = getString(R.string.ip);
+                                String URL =ip+"/conexion_php/buscar_incidenciastec.php";
 
                                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                                     @Override
@@ -197,8 +197,7 @@ public class frInAd extends Fragment {
                                         return parametros;
                                     }
                                 };
-                                RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-                                requestQueue.add(stringRequest);
+                                        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
 
 
                                     }
@@ -236,8 +235,7 @@ public class frInAd extends Fragment {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
         /****************************************/
 
 ///////////////////*******************///////////////////////////////////////////////

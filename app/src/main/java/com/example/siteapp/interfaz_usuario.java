@@ -72,7 +72,7 @@ public class interfaz_usuario extends General {
         v2.btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(),departamento_administrativo.class);
+                Intent intent = new Intent( getApplicationContext(), interfaz_departamento_administrativo.class);
                 startActivity(intent);
 
             }
@@ -81,7 +81,7 @@ public class interfaz_usuario extends General {
         v2.btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(),departamento_tecnico.class);
+                Intent intent = new Intent( getApplicationContext(), interfaz_departamento_tecnico.class);
                 startActivity(intent);
 
             }
@@ -117,7 +117,8 @@ public class interfaz_usuario extends General {
 
     /***************************/
     public int inc(){
-        String URL = "http://192.168.101.5/conexion_php/item_notificacion.php";
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/item_notificacion.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -184,8 +185,7 @@ public class interfaz_usuario extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
         return count;
 

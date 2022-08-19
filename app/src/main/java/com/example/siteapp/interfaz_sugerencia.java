@@ -17,7 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityDepartamentoAdministrativoBinding;
+
 import com.example.siteapp.databinding.ActivityInterfazSugerenciaBinding;
 
 import java.net.URL;
@@ -42,7 +42,8 @@ public class interfaz_sugerencia extends General {
         v9.botonsugerencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registroSugerencias("http://192.168.101.5/conexion_php/insertar_notisug.php");
+                String ip = getString(R.string.ip);
+                registroSugerencias(ip+"/conexion_php/insertar_notisug.php");
 
             }
         });
@@ -109,8 +110,7 @@ public class interfaz_sugerencia extends General {
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
     }

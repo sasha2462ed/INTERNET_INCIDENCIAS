@@ -23,7 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityGraficosBinding;
+
 import com.example.siteapp.databinding.ActivityInterfazNotificacionesBinding;
 import com.example.siteapp.databinding.ActivityMainBinding;
 
@@ -53,8 +53,8 @@ public class interfaz_notificaciones extends General {
         ArrayList<list_notificacion> itemRec;
 
         itemRec=new ArrayList();
-
-        String URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/buscar_notificaciones_tip.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -113,8 +113,7 @@ public class interfaz_notificaciones extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
         //////////////////////
@@ -124,7 +123,7 @@ public class interfaz_notificaciones extends General {
 
         itemRec1=new ArrayList();
 
-        URL = "http://192.168.101.5/conexion_php/buscar_notificaciones_tip.php";
+        URL = ip+"/conexion_php/buscar_notificaciones_tip.php";
 
         stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -181,8 +180,7 @@ public class interfaz_notificaciones extends General {
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
     }

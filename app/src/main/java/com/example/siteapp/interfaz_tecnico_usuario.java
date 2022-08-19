@@ -28,9 +28,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class interfaz_tecnico_usuario extends AppCompatActivity {
-
-    RequestQueue requestQueue;
-
     private ActivityInterfazTecnicoUsuarioBinding v5;
 
     @Override
@@ -75,8 +72,8 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                                     }
                                     else {
 
-
-                                        insertarproducto("http://192.168.101.5/conexion_php/insertar_usuario.php");
+                                        String ip = getString(R.string.ip);
+                                        insertarproducto(ip+"/conexion_php/insertar_usuario.php");
 
                                     }
                                 }
@@ -159,8 +156,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
 

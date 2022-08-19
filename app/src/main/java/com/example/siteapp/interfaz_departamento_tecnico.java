@@ -1,12 +1,8 @@
 package com.example.siteapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,13 +16,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityDepartamentoAdministrativoBinding;
-import com.jjoe64.graphview.ValueDependentColor;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
+import com.example.siteapp.databinding.ActivityInterfazDepartamentoTecnicoBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,27 +27,27 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class departamento_administrativo extends General {
-    String trampa;
-    private ActivityDepartamentoAdministrativoBinding v4;
+public class interfaz_departamento_tecnico extends General {
+
     RequestQueue requestQueue;
-    DatePickerDialog.OnDateSetListener setListener1;
-    int val;
-    private ListView lv2;
+    private ActivityInterfazDepartamentoTecnicoBinding v3;
+    private ListView lv1;
     Context ct;
+    String trampa;
+    int val;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_departamento_administrativo);
-        v4 = ActivityDepartamentoAdministrativoBinding.inflate(getLayoutInflater());
-        View view = v4.getRoot();
+        setContentView(R.layout.activity_interfaz_departamento_tecnico);
+        v3 = ActivityInterfazDepartamentoTecnicoBinding.inflate(getLayoutInflater());
+        View view = v3.getRoot();
         setContentView(view);
         trampa = getIntent().getStringExtra("trampa");
-///***********************************************************////
-
         ct=view.getContext();
-        String URL="http://192.168.101.5/conexion_php/listadm.php";
+
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/listtec.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
             @Override
@@ -63,49 +55,37 @@ public class departamento_administrativo extends General {
 
                 try {
                     JSONArray nodos = new JSONArray(response);
-
                     JSONArray id = new JSONArray(nodos.get(0).toString());
                     JSONArray name = new JSONArray(nodos.get(1).toString());
 
-                    lv2 = (ListView) findViewById(R.id.lv2);
-                    String[] problemas1 = new String[name.length()];
-
+                    lv1 = (ListView) findViewById(R.id.lv1);
+                    String[] problemas = new String[name.length()];
                     JSONObject nods = new JSONObject();
 
-
                     for (int i = 0; i < name.length(); i++) {
-                        problemas1[i] = name.get(i).toString();
+                        problemas[i] = name.get(i).toString();
                         nods.put(name.get(i).toString(), id.get(i).toString());
                     }
 
-
-                    ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getApplicationContext(),R.layout.listview_items, problemas1);
-                    lv2.setAdapter(adapter1);
-
-
-
-                    lv2.setOnItemClickListener (new AdapterView.OnItemClickListener() {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.listview_items, problemas);
+                    lv1.setAdapter(adapter);
+                    lv1.setOnItemClickListener (new AdapterView.OnItemClickListener() {
 
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             //valor=lv2.getItemAtPosition(position).toString();
                             val = position;
-                            final String[] valor1 = {""};
-                            valor1[0] = problemas1[position];
-                            Toast.makeText(getApplicationContext(),"Su incidencia es " + valor1[0], Toast.LENGTH_SHORT).show();
-
-
-                            Log.i("resultap",valor1[0]);
-
-                            //////////*////////////////
+                            final String[] valor = {""};
+                            valor[0] = problemas[position];
+                            Toast.makeText(getApplicationContext(),"Su incidencia es " + valor[0], Toast.LENGTH_SHORT).show();
 
                             try{
 
-                                v4.btn4adm.setOnClickListener(new View.OnClickListener() {
+                                v3.btn4tec.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-
-                                        String URL= "http://192.168.101.5/conexion_php/insertar_incidencias.php";
+                                        String ip = getString(R.string.ip);
+                                        String URL= ip+"/conexion_php/insertar_incidencias.php";
 
                                         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                                             @Override
@@ -113,15 +93,11 @@ public class departamento_administrativo extends General {
                                                 Log.i("oliver",response);
                                                 if(response.equals("1")){
                                                     Toast.makeText(getBaseContext(), "OPERACION EXITOSA", Toast.LENGTH_SHORT).show();
-                                                    v4.txp4adm.getText().clear();
-
+                                                    v3.txp4tec.getText().clear();
 
                                                 }else{
                                                     Toast.makeText(getBaseContext(), "OPERACION FALLIDA ", Toast.LENGTH_SHORT).show();
-
-
                                                 }
-
                                             }
 
                                         }, new Response.ErrorListener(){
@@ -136,46 +112,32 @@ public class departamento_administrativo extends General {
                                                 Map<String,String> parametros = new HashMap<String, String>();
                                                 //parametros.put("id".toString().toString());
                                                 parametros.put("tipoo", String.valueOf(val));
-                                                Log.i("olivertipo", String.valueOf(val));
-                                                parametros.put("departamento", String.valueOf(2));
-                                                parametros.put("comentario",v4.txp4adm.getText().toString());
+                                                parametros.put("departamento", String.valueOf(1));
+                                                parametros.put("comentario",v3.txp4tec.getText().toString());
                                                 SharedPreferences admin=ct.getSharedPreferences("x",MODE_PRIVATE);
                                                 String id=admin.getString("id","");
                                                 String ap=admin.getString("ap","");
                                                 parametros.put("id_usuarios", id);
-                                                Log.i("oliverid",id);
                                                 parametros.put("ap", ap);
-                                                Log.i("oliverap",ap);
                                                 return parametros;
                                             }
                                         };
-                                        requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                        requestQueue.add(stringRequest);
-
-
+                                        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
                                     }
                                 });
 
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-
-
                         }
-
                     });
-
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
 
         }){
@@ -185,12 +147,9 @@ public class departamento_administrativo extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
-/////*******************************************************//////
-
-        v4.btn6adm.setOnClickListener(new View.OnClickListener() {
+        v3.btn6tec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
@@ -208,12 +167,11 @@ public class departamento_administrativo extends General {
                     Intent intent = new Intent( getApplicationContext(),interfaz_dependiente.class);
                     startActivity(intent);
 
-
                 }
             }
         });
 
-        v4.btn7adm.setOnClickListener(new View.OnClickListener() {
+        v3.btn7tec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finishAffinity();
@@ -223,3 +181,4 @@ public class departamento_administrativo extends General {
 
     }
 }
+

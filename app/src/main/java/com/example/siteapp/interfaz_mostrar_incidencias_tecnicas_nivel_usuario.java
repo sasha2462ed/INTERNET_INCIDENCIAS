@@ -51,8 +51,8 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
     String departamento;
     String comentario;
     String tipo;
-    RequestQueue requestQueue;
     Context ct;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,8 +108,8 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
 
         });
 
-
-        String URL="http://192.168.101.5/conexion_php/detalle.php";
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/detalle.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
@@ -158,18 +158,15 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
         /********************************/
         v29.btnestad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(), "esta iniciando", Toast.LENGTH_SHORT).show();
-
-                String URL= "http://192.168.101.5/conexion_php/modificar_estado.php";
+                String ip = getString(R.string.ip);
+                String URL= ip+"/conexion_php/modificar_estado.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                     @Override
@@ -203,8 +200,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
                         return parametros;
                     }
                 };
-                requestQueue = Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(stringRequest);
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
             }
 

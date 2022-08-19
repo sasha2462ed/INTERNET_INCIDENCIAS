@@ -1,12 +1,20 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,41 +31,46 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityGraficosBinding;
-import com.jjoe64.graphview.DefaultLabelFormatter;
+import com.example.siteapp.databinding.ActivityInterfazGraficosBinding;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.w3c.dom.Document;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 
-public class graficos extends General {
+public class interfaz_graficos extends General {
 
-    ActivityGraficosBinding layout;
+    ActivityInterfazGraficosBinding layout;
     RequestQueue requestQueue;
     private Spinner months;
     int mesIndice=0;
-    String f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        layout=ActivityGraficosBinding.inflate(getLayoutInflater());
+        layout=ActivityInterfazGraficosBinding.inflate(getLayoutInflater());
 
         setContentView(layout.getRoot());
 
         GraphView graph=layout.myGraph;
+
+        //***/
+        if(checkPermission()) {
+            Toast.makeText(this, "Permiso Aceptado", Toast.LENGTH_LONG).show();
+        } else {
+            requestPermissions();
+        }
+        //***/
 
         months = layout.months;
         String [] mont = { "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
@@ -84,7 +97,8 @@ public class graficos extends General {
 
 
 //////******************//////////////////
-                String URL = "http://192.168.101.5/conexion_php/graficoso.php?mes="+mesIndice;
+                String ip = getString(R.string.ip);
+                String URL = ip+"/conexion_php/graficoso.php?mes="+mesIndice;
 
 
                 JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
@@ -172,7 +186,7 @@ public class graficos extends General {
                             graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
                             /////********////
-
+                            Bitmap bitmap = graph.takeSnapshot();
                             ////*******////////
 
                             series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
@@ -204,13 +218,45 @@ public class graficos extends General {
 
                     }
                 });
-                requestQueue= Volley.newRequestQueue(getApplicationContext());
-                requestQueue.add(jsonArrayRequest);
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
 
 //**************************//////////
 
             }
         });
+
+
+
+
+//        layout.write.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View arg0) {
+//                Bitmap bitmap;
+//                graph.setDrawingCacheEnabled(true);
+//                bitmap = Bitmap.createBitmap(graph.getDrawingCache());
+//                graph.setDrawingCacheEnabled(false);
+//
+//
+//                String filename = "imagen";
+//
+//
+//                FileOperations fop = new FileOperations();
+//                fop.write(filename, bitmap);
+//                if (fop.write(filename,bitmap)) {
+//                    Toast.makeText(getApplicationContext(),
+//                            filename + ".pdf created", Toast.LENGTH_SHORT)
+//                            .show();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "I/O error",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+
+
+
         }
 
     @Override
@@ -241,7 +287,7 @@ public class graficos extends General {
 
             case R.id.ap:
 
-                intent = new Intent(getApplicationContext(), graficos.class);
+                intent = new Intent(getApplicationContext(), interfaz_graficos.class);
                 startActivity(intent);
 
                 break;
@@ -263,4 +309,33 @@ public class graficos extends General {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private boolean checkPermission() {
+        int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == 200) {
+            if(grantResults.length > 0) {
+                boolean writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                if(writeStorage && readStorage) {
+                    Toast.makeText(this, "Permiso concedido", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+        }
+    }
+
 }

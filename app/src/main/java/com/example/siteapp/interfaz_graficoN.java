@@ -1,7 +1,6 @@
 package com.example.siteapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,8 +27,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityInterfazGraficoNBinding;
-import com.example.siteapp.databinding.ActivityMainBinding;
-import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
@@ -55,8 +52,8 @@ public class interfaz_graficoN extends General {
     int ga;
     int go;
     private Spinner meses;
-    private ListView lv50;
     int mesIndice;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +85,8 @@ public class interfaz_graficoN extends General {
 
         /****NODOS/
          /****************************************/
-
-        String URL="http://192.168.101.5/conexion_php/spinnern.php";
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/spinnern.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
             @Override
@@ -132,7 +129,8 @@ public class interfaz_graficoN extends General {
 
 
                                 /***Aquiii poner aps*/
-                                String URL="http://192.168.101.5/conexion_php/spinnera.php";
+                                String ip = getString(R.string.ip);
+                                String URL=ip+"/conexion_php/spinnera.php";
 
                                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
                                     @Override
@@ -177,8 +175,8 @@ public class interfaz_graficoN extends General {
                                                         layout.btngrf.setOnClickListener(new View.OnClickListener() {
                                                             @Override
                                                             public void onClick(View v) {
-
-                                                                String URL= "http://192.168.101.5/conexion_php/graficosand.php?id_ap="+go+"&mes="+mesIndice;
+                                                                String ip = getString(R.string.ip);
+                                                                String URL= ip+"/conexion_php/graficosand.php?id_ap="+go+"&mes="+mesIndice;
 
 
                                                                 JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
@@ -289,8 +287,8 @@ public class interfaz_graficoN extends General {
 
                                                                     }
                                                                 });
-                                                                requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                                                requestQueue.add(jsonArrayRequest);
+                                                                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
+
                                                             }
                                                         });
 
@@ -324,8 +322,7 @@ public class interfaz_graficoN extends General {
                                     }
                                 };
 
-                                requestQueue = Volley.newRequestQueue(getApplicationContext());
-                                requestQueue.add(stringRequest);
+                                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -357,8 +354,7 @@ public class interfaz_graficoN extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
         /****************************************/
         /***/
 
@@ -398,7 +394,7 @@ public class interfaz_graficoN extends General {
 
             case R.id.ap:
 
-                intent = new Intent(getApplicationContext(), graficos.class);
+                intent = new Intent(getApplicationContext(), interfaz_graficos.class);
                 startActivity(intent);
 
                 break;

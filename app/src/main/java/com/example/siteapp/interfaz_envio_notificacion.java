@@ -26,8 +26,8 @@ import java.util.Map;
 public class interfaz_envio_notificacion extends General {
 
     private ActivityInterfazEnvioNotificacionBinding v10;
-    RequestQueue requestQueue;
     String trampa;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,8 @@ public class interfaz_envio_notificacion extends General {
         v10.botonnotificaciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registroNotificacion("http://192.168.101.5/conexion_php/insertar_notisug.php");
+                String ip = getString(R.string.ip);
+                registroNotificacion(ip+"/conexion_php/insertar_notisug.php");
 
             }
         });
@@ -109,8 +110,7 @@ public class interfaz_envio_notificacion extends General {
                 return parametros;
             }
         };
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
 }

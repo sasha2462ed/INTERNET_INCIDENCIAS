@@ -66,7 +66,8 @@ public class interfaz_dependiente extends General {
         time.execute();
 
         ///******/////////////////
-        String URL3 = "http://192.168.101.5/conexion_php/item_notificacion.php";
+        String ip = getString(R.string.ip);
+        String URL3 = ip+"/conexion_php/item_notificacion.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL3, new Response.Listener<String>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -112,8 +113,7 @@ public class interfaz_dependiente extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
         /////***********////////
 
@@ -136,7 +136,7 @@ public class interfaz_dependiente extends General {
         v7.btn30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),departamento_administrativo.class);
+                Intent intent = new Intent(getApplicationContext(), interfaz_departamento_administrativo.class);
                 intent.putExtra("trampa", "0");
                 startActivity(intent);
             }
@@ -145,7 +145,7 @@ public class interfaz_dependiente extends General {
         v7.btn40.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), departamento_tecnico.class);
+                Intent intent = new Intent(getApplicationContext(), interfaz_departamento_tecnico.class);
                 intent.putExtra("trampa", "0");
                 startActivity(intent);
             }
@@ -326,7 +326,8 @@ public class interfaz_dependiente extends General {
     }
 
     public void inc(){
-        String URL = "http://192.168.101.5/conexion_php/item_notificacion.php";
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/item_notificacion.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -378,8 +379,7 @@ public class interfaz_dependiente extends General {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
     /***********/////////

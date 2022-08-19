@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.siteapp"
     tools:ignore="ExtraText">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -19,6 +21,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SITEAPP"
         tools:ignore="AllowBackup">
+        <service
+            android:name=".miservicio1"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".interfaz_dependientes"
             android:exported="true" />
@@ -40,10 +47,10 @@
             android:exported="true" />
 
         <activity
-            android:name=".onboarding"
+            android:name=".interfaz_onboarding"
             android:exported="true" />
         <activity
-            android:name=".menuOnboarding"
+            android:name=".interfaz_menuOnboarding"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,13 +59,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".oanbording"
+            android:name=".interfaz_oanbording"
             android:exported="true" />
         <activity
             android:name=".interfaz_consultar"
-            android:exported="true" />
-        <activity
-            android:name=".interfaz_estado_user"
             android:exported="true" />
         <activity
             android:name=".interfaz_graficoN"
@@ -79,7 +83,7 @@
             android:name=".interfaz_notificaciones"
             android:exported="true" />
         <activity
-            android:name=".graficos"
+            android:name=".interfaz_graficos"
             android:exported="true" />
         <activity
             android:name=".interfaz_estado"
@@ -103,7 +107,7 @@
             android:name=".interfaz_tecnico_usuario"
             android:exported="true" />
         <activity
-            android:name=".departamento_tecnico"
+            android:name=".interfaz_departamento_tecnico"
             android:exported="true" />
         <activity
             android:name=".interfaz_dependiente"
@@ -112,7 +116,7 @@
             android:name=".interfaz_tecnico"
             android:exported="true" />
         <activity
-            android:name=".departamento_administrativo"
+            android:name=".interfaz_departamento_administrativo"
             android:exported="true" />
         <activity
             android:name=".interfaz_usuario"

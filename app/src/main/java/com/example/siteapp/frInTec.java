@@ -42,8 +42,6 @@ public class frInTec<spinner> extends Fragment {
     String state_frag;
     String tamanio;
     int ga;
-
-
     public frInTec() {
         // Required empty public constructor
     }
@@ -78,10 +76,10 @@ public class frInTec<spinner> extends Fragment {
         RecyclerView list=layout.lista;
         ArrayList<Incidencias> itemRec;
         itemRec=new ArrayList();
-
+        String ip = getString(R.string.ip);
         /*******************************/
 
-        String URL="http://192.168.101.5/conexion_php/item_estados.php";
+        String URL=ip+"/conexion_php/item_estados.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
             @Override
@@ -121,7 +119,8 @@ public class frInTec<spinner> extends Fragment {
                                     public void onClick(View v) {
 
                                 String URL;
-                                URL="http://192.168.101.5/conexion_php/buscar_incidenciastec.php";
+                                String ip = getString(R.string.ip);
+                                URL=ip+"/conexion_php/buscar_incidenciastec.php";
 
 
                                 StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
@@ -185,10 +184,7 @@ public class frInTec<spinner> extends Fragment {
                                         return parametros;
                                     }
                                 };
-                                RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
-                                requestQueue.add(stringRequest);
-
-
+                                VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
                                     }
                                 });
 
@@ -222,8 +218,7 @@ public class frInTec<spinner> extends Fragment {
                 return parametros;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
+        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
         /****************************************/
 
 ///////////////////*******************///////////////////////////////////////////////
