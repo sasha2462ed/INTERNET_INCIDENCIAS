@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General {
+public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppCompatActivity {
 
     private ActivityInterfazMostrarIncidenciasTecnicasBinding v29;
     String idCliente;
@@ -86,7 +86,11 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
 
         if(tip_usuario.equals("C") && estado.equals("Encurso")) {
             v29.btnestad.setVisibility(View.VISIBLE);
-        }else{
+        }
+        else if (tip_usuario.equals("C") && estado.equals("Receptado")) {
+            v29.btnestad.setVisibility(View.VISIBLE);
+            }
+        else{
 
             v29.btnestad.setVisibility(View.INVISIBLE);
         }
@@ -125,7 +129,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
 
                         v29.tvmc1.setText(objUser.getString("nombre"));
                         v29.tvmc2.setText(objUser.getString("cedula"));
-                        v29.tvmc3.setText(objUser.getString("contrasena"));
+                        //v29.tvmc3.setText(objUser.getString("contrasena"));
                         v29.tvmc4.setText(objUser.getString("telefono"));
                         v29.tvmc5.setText(objUser.getString("direccion"));
                         v29.tvmc6.setText(objUser.getString("nodo"));
@@ -239,7 +243,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
 
 
                 break;
-
+/*
             case R.id.regresar:
 
                 if(tip_usuario.equals("C")){
@@ -262,6 +266,8 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends General
                 }
 
                 break;
+
+ */
 
             }
 

@@ -37,11 +37,11 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
     @Override
     public void onBindViewHolder(@NonNull myAdapter.ContenetViews holder, int position) {
 
-        String idIncidencias=items.get(position).idIncidencias;
+        String comentario=items.get(position).comentario;
         String cedula=items.get(position).cedula;
         String departamento=items.get(position).departamento;
         holder.tipo.setText(items.get(position).tipo);
-        holder.comentario.setText(items.get(position).comentario);
+        holder.idIncidencias.setText(items.get(position).idIncidencias);
         holder.fecha.setText(items.get(position).hora);
         holder.estado.setText(items.get(position).estado);
         holder.idClient.setText(items.get(position).idUser);
@@ -52,11 +52,11 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
 
                     Intent intent=new Intent(v.getContext(),interfaz_mostrar_incidencias_tecnicas_nivel_usuario.class);
                     intent.putExtra("idClient",holder.idClient.getText().toString());
-                    intent.putExtra("idIncidencia",idIncidencias);
+                    intent.putExtra("idIncidencia",holder.idIncidencias.getText().toString());
                     intent.putExtra("cedula",cedula);
                     intent.putExtra("departamento", departamento);
                     intent.putExtra("estado",holder.estado.getText().toString());
-                    intent.putExtra("comentario",holder.comentario.getText().toString());
+                    intent.putExtra("comentario",comentario);
                     intent.putExtra("tipo",holder.tipo.getText().toString());
                     v.getContext().startActivity(intent);
 
@@ -75,7 +75,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
 
         CardView cv;
         TextView tipo;
-        TextView comentario;
+        TextView idIncidencias;
         TextView fecha;
         TextView estado;
         TextView idClient;
@@ -87,7 +87,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
 
             cv=itemView.findViewById(R.id.cv);
             tipo=itemView.findViewById(R.id.tipo);
-            comentario=itemView.findViewById(R.id.comentario);
+            idIncidencias=itemView.findViewById(R.id.comentario);
             fecha=itemView.findViewById(R.id.fecha);
             estado=itemView.findViewById(R.id.refactor);
             icono=itemView.findViewById(R.id.icono);

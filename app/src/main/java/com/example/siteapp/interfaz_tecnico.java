@@ -71,11 +71,6 @@ public class interfaz_tecnico extends General {
         time time = new time();
         time.execute();
 
-
-
-////*****************//////////////
-        /*********///////
-
         ///***Botones***/////////
 
         v6.btn6.setOnClickListener(new View.OnClickListener() {
@@ -133,21 +128,6 @@ public class interfaz_tecnico extends General {
 
                 if(response.equals("1")) {
 
-
-                        //AppController.getInstance().getRequestQueue().getCache().remove(key);
-/*
-                        JSONObject objUser= new JSONObject(response);
-                        items = String.valueOf(Integer.parseInt(objUser.getString("CI")));
-                        Log.i("results", String.valueOf(items));
-
- */
-
-                        //count= Integer.parseInt(items);
-/*
-                        if (count==0){}else{}
-
- */
-
                             //count=1;
                             menuItem.setActionView(R.layout.notificacion_badgee);
                             // get the view from the nav item
@@ -175,46 +155,16 @@ public class interfaz_tecnico extends General {
 
                         } else {
                             showNewNotification();
-                            //Runtime.getRuntime().gc();
-                            //System.gc();
-                        }
 
+                        }
                         nov();
-/*
-                        if(Integer.parseInt(items) == 0){
-                            items = null;
-
-                            objUser = null;
-                            objUser= new JSONObject(response);
-
-
-                            deleteNotificationChannel();
-                            new time().execute();
-
-
-                        } else {
-
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                                showNotification();
-
-                                Runtime.getRuntime().gc();
-                                System.gc();
-
-                            } else {
-                                showNewNotification();
-                                Runtime.getRuntime().gc();
-                                System.gc();
-                            }
-                        }
-
- */
 
                     Runtime.getRuntime().gc();
                     System.gc();
-                    //onDestroy();
+
+
+
                     new time().execute();
-
-
                 }else{
                     new time().execute();
                     //deleteNotificationChannel();
@@ -265,11 +215,10 @@ public class interfaz_tecnico extends General {
                 return parametros;
             }
         };
+
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
-    private void delete() {
-    }
 
 /////////******aqui termina notificacion**/////////////
 
@@ -316,10 +265,6 @@ public class interfaz_tecnico extends General {
         }
         return super.onOptionsItemSelected(item);
     }
-//////////*****************////////////
-    /***************************/
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showNotification() {
@@ -356,7 +301,6 @@ public class interfaz_tecnico extends General {
         pendingIntent = stackBuilder.getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT);
 
     }
-///*******//////
 
     public void deleteNotificationChannel(){
 
@@ -372,18 +316,12 @@ public class interfaz_tecnico extends General {
 
         }
     }
-/////////****************////////
-
-////***************//////
 
     public void ejecutar (){
         time time = new time();
         time.execute();
     }
 
-////********///////
-
-    /////////***********////////    /
     public void hilo (){
         try{
             Thread.sleep(5000);
@@ -394,65 +332,28 @@ public class interfaz_tecnico extends General {
         }
     }
 
-    /***********/////////
     public class time extends AsyncTask<Void, Integer, Boolean> {
-///*********//////
 
         @SuppressLint("WrongThread")
         @Override
-        protected Boolean doInBackground(Void... voids) {
+        protected Boolean doInBackground(Void... params) {
 
-            /*
-
-            for (int i = 0; i <=1; i++) {
-                hilo();
-                if(i<=1){
-                    //cancel(true);
-                    //new time().execute();
-                    //finishAffinity();
-                    //finish();
-                    //cancel(true);
-                    //close();
-                    Runtime.getRuntime().gc();
-                    System.gc();
-                    //onStop();
-                    break;
-
-                }else{
-                    cancel(true);
-                    //new time().execute();
-                    Runtime.getRuntime().gc();
-                    System.gc();
-                    break;
-                }
-
-            }
-            return true;
-
-             */
 
             while(true){
-                //inc();
+
                 hilo();
-            }
+                Runtime.getRuntime().gc();
+                System.gc();
+                }
+
         }
 
         @Override
         protected void onPostExecute (Boolean aBoolean){
-            //super.onPostExecute(aBoolean);
-             //onStart();
-            /*
-            Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
-            Runtime.getRuntime().gc();
-            System.gc();
-
-             */
-            //new time().execute();
-            //cancel(true);
-            Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
-            Runtime.getRuntime().gc();
-            Runtime.getRuntime().gc();
-            System.gc();
+            super.onPostExecute(aBoolean);
+            if( isCancelled() ) {
+                cancel(true);
+            }
 
         }
         @Override

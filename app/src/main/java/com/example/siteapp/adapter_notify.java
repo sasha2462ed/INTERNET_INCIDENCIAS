@@ -65,113 +65,35 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
                 switch (origen) {
                     case "1":
 
-
-                        String URL="http://192.168.20.130:8080/conexion_php/modificar_estado_notificaciones.php";
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                Log.i("oliver",response);
-                                if(response.equals("1")){
-                                }else{
-                                }
-                                Intent intent=new Intent(v.getContext(),interfaz_noti_detalle.class);
-                                //intent.putExtra("estado",estado);
-                                intent.putExtra("comentario",comentario);
-                                intent.putExtra("asunto",holder.asunto.getText().toString());
-                                intent.putExtra("idNoti",idNoti);
-                                intent.putExtra("origen",origen);
-                                v.getContext().startActivity(intent);
-
-                            }
-
-                        }, new Response.ErrorListener(){
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(v.getContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                            }
-
-                        }){
-                            @Override
-                            protected Map<String, String> getParams () throws AuthFailureError {
-                                Map<String,String> parametros = new HashMap<String, String>();
-                                //parametros.put("id".toString().toString());
-
-                                parametros.put("estado","V");
-                                parametros.put("id",idNoti);
-                                return parametros;
-                            }
-                        };
-                        RequestQueue requestQueue = Volley.newRequestQueue(v.getContext());
-                        requestQueue.add(stringRequest);
-
-
-
+                        Intent intent=new Intent(v.getContext(),interfaz_noti_detalle.class);
+                        //intent.putExtra("estado",estado);
+                        intent.putExtra("comentario",comentario);
+                        intent.putExtra("asunto",holder.asunto.getText().toString());
+                        intent.putExtra("idNoti",idNoti);
+                        intent.putExtra("origen",origen);
+                        v.getContext().startActivity(intent);
 
                         break;
                     case "2":
-
-
-                        URL = "http://192.168.20.130:8080/conexion_php/modificar_estado_notificaciones.php";
-                        stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                Log.i("oliver", response);
-                                if (response.equals("1")) {
-                                } else {
-                                }
-                                Intent intent = new Intent(v.getContext(), interfaz_suge_detalle.class);
-                                //intent.putExtra("estado",estado);
-                                intent.putExtra("comentario", comentario);
-                                intent.putExtra("asunto", holder.asunto.getText().toString());
-                                intent.putExtra("idNoti", idNoti);
-                                intent.putExtra("origen", origen);
-                                v.getContext().startActivity(intent);
-
-                            }
-
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(v.getContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                            }
-
-                        }) {
-                            @Override
-                            protected Map<String, String> getParams() throws AuthFailureError {
-                                Map<String, String> parametros = new HashMap<String, String>();
-                                //parametros.put("id".toString().toString());
-
-                                parametros.put("estado", "V");
-                                parametros.put("id", idNoti);
-                                return parametros;
-                            }
-                        };
-                        requestQueue = Volley.newRequestQueue(v.getContext());
-                        requestQueue.add(stringRequest);
-
-
+                        intent = new Intent(v.getContext(), interfaz_suge_detalle.class);
+                        //intent.putExtra("estado",estado);
+                        intent.putExtra("comentario", comentario);
+                        intent.putExtra("asunto", holder.asunto.getText().toString());
+                        intent.putExtra("idNoti", idNoti);
+                        intent.putExtra("origen", origen);
+                        v.getContext().startActivity(intent);
                         break;
-
                 }
-
-
 
             }
         });
 
-        /**/
     }
-
-
-
-
 
     @Override
     public int getItemCount() {
         return items.size();
     }
-
-
 
     public class adapter_notificacion extends RecyclerView.ViewHolder {
 
@@ -193,38 +115,6 @@ public class adapter_notify extends RecyclerView.Adapter<adapter_notify.adapter_
             fecha=itemView.findViewById(R.id.fecha);
             icono=itemView.findViewById(R.id.icono);
 
-//            if (estado.findViewById(R.id.notii).equals("V")){
-//
-//                notii = itemView.findViewById(R.id.notii);
-//                notii.findViewById(R.id.notii).setVisibility(View.INVISIBLE);
-//            }
-//
-//            else{
-//                notii = itemView.findViewById(R.id.notii);
-//                notii.findViewById(R.id.notii).setVisibility(View.VISIBLE);
-//            }
-
-
-            /*cv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.i("result","CardView");
-                }
-            });*/
-
-
-
         }
-
-
     }
-
-//    public void updateData(ArrayList<Incidencias> items) {
-//        this.items = items;
-////        items.clear();
-////        items.addAll(items);
-//
-//        //notifyDataSetChanged();
-//    }
-
 }

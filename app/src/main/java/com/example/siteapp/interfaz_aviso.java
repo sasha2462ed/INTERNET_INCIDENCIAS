@@ -187,7 +187,7 @@ public class interfaz_aviso extends General {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflador=getMenuInflater();
-        inflador.inflate(R.menu.regresar,menu);
+        inflador.inflate(R.menu.regresar1,menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -209,6 +209,7 @@ public class interfaz_aviso extends General {
 
 
                 break;
+
 
             case R.id.regresar:
 

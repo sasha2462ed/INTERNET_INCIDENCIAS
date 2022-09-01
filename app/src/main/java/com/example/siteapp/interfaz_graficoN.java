@@ -1,12 +1,24 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +50,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,7 +68,8 @@ public class interfaz_graficoN extends General {
     int go;
     private Spinner meses;
     int mesIndice;
-
+    final String[] valor = {""};
+    final String[] valor1 = {""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +91,8 @@ public class interfaz_graficoN extends General {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mesIndice = Integer.parseInt(String.valueOf(position+1));
                 Log.i("result5", String.valueOf(mesIndice));
+                valor[0]=mes[position];
+
             }
 
             @Override
@@ -163,6 +181,7 @@ public class interfaz_graficoN extends General {
                                                 @Override
                                                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                                     stateap = spinnergrfap.getSelectedItem().toString();
+                                                    valor1[0] = opciones1[position];
 
                                                     try {
                                                         Log.i("resultap",apss.getString(stateap));
@@ -232,6 +251,7 @@ public class interfaz_graficoN extends General {
                                                                             graph.addSeries(series);
 
                                                                             //////******************////
+                                                                            /*
                                                                             /// ESCALA ROJA DE LA IZQUIERDA
                                                                             BarGraphSeries<DataPoint> series3 = new BarGraphSeries<DataPoint>(cordenadas);
                                                                             graph.getSecondScale().addSeries(series3);
@@ -243,6 +263,8 @@ public class interfaz_graficoN extends General {
                                                                             ///// LINEAS ROJAS
                                                                             LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(cordenadas);
                                                                             graph.addSeries(series2);
+
+                                                                             */
 
 
                                                                             //*** titulos del para ejes x / Y
@@ -271,9 +293,9 @@ public class interfaz_graficoN extends General {
                                                                             });
                                                                             //**** tamanio texto y color de las variables de las barras
                                                                             series.setSpacing(70);
-                                                                            series.setValuesOnTopSize(60);
-                                                                            series.setDrawValuesOnTop(true);
-                                                                            series.setValuesOnTopColor(Color.CYAN);
+                                                                            //series.setValuesOnTopSize(60);
+                                                                            //series.setDrawValuesOnTop(true);
+                                                                            //series.setValuesOnTopColor(Color.CYAN);
                                                                             /******/
 
                                                                         } catch (JSONException e) {
@@ -356,13 +378,47 @@ public class interfaz_graficoN extends General {
         };
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
         /****************************************/
-        /***/
 
-        /****APS/
-         /****************************************/
+        layout.write.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0) {
+                Bitmap bitmap;
+                graph.setDrawingCacheEnabled(true);
+                bitmap = Bitmap.createBitmap(graph.getDrawingCache());
+                graph.setDrawingCacheEnabled(false);
 
-        /****************************************/
-        /***/
+                PdfDocument pdfDocument = new PdfDocument();
+                PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(bitmap.getWidth(),bitmap.getHeight(),1).create();
+
+                PdfDocument.Page page = pdfDocument.startPage(pi);
+                Canvas canvas = page.getCanvas();
+                Paint paint = new Paint();
+                paint.setColor(Color.parseColor("#FFFFFF"));
+                canvas.drawBitmap(bitmap,0,0,null);
+
+                pdfDocument.finishPage(page);
+
+                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                if(!root.exists()){
+                    root.mkdir();
+                }
+
+                File file = new File(root,"Reporte Incidente Aps "+valor1[0]+" "+valor[0]+".pdf");
+                Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
+                // file.createNewFile();
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    pdfDocument.writeTo(fileOutputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                pdfDocument.close();
+
+
+            }
+        });
 
     }
 
@@ -415,5 +471,33 @@ public class interfaz_graficoN extends General {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean checkPermission() {
+        int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == 200) {
+            if(grantResults.length > 0) {
+                boolean writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                if(writeStorage && readStorage) {
+                    //Toast.makeText(this, "Permiso concedido", Toast.LENGTH_LONG).show();
+                } else {
+                   // Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+        }
     }
 }

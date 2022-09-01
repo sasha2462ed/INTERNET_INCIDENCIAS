@@ -21,10 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SITEAPP"
         tools:ignore="AllowBackup">
-        <service
-            android:name=".miservicio1"
-            android:enabled="true"
-            android:exported="true"></service>
+<!--        <service-->
+<!--            android:name=".miservicio1"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true"></service>-->
 
         <activity
             android:name=".interfaz_dependientes"
@@ -37,14 +37,14 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+<!--        <meta-data-->
+<!--            android:name="com.google.android.geo.API_KEY"-->
+<!--            android:value="@string/google_maps_key" />-->
 
-        <service
-            android:name=".miservicio"
-            android:enabled="true"
-            android:exported="true" />
+<!--        <service-->
+<!--            android:name=".miservicio"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true" />-->
 
         <activity
             android:name=".interfaz_onboarding"

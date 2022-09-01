@@ -19,7 +19,7 @@ public class interfaz_menuOnboarding extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_menu_onboarding);
+        //setContentView(R.layout.activity_interfaz_menu_onboarding);
         views=ActivityInterfazMenuOnboardingBinding.inflate(getLayoutInflater());
         setContentView(views.getRoot());
 

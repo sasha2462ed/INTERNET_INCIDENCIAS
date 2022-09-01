@@ -1,8 +1,10 @@
 package com.example.siteapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,6 +42,105 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
         setContentView(view);
 
 
+        v5.icono506.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String ip = getString(R.string.ip);
+                String URL2=ip+"/conexion_php/listap.php";
+
+                JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL2, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        JSONArray strs = null;
+                        JSONArray strss = null;
+
+
+                        try {
+
+                            strss = response.getJSONArray(0);
+                            strs = response.getJSONArray(1);
+
+
+                            String op = strss.toString();
+                            op = strss.toString().replace(",", " ");
+                            op = op.replace("[", "");
+                            op = op.replace("]", "");
+                            String[] z = op.split(" ");
+                            Log.i("z", "Array: " + Arrays.toString(z));
+
+                            String ab = strs.toString();
+                            ab = strs.toString().replace(",", " ");
+                            ab = ab.replace("[", "");
+                            ab = ab.replace("]", "");
+                            ab = ab.replace("\"", "");
+                            String[] v = ab.split(" ");
+                            Log.i("v", "Array: " + Arrays.toString(v));
+
+
+                            String[] hp = new String[strs.length()];
+                            int i ;
+                            for ( i = 0; i < hp.length; i++) {
+                                hp[i] = Arrays.toString(new String[]{z[i] + " --> " + v[i]});
+                                hp[i] = hp[i].replace("[", "");
+                                hp[i] = hp[i].replace("]", "");
+
+                            }
+
+
+                            //String [] hp = new String[] {z[0] +" --> "+ v[0],z[1] +" --> "+ v[1],z[2] +" --> "+ v[2]};
+                            // String [] hp = new String[] {Arrays.toString(z.clone()) +" --> "+ Arrays.toString(v.clone())};
+                            Log.i("resulhp", "Array: " + Arrays.toString(hp));
+
+                            AlertDialog.Builder info = new AlertDialog.Builder(interfaz_tecnico_usuario.this);
+
+                            info.setItems(hp, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+
+
+                            info.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                            AlertDialog inf = info.create();
+                            info.setCancelable(false);
+                            inf.setTitle("APs");
+
+                            inf.show();
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> parametros = new HashMap<String, String>();
+                        return parametros;
+                    }
+                };
+
+                VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
+
+
+
+
+            }
+        });
 
         v5.btn9.setOnClickListener(new View.OnClickListener() {
             @Override

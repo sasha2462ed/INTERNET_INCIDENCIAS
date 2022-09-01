@@ -90,19 +90,6 @@
                         tools:ignore="HardcodedText,RtlHardcoded" />
 
                     <TextView
-                        android:id="@+id/txvv5"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="CONTRASENA:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
-
-                    <TextView
                         android:id="@+id/txvv6"
                         android:layout_width="110dp"
                         android:layout_height="50dp"
@@ -217,26 +204,10 @@
                     tools:ignore="HardcodedText,RtlHardcoded" />
 
                 <TextView
-                    android:id="@+id/tvmc3"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc2"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
                     android:id="@+id/tvmc4"
                     android:layout_width="220dp"
                     android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc3"
+                    android:layout_below="@+id/tvmc2"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="0dp"
@@ -352,7 +323,7 @@
                     android:layout_alignStart="@+id/tvm8"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="116dp"
-                    android:layout_marginTop="-1dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="45dp"
                     android:drawableEnd="@drawable/ic_touch_app_black_48dp"
                     android:text="."
@@ -360,14 +331,14 @@
 
                 <Button
                     android:id="@+id/btnestad"
-                    android:layout_width="65dp"
-                    android:layout_height="49dp"
+                    android:layout_width="64dp"
+                    android:layout_height="50dp"
                     android:layout_below="@+id/tvmc7"
+                    android:layout_alignStart="@+id/tvm8"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="106dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="38dp"
-                    android:layout_toEndOf="@+id/tvm8"
                     android:drawableEnd="@drawable/ic_baseline_cancel_24"
                     android:text="."
                     tools:ignore="HardcodedText" />

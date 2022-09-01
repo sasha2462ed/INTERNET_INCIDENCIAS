@@ -5,6 +5,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import java.net.URL;
+
 
 public class VolleySingleton {
 
@@ -28,6 +30,8 @@ public class VolleySingleton {
 
     public RequestQueue getRequestQueue() {
         if (request == null) {
+
+
             request = Volley.newRequestQueue(contexto.getApplicationContext());
         }
 
@@ -35,6 +39,9 @@ public class VolleySingleton {
     }
 
     public <T> void addToRequestQueue(Request<T> request) {
+        getRequestQueue().getCache().clear();
+        request.getCacheKey();
+        getRequestQueue().getCache().remove(String.valueOf(request));
         getRequestQueue().add(request);
     }
 

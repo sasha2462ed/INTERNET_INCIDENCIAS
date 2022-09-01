@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_estado extends General {
+public class interfaz_estado extends AppCompatActivity {
     private ActivityInterfazEstadoBinding v30;
     //int valor3=0;
     private Spinner sping;
@@ -379,7 +379,7 @@ public class interfaz_estado extends General {
 
 
                 break;
-
+/*
             case R.id.regresar:
 
                 if(tip_usuario.equals("C")){
@@ -402,6 +402,8 @@ public class interfaz_estado extends General {
                 }
 
                 break;
+
+ */
 
         }
 

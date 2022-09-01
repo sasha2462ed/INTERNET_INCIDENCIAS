@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_mostrar_incidencias_nivel_tecnico extends General {
+public class interfaz_mostrar_incidencias_nivel_tecnico extends AppCompatActivity {
 
 
     ActivityInterfazMostrarIncidenciasAdministrativasBinding layout;

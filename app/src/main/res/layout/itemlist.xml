@@ -63,10 +63,11 @@
                 <TextView
                     android:id="@+id/comentario"
                     android:layout_width="150dp"
-                    android:layout_height="55dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
                     android:text="comentario"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
+                    android:textSize="16sp"
+                    android:textStyle="normal|bold"
                     android:visibility="visible" />
 
                 <TextView

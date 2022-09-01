@@ -116,66 +116,95 @@ public class interfaz_usuario extends General {
     }
 
     /***************************/
-    public int inc(){
+    public void inc(){
         String ip = getString(R.string.ip);
-        String URL = ip+"/conexion_php/item_notificacion.php";
+        String URL = ip+"/conexion_php/item_sugerencion.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(String response) {
-                if(!response.isEmpty()) {
-                    try {
-                        JSONArray object= null;
-                        object = new JSONArray(response);
-                        Log.i("result","Data: "+response);
-                        for(int i=0;i<object.length();i++) {
-                            JSONObject indicencia = object.getJSONObject(0);
-                            indicencia.getString("CI");
-                            int itemn = Integer.parseInt(indicencia.getString("CI").toString());
-                            Log.i("resultm", String.valueOf(itemn));
 
-                            count=itemn;
-                            if (count==0){}else{
-                                menuItem.setActionView(R.layout.notificacion_badgee);
-                                // get the view from the nav item
-                                View view = menuItem.getActionView();
-                                // get the text view of the action view for the nav item
-                                notification = view.findViewById(R.id.notification);
-                                //notification.setEnabled(false);
-                                // set the pending notifications value
-                                notification.setText(String.valueOf(count));
+                if(response.equals("1")) {
 
-                                notification.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Log.i("result","xxxxxxxxxxxxxxxxxxxxxx");
-                                        Intent intent = new Intent(getApplicationContext(), interfaz_notificaciones.class);
-                                        startActivity(intent);
+                    //count=1;
+                    menuItem.setActionView(R.layout.notificacion_badgee);
+                    // get the view from the nav item
+                    View view = menuItem.getActionView();
+                    // get the text view of the action view for the nav item
+                    notification = view.findViewById(R.id.notification);
+                    //notification.setEnabled(false);
+                    // set the pending notifications value
+                    notification.setText(null);
 
-                                    }
-                                });}
+                    notification.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.i("result","xxxxxxxxxxxxxxxxxxxxxx");
+                            Intent intent = new Intent(getApplicationContext(), interfaz_aviso.class);
+                            startActivity(intent);
 
-                            if (Objects.equals(String.valueOf(itemn),"0")) {
-                                deleteNotificationChannel();
-                            } else {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                                    showNotification();
-                                } else {
-                                    showNewNotification();
-                                }
-                            }
                         }
+                    });
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                        showNotification();
+                        //Runtime.getRuntime().gc();
+                        //System.gc();
+
+                    } else {
+                        showNewNotification();
+
                     }
-                    catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    nov();
+
+                    Runtime.getRuntime().gc();
+                    System.gc();
+
+
+
+                    new time().execute();
                 }else{
+                    new time().execute();
+                    //deleteNotificationChannel();
+                    Runtime.getRuntime().gc();
+                    System.gc();
+
                 }
             }
+        },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams () throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+                // parametros.clear();
+                return parametros;
+            }
+        };
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
+        stringRequest.setShouldCache(false);
+
+    }
+
+    public void nov (){
+        String ip = getString(R.string.ip);
+        String URL=ip+"/conexion_php/modificar_estado_sugerencias_nov.php";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+            }
+
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+
             }
 
         }){
@@ -185,11 +214,10 @@ public class interfaz_usuario extends General {
                 return parametros;
             }
         };
+
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
-
-        return count;
-
     }
+
 
 
     @Override
@@ -310,48 +338,34 @@ public class interfaz_usuario extends General {
 
     /***********/////////
     public class time extends AsyncTask<Void, Integer, Boolean> {
-///*********//////
 
         @SuppressLint("WrongThread")
         @Override
-        protected Boolean doInBackground(Void... voids) {
+        protected Boolean doInBackground(Void... params) {
 
-                for (int i = 1; i <=1; i++) {
-                    hilo();
-                    if(i<=1){
-                        //cancel(true);
-                        //new time().execute();
-                        //finishAffinity();
-                        //finish();
-                        //cancel(true);
-                        Runtime.getRuntime().gc();
-                        System.gc();
 
-                    }else{
-                        cancel(true);
-                        //new time().execute();
-                        Runtime.getRuntime().gc();
-                        System.gc();
-                    }
+            while(true){
 
-            }
-            return true;
-        }
-
-            @Override
-            protected void onPostExecute (Boolean aBoolean){
-                //super.onPostExecute(aBoolean);
+                hilo();
                 Runtime.getRuntime().gc();
                 System.gc();
-                Toast.makeText(getApplicationContext(), "cargando", Toast.LENGTH_SHORT).show();
-                new time().execute();
-                //cancel(true);
-
             }
+
+        }
+
+        @Override
+        protected void onPostExecute (Boolean aBoolean){
+            super.onPostExecute(aBoolean);
+            if( isCancelled() ) {
+                cancel(true);
+            }
+
+        }
         @Override
         protected void onCancelled(){
             super.onCancelled();
             cancel(true);
         }
     }
+
 }

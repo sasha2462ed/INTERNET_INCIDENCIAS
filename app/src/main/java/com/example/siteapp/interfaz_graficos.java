@@ -3,19 +3,18 @@ package com.example.siteapp;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
-import android.media.Image;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,26 +25,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityInterfazGraficosBinding;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.ValueDependentColor;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.w3c.dom.Document;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class interfaz_graficos extends General {
 
@@ -53,6 +54,7 @@ public class interfaz_graficos extends General {
     RequestQueue requestQueue;
     private Spinner months;
     int mesIndice=0;
+    final String[] valor = {""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class interfaz_graficos extends General {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mesIndice = Integer.parseInt(String.valueOf(position+1));
                 Log.i("result5", String.valueOf(mesIndice));
+                valor[0]=mont[position];
             }
 
             @Override
@@ -107,6 +110,7 @@ public class interfaz_graficos extends General {
                         Log.i("result","r: "+response.toString());
                         JSONArray barras = null;
                         JSONArray strss = null;
+                        JSONArray strss1=null;
 
                         try {
 
@@ -126,6 +130,7 @@ public class interfaz_graficos extends General {
                             }
 
                             strss = response.getJSONArray(2);
+                            Log.i("result","barras: "+barras.length());
                             Log.i("result","Array: "+strss.toString());
                             Log.i("result","Array: 01"+strss.get(1).toString());
 
@@ -145,9 +150,11 @@ public class interfaz_graficos extends General {
                             graph.getViewport().setXAxisBoundsManual(true);
                             graph.getViewport().setMinX(0);
                             graph.getViewport().setMaxX(barras.length()-1);
+                            //graph.getViewport().setMaxX(mayor);
 
                             graph.getViewport().setYAxisBoundsManual(true);
                             graph.getViewport().setMinY(0);
+                            //graph.getViewport().setMaxY(barras.length()-1);
                             graph.getViewport().setMaxY(mayor);
 
                             graph.getViewport().setScrollable(true);
@@ -158,6 +165,7 @@ public class interfaz_graficos extends General {
                             graph.addSeries(series);
 
                             //////******************////
+                            /*
                             /// ESCALA ROJA DE LA IZQUIERDA
                             BarGraphSeries<DataPoint> series3 = new BarGraphSeries<DataPoint>(cordenadas);
                             graph.getSecondScale().addSeries(series3);
@@ -166,9 +174,13 @@ public class interfaz_graficos extends General {
                             series3.setColor(Color.BLACK);
                             graph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(Color.BLACK);
 
+
+
                             ///// LINEAS ROJAS
                             LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(cordenadas);
                             graph.addSeries(series2);
+
+                             */
 
                             //*** titulos del para ejes x / Y
                             // use static labels for horizontal and vertical labels
@@ -180,9 +192,18 @@ public class interfaz_graficos extends General {
                             xy=xy.replace("\"","");
                             String[] z=xy.split(" ");
 
-                            Log.i("result","str: "+z.toString());
+
+                            strss1 = response.getJSONArray(1);
+                            String xy1=strss1.toString().replace(","," ");
+                            xy1=xy1.replace("[","");
+                            xy1=xy1.replace("]","");
+                            xy1=xy1.replace("\"","");
+                            String[] z1=xy1.split(" ");
+
+                            Log.i("result","z: "+ Arrays.toString(z));
+                            Log.i("result","z1: "+ Arrays.toString(z1));
                             staticLabelsFormatter.setHorizontalLabels(z);
-                            //staticLabelsFormatter.setVerticalLabels(mes);
+                            //staticLabelsFormatter.setVerticalLabels(z);
                             graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
                             /////********////
@@ -200,7 +221,7 @@ public class interfaz_graficos extends General {
                             //**** tamanio texto y color de las variables de las barras
                             series.setSpacing(50);
                             series.setValuesOnTopSize(60);
-                            series.setDrawValuesOnTop(true);
+                            //series.setDrawValuesOnTop(true);
                             series.setValuesOnTopColor(Color.CYAN);
                             /******/
 
@@ -228,33 +249,46 @@ public class interfaz_graficos extends General {
 
 
 
-//        layout.write.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View arg0) {
-//                Bitmap bitmap;
-//                graph.setDrawingCacheEnabled(true);
-//                bitmap = Bitmap.createBitmap(graph.getDrawingCache());
-//                graph.setDrawingCacheEnabled(false);
-//
-//
-//                String filename = "imagen";
-//
-//
-//                FileOperations fop = new FileOperations();
-//                fop.write(filename, bitmap);
-//                if (fop.write(filename,bitmap)) {
-//                    Toast.makeText(getApplicationContext(),
-//                            filename + ".pdf created", Toast.LENGTH_SHORT)
-//                            .show();
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "I/O error",
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        layout.write.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0) {
+                Bitmap bitmap;
+                graph.setDrawingCacheEnabled(true);
+                bitmap = Bitmap.createBitmap(graph.getDrawingCache());
+                graph.setDrawingCacheEnabled(false);
+
+                PdfDocument pdfDocument = new PdfDocument();
+                PdfDocument.PageInfo pi = new PdfDocument.PageInfo.Builder(bitmap.getWidth(),bitmap.getHeight(),1).create();
+
+                PdfDocument.Page page = pdfDocument.startPage(pi);
+                Canvas canvas = page.getCanvas();
+                Paint paint = new Paint();
+                paint.setColor(Color.parseColor("#FFFFFF"));
+                canvas.drawBitmap(bitmap,0,0,null);
+
+                pdfDocument.finishPage(page);
+
+                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                if(!root.exists()){
+                    root.mkdir();
+                }
+
+                File file = new File(root,"Reporte Incidente nodos " +valor[0]+ ".pdf");
+                Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
+               // file.createNewFile();
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    pdfDocument.writeTo(fileOutputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                pdfDocument.close();
 
 
+            }
+        });
 
 
         }
@@ -329,9 +363,9 @@ public class interfaz_graficos extends General {
                 boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
                 if(writeStorage && readStorage) {
-                    Toast.makeText(this, "Permiso concedido", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Permiso concedido", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

@@ -165,6 +165,7 @@
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="Autofill,SpeakableTextPresentCheck" />
 
                 <TextView
@@ -178,7 +179,8 @@
                     android:layout_marginEnd="18dp"
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/tvc3"
@@ -192,6 +194,7 @@
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
@@ -206,6 +209,7 @@
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
@@ -220,6 +224,7 @@
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
@@ -234,21 +239,38 @@
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
                     android:id="@+id/tvc7"
-                    android:layout_width="220dp"
+                    android:layout_width="141dp"
                     android:layout_height="50dp"
                     android:layout_below="@+id/tvc6"
-                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="SpeakableTextPresentCheck" />
+
+                <ImageView
+                    android:id="@+id/icono505"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvc6"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginLeft="11dp"
+
+                    android:layout_marginTop="6dp"
+                    android:layout_toEndOf="@+id/tvc7"
+                    android:layout_toRightOf="@+id/tvc7"
+                    android:paddingLeft="17dp"
+                    android:paddingRight="17dp"
+                    android:src="@drawable/ic_baseline_info_24"
+                    tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btn11"
