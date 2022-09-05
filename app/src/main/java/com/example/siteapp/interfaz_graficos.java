@@ -269,15 +269,16 @@ public class interfaz_graficos extends General {
 
                 pdfDocument.finishPage(page);
 
-                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                File root = new File(Environment.getExternalStorageDirectory(),"IncidenciasPDF");
                 if(!root.exists()){
                     root.mkdir();
                 }
 
                 File file = new File(root,"Reporte Incidente nodos " +valor[0]+ ".pdf");
-                Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
+
                // file.createNewFile();
                 try {
+                    Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     pdfDocument.writeTo(fileOutputStream);
                 } catch (IOException e) {

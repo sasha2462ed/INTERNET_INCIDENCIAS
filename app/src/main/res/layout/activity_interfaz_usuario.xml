@@ -59,8 +59,8 @@
 
     <TextView
         android:id="@+id/txv3"
-        android:layout_width="245dp"
-        android:layout_height="102dp"
+        android:layout_width="217dp"
+        android:layout_height="104dp"
         android:gravity="center"
         android:text="@string/txv3"
         android:textSize="20sp"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.092" />
 
     <ImageView
         android:id="@+id/icono15"

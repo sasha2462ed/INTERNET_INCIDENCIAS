@@ -105,7 +105,7 @@
                     <TextView
                         android:id="@+id/txvv7"
                         android:layout_width="110dp"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_marginStart="34dp"
                         android:layout_marginBottom="0dp"
                         android:gravity="center|right"
@@ -221,13 +221,11 @@
 
                 <TextView
                     android:id="@+id/tvmc5"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
+                    android:layout_width="150dp"
+                    android:layout_height="70dp"
                     android:layout_below="@+id/tvmc4"
-                    android:layout_alignParentEnd="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
                     android:layout_toEndOf="@+id/linearlayoutlist"
                     android:gravity="center|left"
                     android:text="TextView"
@@ -315,33 +313,46 @@
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
-                <Button
+                <ImageView
                     android:id="@+id/btnestado"
-                    android:layout_width="64dp"
+                    android:layout_width="51dp"
                     android:layout_height="55dp"
                     android:layout_below="@+id/tvmc7"
-                    android:layout_alignStart="@+id/tvm8"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="116dp"
                     android:layout_marginTop="0dp"
-                    android:layout_marginEnd="45dp"
-                    android:drawableEnd="@drawable/ic_touch_app_black_48dp"
-                    android:text="."
-                    tools:ignore="HardcodedText" />
+                    android:layout_marginEnd="22dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/ic_touch_app_black_48dp" />
 
-                <Button
+                <ImageView
                     android:id="@+id/btnestad"
-                    android:layout_width="64dp"
+                    android:layout_width="51dp"
                     android:layout_height="50dp"
                     android:layout_below="@+id/tvmc7"
-                    android:layout_alignStart="@+id/tvm8"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="106dp"
                     android:layout_marginTop="6dp"
-                    android:layout_marginEnd="38dp"
-                    android:drawableEnd="@drawable/ic_baseline_cancel_24"
-                    android:text="."
-                    tools:ignore="HardcodedText" />
+                    android:layout_marginEnd="22dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:src="@drawable/ic_baseline_cancel_24" />
+
+                <ImageView
+                    android:id="@+id/maps"
+                    android:layout_width="51dp"
+                    android:layout_height="56dp"
+                    android:layout_alignTop="@+id/tvmc5"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_toEndOf="@+id/tvmc5"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:rotation="90"
+                    android:src="@drawable/ic_baseline_navigation_24"
+                    tools:ignore="MissingConstraints" />
 
 
             </RelativeLayout>

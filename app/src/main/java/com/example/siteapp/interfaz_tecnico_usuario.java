@@ -110,7 +110,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
 
                             AlertDialog inf = info.create();
                             info.setCancelable(false);
-                            inf.setTitle("APs");
+                            inf.setTitle("ID-->APs");
 
                             inf.show();
 
@@ -146,29 +146,29 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (v5.txp6.getText().toString().isEmpty()){
+                if (v5.txp6.getText().toString().trim().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Campo nombre vacio",Toast.LENGTH_SHORT).show();
                 } else {
-                    if (v5.txp7.getText().toString().isEmpty()){
+                    if (v5.txp7.getText().toString().trim().isEmpty()){
                         Toast.makeText(getApplicationContext(), "Campo cedula vacio",Toast.LENGTH_SHORT).show();
 
                     }else {
-                        if (v5.txp8.getText().toString().isEmpty()) {
+                        if (v5.txp8.getText().toString().trim().isEmpty()) {
                             Toast.makeText(getApplicationContext(), "Campo contrasena vacio", Toast.LENGTH_SHORT).show();
 
                         }
                         else {
-                            if (v5.txp9.getText().toString().isEmpty()) {
+                            if (v5.txp9.getText().toString().trim().isEmpty()) {
                                 Toast.makeText(getApplicationContext(), "Campo telefono vacio", Toast.LENGTH_SHORT).show();
 
                             }
                             else {
-                                if (v5.txp10.getText().toString().isEmpty()) {
+                                if (v5.txp10.getText().toString().trim().isEmpty()) {
                                     Toast.makeText(getApplicationContext(), "Campo direccion vacio", Toast.LENGTH_SHORT).show();
 
                                 }
                                 else {
-                                    if (v5.txp12.getText().toString().isEmpty()) {
+                                    if (v5.txp12.getText().toString().trim().isEmpty()) {
                                         Toast.makeText(getApplicationContext(), "Campo ap vacio", Toast.LENGTH_SHORT).show();
 
                                     }
@@ -188,10 +188,14 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
         v5.btn10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(),interfaz_consultar.class);
-                intent.putExtra("buscar", v5.txp7.getText()+"");
-                startActivity(intent);
 
+                if(v5.txp7.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Consulta Vacia", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), interfaz_consultar.class);
+                    intent.putExtra("buscar", v5.txp7.getText().toString());
+                    startActivity(intent);
+                }
             }
         });
 

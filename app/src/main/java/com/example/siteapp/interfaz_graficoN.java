@@ -399,7 +399,7 @@ public class interfaz_graficoN extends General {
 
                 pdfDocument.finishPage(page);
 
-                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                File root = new File(Environment.getExternalStorageDirectory(),"IncidenciasPDF");
                 if(!root.exists()){
                     root.mkdir();
                 }

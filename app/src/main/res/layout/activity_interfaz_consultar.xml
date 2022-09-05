@@ -129,7 +129,7 @@
                         android:layout_marginStart="34dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center|right"
-                        android:text="AP:"
+                        android:text="AP:(Solo anotar el ID)"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
