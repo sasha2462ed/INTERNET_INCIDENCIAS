@@ -23,7 +23,7 @@ import com.example.siteapp.databinding.ActivityInterfazSugerenciaBinding;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_envio_notificacion extends General {
+public class interfaz_envio_notificacion extends AppCompatActivity {
 
     private ActivityInterfazEnvioNotificacionBinding v10;
     String trampa;
@@ -31,7 +31,7 @@ public class interfaz_envio_notificacion extends General {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_envio_notificacion);
+        //setContentView(R.layout.activity_interfaz_envio_notificacion);
         v10 = ActivityInterfazEnvioNotificacionBinding.inflate(getLayoutInflater());
         View view = v10.getRoot();
         setContentView(view);

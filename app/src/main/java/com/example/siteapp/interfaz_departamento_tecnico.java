@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +29,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_departamento_tecnico extends General {
+public class interfaz_departamento_tecnico extends AppCompatActivity {
 
     RequestQueue requestQueue;
     private ActivityInterfazDepartamentoTecnicoBinding v3;
@@ -35,11 +37,12 @@ public class interfaz_departamento_tecnico extends General {
     Context ct;
     String trampa;
     int val;
+    String valor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_departamento_tecnico);
+        //setContentView(R.layout.activity_interfaz_departamento_tecnico);
         v3 = ActivityInterfazDepartamentoTecnicoBinding.inflate(getLayoutInflater());
         View view = v3.getRoot();
         setContentView(view);
@@ -74,12 +77,15 @@ public class interfaz_departamento_tecnico extends General {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             //valor=lv2.getItemAtPosition(position).toString();
+                            valor=lv1.getItemAtPosition(position).toString();
                             val = position;
-                            final String[] valor = {""};
-                            valor[0] = problemas[position];
-                            Toast.makeText(getApplicationContext(),"Su incidencia es " + valor[0], Toast.LENGTH_SHORT).show();
+                            final String[] valor1 = {""};
+                            valor1[0] = problemas[position];
+                            Toast.makeText(getApplicationContext(),"Su incidencia es " + valor1[0], Toast.LENGTH_SHORT).show();
 
                             try{
+                                val = Integer.parseInt(String.valueOf(nods.getString(valor)));
+                                Log.i("resultap", String.valueOf(val));
 
                                 v3.btn4tec.setOnClickListener(new View.OnClickListener() {
                                     @Override

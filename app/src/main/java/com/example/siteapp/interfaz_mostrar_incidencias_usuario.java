@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasAdministrativasBinding;
 import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasUsuarioBinding;
 
-public class interfaz_mostrar_incidencias_usuario extends General {
+public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
 
     ActivityInterfazMostrarIncidenciasUsuarioBinding layout;
     RecyclerView lista;
@@ -28,9 +28,7 @@ public class interfaz_mostrar_incidencias_usuario extends General {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             layout=ActivityInterfazMostrarIncidenciasUsuarioBinding.inflate(getLayoutInflater());
-
             setContentView(layout.getRoot());
 
         }

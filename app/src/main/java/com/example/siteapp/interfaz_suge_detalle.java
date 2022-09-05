@@ -20,7 +20,7 @@ import com.example.siteapp.databinding.ActivityInterfazSugeDetalleBinding;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_suge_detalle extends General {
+public class interfaz_suge_detalle extends AppCompatActivity {
     private ActivityInterfazSugeDetalleBinding v58;
 
     String comentario;
@@ -31,8 +31,7 @@ public class interfaz_suge_detalle extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_suge_detalle);
-
+        //setContentView(R.layout.activity_interfaz_suge_detalle);
         v58 = ActivityInterfazSugeDetalleBinding.inflate(getLayoutInflater());
         View view = v58.getRoot();
         setContentView(view);
@@ -88,5 +87,11 @@ public class interfaz_suge_detalle extends General {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( getApplicationContext(),interfaz_aviso.class);
+        startActivity(intent);
     }
 }

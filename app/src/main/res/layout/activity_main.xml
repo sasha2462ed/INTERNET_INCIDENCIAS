@@ -4,7 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:barrierMargin="4dp"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/vien"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_visibility_off_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txp2" />
+
+    <ImageView
+        android:id="@+id/vien1"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_baseline_remove_red_eye_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txp2" />
 
     <TextView
         android:id="@+id/txv1"
@@ -35,37 +62,39 @@
 
     <EditText
         android:id="@+id/txp1"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_account_circle_black_24dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/txp1"
-        android:drawableStart="@drawable/ic_account_circle_black_24dp"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txv2" />
 
     <EditText
         android:id="@+id/txp2"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:clickable="false"
+        android:drawableStart="@drawable/ic_key_black_24dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/txp2"
-        android:drawableStart="@drawable/ic_key_black_24dp"
         android:inputType="textPersonName"
-        app:endIconMode="password_toggle"
         android:password="true"
+        app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txp1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="Deprecated" />
 
     <Button
         android:id="@+id/btn1"

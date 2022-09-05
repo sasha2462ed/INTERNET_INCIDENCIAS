@@ -2,6 +2,7 @@ package com.example.siteapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -42,7 +43,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class interfaz_usuario extends General {
+public class interfaz_usuario extends AppCompatActivity {
     private ActivityInterfazUsuarioBinding v2;
     String trampa = "0";
     int count ;
@@ -56,7 +57,7 @@ public class interfaz_usuario extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_usuario);
+        //setContentView(R.layout.activity_interfaz_usuario);
         v2 = ActivityInterfazUsuarioBinding.inflate(getLayoutInflater());
         View view = v2.getRoot();
         setContentView(view);
@@ -141,7 +142,7 @@ public class interfaz_usuario extends General {
                         @Override
                         public void onClick(View v) {
                             Log.i("result","xxxxxxxxxxxxxxxxxxxxxx");
-                            Intent intent = new Intent(getApplicationContext(), interfaz_aviso.class);
+                            Intent intent = new Intent(getApplicationContext(), interfaz_notificaciones.class);
                             startActivity(intent);
 
                         }

@@ -1,6 +1,7 @@
 package com.example.siteapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.view.View;
 
 import com.example.siteapp.databinding.ActivityInterfazMostrarGraficasBinding;
 
-public class interfaz_mostrar_graficas extends General {
+public class interfaz_mostrar_graficas extends AppCompatActivity {
 
     ActivityInterfazMostrarGraficasBinding layout;
 

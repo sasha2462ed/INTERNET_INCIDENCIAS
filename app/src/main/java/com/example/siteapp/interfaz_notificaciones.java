@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_notificaciones extends General {
+public class interfaz_notificaciones extends AppCompatActivity {
 
     private ActivityInterfazNotificacionesBinding layout;
     Context ct;
@@ -43,7 +43,7 @@ public class interfaz_notificaciones extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_notificaciones);
+        //setContentView(R.layout.activity_interfaz_notificaciones);
         layout= ActivityInterfazNotificacionesBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
@@ -161,7 +161,7 @@ public class interfaz_notificaciones extends General {
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Sin notificaciones que mostrar", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Sin notificaciones que mostrar", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -241,6 +241,12 @@ public class interfaz_notificaciones extends General {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( getApplicationContext(),interfaz_usuario.class);
+        startActivity(intent);
     }
 
 }

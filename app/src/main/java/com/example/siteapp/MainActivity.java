@@ -1,13 +1,10 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
+import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -17,14 +14,14 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityMainBinding;
 
 import org.json.JSONException;
@@ -54,6 +51,35 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences admin=getApplicationContext().getSharedPreferences("x",MODE_PRIVATE);
         boolean login=admin.getBoolean("estado",false);
         String tip_usuario=admin.getString("tip_usuario","");
+
+
+        v1.vien1.setVisibility(View.INVISIBLE);
+
+        v1.vien1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                v1.vien.setVisibility(View.VISIBLE);
+                v1.vien1.setVisibility(View.INVISIBLE);
+
+
+            }
+        });
+
+        v1.vien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT);
+                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER);
+                v1.vien.setVisibility(View.INVISIBLE);
+                v1.vien1.setVisibility(View.VISIBLE);
+
+
+            }
+        });
 
         String ip = getString(R.string.ip);
 

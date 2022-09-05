@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -28,15 +30,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasAdministrativasBinding;
 import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasTecnicasBinding;
-import com.example.siteapp.databinding.ActivityInterfazUsuarioBinding;
-import com.example.siteapp.databinding.ActivityMainBinding;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,10 +59,11 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_mostrar_incidencias_tecnicas);
+        //setContentView(R.layout.activity_interfaz_mostrar_incidencias_tecnicas);
         v29 = ActivityInterfazMostrarIncidenciasTecnicasBinding.inflate(getLayoutInflater());
         View view = v29.getRoot();
         setContentView(view);
+
 
         idCliente = getIntent().getStringExtra("idClient");
         idIncidencia = getIntent().getStringExtra("idIncidencia");
@@ -78,9 +81,11 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
 
         if(tip_usuario.equals("T") || tip_usuario.equals("D")) {
             v29.btnestado.setVisibility(View.VISIBLE);
+            v29.maps.setVisibility(View.VISIBLE);
         }else{
 
             v29.btnestado.setVisibility(View.INVISIBLE);
+            v29.maps.setVisibility(View.INVISIBLE);
         }
 
 
@@ -112,6 +117,9 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
 
         });
 
+
+
+
         String ip = getString(R.string.ip);
         String URL=ip+"/conexion_php/detalle.php";
 
@@ -125,8 +133,6 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
                         JSONObject objUser= new JSONObject(response.toString());
                         Log.i("result","data:"+response.toString());
 
-
-
                         v29.tvmc1.setText(objUser.getString("nombre"));
                         v29.tvmc2.setText(objUser.getString("cedula"));
                         //v29.tvmc3.setText(objUser.getString("contrasena"));
@@ -136,6 +142,49 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
                         v29.tvmc7.setText(objUser.getString("ap"));
                         v29.tvm9.setText(comentario);
                         v29.tvm8.setText(objUser.getString("estado"));
+
+
+                                v29.maps.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+/*
+                                        String Uni=v29.tvmc5.getText().toString();
+                                        //new URL(Uni).openStream().close();
+                                        Uri link = Uri.parse(Uni);
+                                        startActivity( new Intent(Intent.ACTION_VIEW, link));
+
+ */
+                                        String Uni=v29.tvmc5.getText().toString();
+                                        if(Uni.equals("")){
+
+                                            Toast.makeText(getBaseContext(), "No hay dirección para buscar", Toast.LENGTH_SHORT).show();
+
+                                        }else{
+                                            try {
+/*
+                                            new URL(Uni).openStream().close();
+                                            Uri link = Uri.parse(Uni);
+                                            startActivity( new Intent(Intent.ACTION_VIEW, link));
+
+ */
+                                                if (URLUtil.isValidUrl(Uni.toString())) {
+                                                    Uri link = Uri.parse(Uni);
+                                                    startActivity( new Intent(Intent.ACTION_VIEW, link));
+                                                } else {
+                                                    Toast.makeText(getBaseContext(), "No se ha encontrado la Direccion", Toast.LENGTH_SHORT).show();
+                                                }
+
+
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                                Toast.makeText(getBaseContext(), "Direccion Invalida", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }
+
+
+                                    }
+                                });
 
                     }
 
@@ -211,9 +260,6 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
 
         });
 
-
-        /********************************/
-
     }
 
 
@@ -240,7 +286,6 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
 
                 finishAffinity();
                 System.exit(0);
-
 
                 break;
 /*

@@ -55,7 +55,7 @@ public class interfaz_dependiente extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_dependiente);
+        //setContentView(R.layout.activity_interfaz_dependiente);
         v7 = ActivityInterfazDependienteBinding.inflate(getLayoutInflater());
         View view = v7.getRoot();
         setContentView(view);

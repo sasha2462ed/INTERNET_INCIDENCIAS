@@ -4,6 +4,7 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -56,7 +57,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_graficoN extends General {
+public class interfaz_graficoN extends AppCompatActivity {
 
     private Spinner spinnergrfN;
     private Spinner spinnergrfap;
@@ -74,7 +75,7 @@ public class interfaz_graficoN extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_grafico_n);
+        //setContentView(R.layout.activity_interfaz_grafico_n);
         layout = ActivityInterfazGraficoNBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
@@ -399,7 +400,7 @@ public class interfaz_graficoN extends General {
 
                 pdfDocument.finishPage(page);
 
-                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                File root = new File(Environment.getExternalStorageDirectory(),"IncidenciasPDF");
                 if(!root.exists()){
                     root.mkdir();
                 }

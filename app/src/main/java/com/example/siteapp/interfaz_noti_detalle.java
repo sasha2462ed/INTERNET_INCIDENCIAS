@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class interfaz_noti_detalle extends General {
+public class interfaz_noti_detalle extends AppCompatActivity {
     private ActivityInterfazNotiDetalleBinding v55;
     String comentario;
     String asunto;
@@ -34,7 +34,7 @@ public class interfaz_noti_detalle extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_noti_detalle);
+        //setContentView(R.layout.activity_interfaz_noti_detalle);
         v55 = ActivityInterfazNotiDetalleBinding.inflate(getLayoutInflater());
         View view = v55.getRoot();
         setContentView(view);
@@ -89,6 +89,12 @@ public class interfaz_noti_detalle extends General {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( getApplicationContext(),interfaz_notificaciones.class);
+        startActivity(intent);
     }
     @Override
     protected void onStart() {

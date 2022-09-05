@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -48,7 +49,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class interfaz_graficos extends General {
+public class interfaz_graficos extends AppCompatActivity {
 
     ActivityInterfazGraficosBinding layout;
     RequestQueue requestQueue;
@@ -269,15 +270,16 @@ public class interfaz_graficos extends General {
 
                 pdfDocument.finishPage(page);
 
-                File root = new File(Environment.getExternalStorageDirectory(),"pdf");
+                File root = new File(Environment.getExternalStorageDirectory(),"IncidenciasPDF");
                 if(!root.exists()){
                     root.mkdir();
                 }
 
                 File file = new File(root,"Reporte Incidente nodos " +valor[0]+ ".pdf");
-                Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
+
                // file.createNewFile();
                 try {
+                    Toast.makeText(getApplicationContext(), "PDF Creado", Toast.LENGTH_LONG).show();
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     pdfDocument.writeTo(fileOutputStream);
                 } catch (IOException e) {
