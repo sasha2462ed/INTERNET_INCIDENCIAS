@@ -7,19 +7,32 @@
     tools:context=".interfaz_estado">
 
 
+    <EditText
+        android:id="@+id/resoluciong"
+        android:layout_width="360dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="AGREGAR RESOLUCION"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="378dp"
-        android:layout_height="303dp"
+        android:layout_height="390dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/resoluciong">
 
         <LinearLayout
             android:layout_width="374dp"
@@ -39,43 +52,6 @@
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <EditText
-            android:id="@+id/resoluciong"
-            android:layout_width="264dp"
-            android:layout_height="72dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="0dp"
-            android:ems="10"
-            android:hint="AGREGAR RESOLUCION"
-            android:inputType="textPersonName" />
-
-        <ImageView
-            android:id="@+id/icono05"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:paddingLeft="14dp"
-            android:paddingRight="14dp"
-            android:src="@drawable/ic_schedule_send_black_24dp"
-            tools:ignore="MissingConstraints" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"

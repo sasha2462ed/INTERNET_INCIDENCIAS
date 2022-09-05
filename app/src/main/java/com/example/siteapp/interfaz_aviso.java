@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_aviso extends General {
+public class interfaz_aviso extends AppCompatActivity {
     private ActivityInterfazAvisoBinding layout;
 
     Context ct;
@@ -43,7 +43,7 @@ public class interfaz_aviso extends General {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_aviso);
+        //setContentView(R.layout.activity_interfaz_aviso);
         layout= ActivityInterfazAvisoBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
@@ -160,7 +160,7 @@ public class interfaz_aviso extends General {
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Sin sugerencias que mostrar", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Sin sugerencias que mostrar", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -241,5 +241,9 @@ public class interfaz_aviso extends General {
 
         return super.onOptionsItemSelected(item);
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent( getApplicationContext(),interfaz_tecnico.class);
+        startActivity(intent);
+    }
 }

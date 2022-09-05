@@ -35,19 +35,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_departamento_administrativo extends General {
+public class interfaz_departamento_administrativo extends AppCompatActivity {
     String trampa;
     private ActivityInterfazDepartamentoAdministrativoBinding v4;
     RequestQueue requestQueue;
     DatePickerDialog.OnDateSetListener setListener1;
     int val;
+    String valor;
     private ListView lv2;
     Context ct;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_departamento_administrativo);
+        //setContentView(R.layout.activity_interfaz_departamento_administrativo);
         v4 = ActivityInterfazDepartamentoAdministrativoBinding.inflate(getLayoutInflater());
         View view = v4.getRoot();
         setContentView(view);
@@ -89,8 +90,10 @@ public class interfaz_departamento_administrativo extends General {
 
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            //valor=lv2.getItemAtPosition(position).toString();
-                            val = position;
+                            valor=lv2.getItemAtPosition(position).toString();
+                           // stateap = spinnergrfap.getSelectedItem().toString();
+
+
                             final String[] valor1 = {""};
                             valor1[0] = problemas1[position];
                             Toast.makeText(getApplicationContext(),"Su incidencia es " + valor1[0], Toast.LENGTH_SHORT).show();
@@ -98,9 +101,12 @@ public class interfaz_departamento_administrativo extends General {
 
                             Log.i("resultap",valor1[0]);
 
+
                             //////////*////////////////
 
                             try{
+                                val = Integer.parseInt(String.valueOf(nods.getString(valor)));
+                                Log.i("resultap", String.valueOf(val));
 
                                 v4.btn4adm.setOnClickListener(new View.OnClickListener() {
                                     @Override

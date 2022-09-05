@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SITEAPP</string>
-    <string name="ip">http://192.168.101.8:8080</string>
-    <string name="inf" tools:ignore="ReferenceType">@drawable/ic_baseline_info_24</string>
-
+    <string name="ip">http://192.168.101.5:8080</string>
 
     <string name="txv1"> Bienvenido Anonymus ^w^ </string>
     <string name="txv2"> Atencion al Cliente </string>
@@ -10,8 +8,7 @@
     <string name="txp2"> Contraseña </string>
     <string name="btn1"> Iniciar Sesion </string>
 
-
-    <string name="txv3"> Departamentos - Atencion usuario  ^w^  </string>
+    <string name="txv3"> Departamentos Atencion Usuario  ^w^  </string>
     <string name="btn2"> Departamento Administrativo </string>
     <string name="btn3"> Departamento Tecnico </string>
 
@@ -32,7 +29,7 @@
     <string name="botonenvionotificacion"> Buzon de notificacion </string>
 
 
-    <string name="txv30"> Menu principal Anonymust ^w^  </string>
+    <string name="txv30"> Menu Anonymust ^w^  </string>
     <string name="btn30"> Departamento AD </string>
     <string name="btn40"> Departamento TEC </string>
     <string name="btn22"> Salir </string>
@@ -73,7 +70,7 @@
     <string name="txp9"> telefono </string>
     <string name="txp10"> Direccion </string>
     <string name="txp11"> Nodo </string>
-    <string name="txp12"> Ap </string>
+    <string name="txp12"> Ap (Anotar solo ID) </string>
     <string name="txp13"> Otro </string>
     <string name="btn9"> Registrar </string>
     <string name="btn10"> Consultar con C.I </string>

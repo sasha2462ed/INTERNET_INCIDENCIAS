@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_sugerencia extends General {
+public class interfaz_sugerencia extends AppCompatActivity {
 
     private ActivityInterfazSugerenciaBinding v9;
     RequestQueue requestQueue;
@@ -32,7 +32,7 @@ public class interfaz_sugerencia extends General {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_sugerencia);
+        //setContentView(R.layout.activity_interfaz_sugerencia);
         v9 = ActivityInterfazSugerenciaBinding.inflate(getLayoutInflater());
         View view = v9.getRoot();
         setContentView(view);

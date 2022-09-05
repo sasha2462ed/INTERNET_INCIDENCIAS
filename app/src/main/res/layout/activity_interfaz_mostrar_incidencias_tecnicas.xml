@@ -19,334 +19,261 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="HardcodedText" />
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/txvv4"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="CEDULA:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv3"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv6"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="TELEFONO:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv4"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/btnestad"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/ic_baseline_cancel_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc7" />
+
+    <TextView
+        android:id="@+id/txvv8"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="NODO:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv7"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc1"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv3"
+        app:layout_constraintTop_toBottomOf="@+id/Detallec"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc5"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv7"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc4"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="ESTADO:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv9"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv7"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="DIRECCION:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv6"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc6"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv8"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc5"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvm9"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/tvm8"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/Detallec"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:text="Detalle!."
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/tvm8"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc7"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="6dp"
-                tools:ignore="UselessParent">
+    <TextView
+        android:id="@+id/txvv9"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:gravity="center|right"
+        android:text="AP:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv8"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
+    <TextView
+        android:id="@+id/tvmc2"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv4"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc1"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-                <LinearLayout
-                    android:id="@+id/linearlayoutlist"
-                    android:layout_width="150dp"
-                    android:layout_height="600dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="25dp"
-                    android:orientation="vertical"
-                    tools:ignore="RtlHardcoded">
+    <ImageView
+        android:id="@+id/maps"
+        android:layout_width="51dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="24dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:rotation="90"
+        android:src="@drawable/ic_baseline_navigation_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc4"
+        tools:ignore="MissingConstraints" />
 
-                    <TextView
-                        android:id="@+id/txvv3"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginTop="65dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="NOMBRE:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <TextView
+        android:id="@+id/txvv3"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|right"
+        android:text="NOMBRE:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Detallec"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-                    <TextView
-                        android:id="@+id/txvv4"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="CEDULA:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <TextView
+        android:id="@+id/tvmc4"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv6"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc2"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-                    <TextView
-                        android:id="@+id/txvv6"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="TELEFONO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <TextView
+        android:id="@+id/tvmc7"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center|left"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txvv9"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc6"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-                    <TextView
-                        android:id="@+id/txvv7"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="DIRECCION:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <ImageView
+        android:id="@+id/btnestado"
+        android:layout_width="51dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="24dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/ic_touch_app_black_48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc7" />
 
-                    <TextView
-                        android:id="@+id/txvv8"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="NODO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
-
-                    <TextView
-                        android:id="@+id/txvv9"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="AP:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="ESTADO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
-
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="0dp"
-                        android:gravity="center|right"
-                        android:text="COMENTARIO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvmc1"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="90dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvmc2"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvmc4"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc2"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvmc5"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc4"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvmc6"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc5"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvmc7"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc6"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvm8"
-                    android:layout_width="84dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc7"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/tvm9"
-                    android:layout_width="208dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvm8"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginEnd="17dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:text="TextView"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="HardcodedText,RtlHardcoded" />
-
-                <TextView
-                    android:id="@+id/Detallec"
-                    android:layout_width="190dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="132dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="153dp"
-                    android:gravity="center"
-                    android:text="Detalle!."
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-
-                <Button
-                    android:id="@+id/btnestado"
-                    android:layout_width="64dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/tvmc7"
-                    android:layout_alignStart="@+id/tvm8"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="116dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="45dp"
-                    android:drawableEnd="@drawable/ic_touch_app_black_48dp"
-                    android:text="."
-                    tools:ignore="HardcodedText" />
-
-                <Button
-                    android:id="@+id/btnestad"
-                    android:layout_width="64dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvmc7"
-                    android:layout_alignStart="@+id/tvm8"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="106dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="38dp"
-                    android:drawableEnd="@drawable/ic_baseline_cancel_24"
-                    android:text="."
-                    tools:ignore="HardcodedText" />
-
-
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center|right"
+        android:text="COMENTARIO:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

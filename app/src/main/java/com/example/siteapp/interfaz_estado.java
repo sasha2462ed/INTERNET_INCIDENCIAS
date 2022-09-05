@@ -61,7 +61,7 @@ public class interfaz_estado extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_estado);
+        //setContentView(R.layout.activity_interfaz_estado);
         v30 = ActivityInterfazEstadoBinding.inflate(getLayoutInflater());
         View view = v30.getRoot();
         setContentView(view);
@@ -78,23 +78,6 @@ public class interfaz_estado extends AppCompatActivity {
         tipo = getIntent().getStringExtra("tipo");
         Log.i("result", "Datagestion: " + idCliente);
         Log.i("result", "Datagestion: " + idIncidencia);
-
-///////////////////////////*************************////////////////////////
-
-        Log.i("result","Data: "+departamento);
-        //parametros.put("cierre", v30.resoluciong.getText().toString());
-
-
-        ///////////**********************//////////////////
-        v30.icono05.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });
-/******************/////////////
 
 
         ////////////********************///////////////////////////////////////////

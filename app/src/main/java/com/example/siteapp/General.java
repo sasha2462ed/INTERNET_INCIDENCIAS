@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class General extends AppCompatActivity {
 
-
+/*
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -18,4 +18,6 @@ public class General extends AppCompatActivity {
 
         return true;
     }
+
+ */
 }
