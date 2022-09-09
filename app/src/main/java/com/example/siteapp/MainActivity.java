@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         v1 = ActivityMainBinding.inflate(getLayoutInflater());
         View view = v1.getRoot();
         setContentView(view);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                //v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 v1.vien.setVisibility(View.VISIBLE);
                 v1.vien1.setVisibility(View.INVISIBLE);
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT);
-                //v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER);
+                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER);
                 v1.vien.setVisibility(View.INVISIBLE);
                 v1.vien1.setVisibility(View.VISIBLE);
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (v1.txp1.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Campo Usuario vacio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Campo nombre vacio", Toast.LENGTH_SHORT).show();
                 } else {
                     if (v1.txp2.getText().toString().isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Campo contrasena vacio", Toast.LENGTH_SHORT).show();

@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -36,7 +35,7 @@ import com.example.siteapp.databinding.ActivityInterfazTecnicoBinding;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_tecnico extends AppCompatActivity {
+public class interfaz_tecnico extends General {
 
     private ActivityInterfazTecnicoBinding v6;
     int count= 0;

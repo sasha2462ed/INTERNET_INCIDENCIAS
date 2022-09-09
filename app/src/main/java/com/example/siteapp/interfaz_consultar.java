@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -28,7 +27,6 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class interfaz_consultar extends AppCompatActivity {
     private ActivityInterfazConsultarBinding v02;
@@ -176,9 +174,6 @@ public class interfaz_consultar extends AppCompatActivity {
 //
 //                            Intent intent = new Intent( getApplicationContext(), interfaz_tecnico_usuario.class);
 //                            startActivity(intent);
-
-                            Intent intent = new Intent( getApplicationContext(),interfaz_tecnico_usuario.class);
-                            startActivity(intent);
 
                         }else{
                             Toast.makeText(getBaseContext(), "OPERACION FALLIDA ", Toast.LENGTH_SHORT).show();
@@ -397,53 +392,6 @@ Esta es la propia la que vale
 
            }
        });
-
-
 ////////////////**********/////////////////////////////////
     }
-/*
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-
-        if (Objects.equals(String.valueOf(keyCode), 4)) {
-            Intent intent = new Intent( getApplicationContext(),interfaz_tecnico.class);
-            startActivity(intent);
-            return  true;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
-
- */
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent( getApplicationContext(),interfaz_tecnico_usuario.class);
-        startActivity(intent);
-    }
-
-
-
-    /*
-    @Override
-public boolean onKeyDown(int keyCode, KeyEvent event)
-{
-    if ((keyCode == KeyEvent.KEYCODE_BACK))
-    {
-        //codigo adicional
-        finish();
-    }
-    return super.onKeyDown(keyCode, event);
-}
-     */
-
-    /*
-    @Override
-    public void onBackPressed() {
-        //Si llamas super.onBackPressed(), esto internamente ejecuta finish().
-        super.onBackPressed();
-    }
-
-     */
 }
