@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/debug/res/xml/network_security_config.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/drawable/badge.xml" value="0.2703125" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout-land/activity_interfaz_grafico_n.xml" value="0.4" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout-land/activity_interfaz_graficos.xml" value="0.2" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_departamento_administrativo.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_departamento_tecnico.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_graficos.xml" value="0.264" />
@@ -32,8 +34,8 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_sugerencia.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_tecnico.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_tecnico_usuario.xml" value="0.264" />
-        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.264" />
-        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_usuario.xml" value="0.25" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_main2.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_menu_onboarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_mpchart.xml" value="0.25416666666666665" />

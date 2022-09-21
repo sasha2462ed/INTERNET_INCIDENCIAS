@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class interfaz_tecnico_usuario extends AppCompatActivity {
     private ActivityInterfazTecnicoUsuarioBinding v5;
@@ -211,8 +212,8 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
         v5.btn13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+                finishAffinity();
+                System.exit(0);
             }
         });
 
@@ -223,7 +224,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.i("oliver",response);
-                if(response.equals("1")){
+                if(response.toString().trim().equals("1")) {
                     Toast.makeText(getBaseContext(), "OPERACION EXITOSA", Toast.LENGTH_SHORT).show();
                     v5.txp6.getText().clear();
                     v5.txp7.getText().clear();
@@ -232,6 +233,9 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                     v5.txp10.getText().clear();
                     v5.txp12.getText().clear();
 
+                } else if(response.toString().trim().equals("2")){
+
+                    Toast.makeText(getBaseContext(), "ERROR USUARIO YA REGISTRADO ", Toast.LENGTH_SHORT).show();
 
                 }else{
                     Toast.makeText(getBaseContext(), "OPERACION FALLIDA ", Toast.LENGTH_SHORT).show();

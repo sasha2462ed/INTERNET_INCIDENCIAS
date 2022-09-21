@@ -1,16 +1,25 @@
 package com.example.siteapp;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.siteapp.databinding.ActivityInterfazMostrarGraficasBinding;
 
@@ -24,6 +33,17 @@ public class interfaz_mostrar_graficas extends AppCompatActivity {
         layout=ActivityInterfazMostrarGraficasBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
+
+
+        //***/
+        if(checkPermission()) {
+            //Toast.makeText(this, "Permiso Aceptado", Toast.LENGTH_LONG).show();
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions();
+            }
+        }
+        //***/
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,5 +108,34 @@ public class interfaz_mostrar_graficas extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private boolean checkPermission() {
+        int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 200);
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == 200) {
+            if(grantResults.length > 0) {
+                boolean writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                if(writeStorage && readStorage) {
+                    Toast.makeText(this, "Permiso concedido", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }
+        }
     }
 }

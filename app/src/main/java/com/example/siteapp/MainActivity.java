@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     if (v1.txp2.getText().toString().isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Campo contrasena vacio", Toast.LENGTH_SHORT).show();
                     } else {
-                        validarUsuario(ip+"/conexion_php/validar_usuario.php");
+                        validarUsuario(ip+"/conexion_php/hash.php");
                     }
                 }
             }

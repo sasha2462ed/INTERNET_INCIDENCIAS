@@ -68,11 +68,14 @@ public class interfaz_graficos extends AppCompatActivity {
         GraphView graph=layout.myGraph;
 
         //***/
+        /*
         if(checkPermission()) {
             Toast.makeText(this, "Permiso Aceptado", Toast.LENGTH_LONG).show();
         } else {
             requestPermissions();
         }
+
+         */
         //***/
 
         months = layout.months;
@@ -156,7 +159,7 @@ public class interfaz_graficos extends AppCompatActivity {
                             graph.getViewport().setYAxisBoundsManual(true);
                             graph.getViewport().setMinY(0);
                             //graph.getViewport().setMaxY(barras.length()-1);
-                            graph.getViewport().setMaxY(mayor);
+                            graph.getViewport().setMaxY(mayor+1);
 
                             graph.getViewport().setScrollable(true);
                             graph.getViewport().setScrollableY(true);
@@ -345,7 +348,7 @@ public class interfaz_graficos extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+/*
     private boolean checkPermission() {
         int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
         int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
@@ -372,6 +375,7 @@ public class interfaz_graficos extends AppCompatActivity {
                 }
             }
         }
-    }
+    }\
 
+ */
 }

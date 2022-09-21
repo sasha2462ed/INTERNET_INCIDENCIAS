@@ -30,7 +30,9 @@
 
         <activity
             android:name=".interfaz_dependientes"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,10 +52,14 @@
 
         <activity
             android:name=".interfaz_onboarding"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_menuOnboarding"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,70 +68,113 @@
         </activity>
         <activity
             android:name=".interfaz_oanbording"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_consultar"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_graficoN"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_mostrar_incidencias_usuario"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_suge_detalle"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_noti_detalle"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_aviso"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_notificaciones"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_graficos"
-            android:exported="true" />
+            android:exported="true"
+             />
         <activity
             android:name=".interfaz_estado"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_mostrar_graficas"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_envio_notificacion"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_sugerencia"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_mostrar_incidencias_tecnicas_nivel_usuario"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_mostrar_incidencias_nivel_tecnico"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_tecnico_usuario"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_departamento_tecnico"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_dependiente"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_tecnico"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_departamento_administrativo"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_usuario"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

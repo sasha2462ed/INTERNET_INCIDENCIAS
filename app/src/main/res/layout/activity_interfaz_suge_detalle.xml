@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:gravity="center|left"
-        android:text="Detalle / Notificacion"
+        android:text="Detalle / Sugerencia"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

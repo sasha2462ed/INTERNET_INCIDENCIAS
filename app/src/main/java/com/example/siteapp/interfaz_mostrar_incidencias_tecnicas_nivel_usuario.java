@@ -170,7 +170,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
                                                 if (URLUtil.isValidUrl(Uni.toString())) {
                                                     Uri link = Uri.parse(Uni);
                                                     startActivity( new Intent(Intent.ACTION_VIEW, link));
-                                                } else {
+                                                }  else {
                                                     Toast.makeText(getBaseContext(), "No se ha encontrado la Direccion", Toast.LENGTH_SHORT).show();
                                                 }
 

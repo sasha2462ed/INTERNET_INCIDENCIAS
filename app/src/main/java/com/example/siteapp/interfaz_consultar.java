@@ -128,12 +128,6 @@ public class interfaz_consultar extends AppCompatActivity {
                 } else {
 
                     Toast.makeText(getApplicationContext(), "Usuario no registrado",Toast.LENGTH_SHORT).show();
-//                    v02.tvc1.getText().clear();
-//                    v02.tvc2.getText().clear();
-//                    v02.tvc3.getText().clear();
-//                    v02.tvc4.getText().clear();
-//                    v02.tvc5.getText().clear();
-//                    v02.tvc6.getText().clear();
 
 
                 }
@@ -144,7 +138,7 @@ public class interfaz_consultar extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //Toast.makeText(getApplicationContext(), "Error de conexion",Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Usuario no registrado",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "USUARIO NO EXISTE",Toast.LENGTH_SHORT).show();
 
             }
         });
