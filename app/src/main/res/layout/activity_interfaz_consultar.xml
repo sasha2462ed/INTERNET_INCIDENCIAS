@@ -5,304 +5,329 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".interfaz_consultar">
-    <ScrollView
+
+    <TextView
+        android:id="@+id/txvv3"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center|right"
+        android:text="@string/txvv3"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvc1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv4"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:text="@string/txvv4"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv3"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv5"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:text="@string/txvv5"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv4"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv6"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:textColor="@color/black"
+        android:text="@string/txvv6"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv5"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv7"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:text="@string/txvv7"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv6"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv9"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:text="@string/txp12"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv8"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv99"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center|right"
+        android:text="@string/tx13"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv9"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv8"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|right"
+        android:text="@string/txvv8"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv7"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/estadc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:ignore="HardcodedText" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="right"
+        android:text="@string/switch1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/estadc"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="6dp"
-                tools:ignore="UselessParent">
+    <EditText
+        android:id="@+id/tvc1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv3"
+        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
+        tools:ignore="Autofill,SpeakableTextPresentCheck" />
 
+    <ImageView
+        android:id="@+id/icono505"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:src="@drawable/ic_baseline_info_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvc7"
+        app:layout_constraintTop_toBottomOf="@+id/tvc6"
+        tools:ignore="MissingConstraints" />
 
-                <LinearLayout
-                    android:id="@+id/linearlayoutlist"
-                    android:layout_width="150dp"
-                    android:layout_height="690dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="25dp"
-                    android:orientation="vertical"
-                    tools:ignore="RtlHardcoded">
+    <ImageView
+        android:id="@+id/icono055"
+        android:layout_width="58dp"
+        android:layout_height="51dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tx131"
+        app:layout_constraintTop_toBottomOf="@+id/icono505"
+        tools:ignore="MissingConstraints" />
 
-                    <TextView
-                        android:id="@+id/txvv3"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginTop="55dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="NOMBRE:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <EditText
+        android:id="@+id/tvc4"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv6"
+        app:layout_constraintTop_toBottomOf="@+id/tvc3"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <TextView
-                        android:id="@+id/txvv4"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="CEDULA:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <TextView
+        android:id="@+id/Detallecc"
+        android:layout_width="326dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="@string/Detallecc"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
-                    <TextView
-                        android:id="@+id/txvv5"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="CONTRASENA:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <EditText
+        android:id="@+id/tvc3"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv5"
+        app:layout_constraintTop_toBottomOf="@+id/tvc2"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <TextView
-                        android:id="@+id/txvv6"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="TELEFONO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <TextView
+        android:id="@+id/tvc2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv4"
+        app:layout_constraintTop_toBottomOf="@+id/tvc1" />
 
-                    <TextView
-                        android:id="@+id/txvv7"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="DIRECCION:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <EditText
+        android:id="@+id/tvc5"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv7"
+        app:layout_constraintTop_toBottomOf="@+id/tvc4"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <TextView
-                        android:id="@+id/txvv8"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="NODO:"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <Button
+        android:id="@+id/btn11"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/btn11"
+        app:layout_constraintBottom_toTopOf="@+id/estadc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/switch1" />
 
-                    <TextView
-                        android:id="@+id/txvv9"
-                        android:layout_width="110dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="34dp"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center|right"
-                        android:text="AP:(Solo anotar el ID)"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="HardcodedText,RtlHardcoded" />
+    <EditText
+        android:id="@+id/tvc7"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/icono505"
+        app:layout_constraintStart_toEndOf="@+id/txvv9"
+        app:layout_constraintTop_toBottomOf="@+id/tvc6"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <TextView
-                        android:id="@+id/estadc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Más"
-                        android:visibility="invisible"
-                        tools:ignore="HardcodedText" />
+    <EditText
+        android:id="@+id/tvc6"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv8"
+        app:layout_constraintTop_toBottomOf="@+id/tvc5"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-                    <Switch
-                        android:id="@+id/switch1"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:text="Habilitar edicion"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/tvc1"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="80dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="Autofill,SpeakableTextPresentCheck" />
-
-                <TextView
-                    android:id="@+id/tvc2"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/tvc3"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc2"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <EditText
-                    android:id="@+id/tvc4"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc3"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <EditText
-                    android:id="@+id/tvc5"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc4"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <EditText
-                    android:id="@+id/tvc6"
-                    android:layout_width="220dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc5"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="18dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <EditText
-                    android:id="@+id/tvc7"
-                    android:layout_width="141dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc6"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toEndOf="@+id/linearlayoutlist"
-                    android:gravity="center|left"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <ImageView
-                    android:id="@+id/icono505"
-                    android:layout_width="wrap_content"
-                    android:layout_height="51dp"
-                    android:layout_below="@+id/tvc6"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginLeft="11dp"
-
-                    android:layout_marginTop="6dp"
-                    android:layout_toEndOf="@+id/tvc7"
-                    android:layout_toRightOf="@+id/tvc7"
-                    android:paddingLeft="17dp"
-                    android:paddingRight="17dp"
-                    android:src="@drawable/ic_baseline_info_24"
-                    tools:ignore="MissingConstraints" />
-
-                <Button
-                    android:id="@+id/btn11"
-                    android:layout_width="209dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tvc7"
-                    android:layout_alignParentEnd="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="29dp"
-                    android:layout_marginEnd="19dp"
-                    android:text="@string/btn11" />
-
-                <TextView
-                    android:id="@+id/Detallec"
-                    android:layout_width="326dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="24dp"
-                    android:gravity="center"
-                    android:text="INFORMACION DEL ABONADO"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
-
-
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+    <EditText
+        android:id="@+id/tx131"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center|left"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/icono055"
+        app:layout_constraintStart_toEndOf="@+id/txvv99"
+        app:layout_constraintTop_toBottomOf="@+id/tvc7"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

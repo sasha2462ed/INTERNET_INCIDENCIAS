@@ -20,7 +20,8 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_estado.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_estado_user.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_grafico_n.xml" value="0.264" />
-        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_graficos.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_graficos.xml" value="0.264" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_incidencias_usuario.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_menu_onboarding.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_mostrar_graficas.xml" value="0.264" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_mostrar_incidencias.xml" value="0.25416666666666665" />
@@ -30,6 +31,8 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_mostrar_incidencias_usuario.xml" value="0.2341485507246377" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_noti_detalle.xml" value="0.25226449275362317" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_notificaciones.xml" value="0.264" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_oanbording.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_onboarding.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_suge_detalle.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_sugerencia.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_interfaz_tecnico.xml" value="0.25416666666666665" />
@@ -41,6 +44,7 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_mpchart.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_oanbording.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/activity_onboarding.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/dialog_camara.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_fr_in_ad.xml" value="0.2390625" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_fr_in_blk.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_fr_in_tec.xml" value="0.253125" />
@@ -61,6 +65,7 @@
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_frln_tecu.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/fragment_notify_tec.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/gestion.xml" value="0.264" />
+        <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/item_gv_imagenes.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/item_notificacion.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/itemlist.xml" value="0.4" />
         <entry key="..\:/Users/PLAYER/AndroidStudioProjects/SITEAPP/app/src/main/res/layout/list_notificacion.xml" value="0.264" />

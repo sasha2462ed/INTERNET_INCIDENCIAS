@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:text="Go Usuario"
+        android:text="@string/onUs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="32dp"
-        android:text="Go Tecnico"
+        android:text="@string/ontec"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,7 +35,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="SISTEMA DE REGISTRO Y GESTION DE INCIDENCIAS "
+        android:text="@string/txtb"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,11 +45,13 @@
     <ImageView
         android:id="@+id/imgb"
         android:layout_width="386dp"
-        android:layout_height="448dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/onboar"
+        app:layout_constraintBottom_toTopOf="@+id/onUs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtb" />

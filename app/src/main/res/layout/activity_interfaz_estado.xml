@@ -12,9 +12,10 @@
         android:layout_width="360dp"
         android:layout_height="72dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="AGREGAR RESOLUCION"
+        android:hint="@string/resoluciong"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +23,12 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="378dp"
-        android:layout_height="390dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
@@ -77,12 +78,13 @@
 
         <Button
             android:id="@+id/btnstate"
-            android:layout_width="170dp"
-            android:layout_height="65dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
-            android:text="AGREGAR RESOLUCION"
+            android:text="@string/btnstate"
+            android:textSize="16sp"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 

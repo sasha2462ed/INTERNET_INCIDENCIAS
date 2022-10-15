@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:drawableLeft="@drawable/ic_baseline_search_24"
-        android:text="BUSCAR"
+        android:text="@string/btn_frag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"

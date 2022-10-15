@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/admin"
-        android:title="Incidencias Administrativas" />
+        android:title="@string/admin" />
     <item
         android:id="@+id/tecnico"
-        android:title="Incidencias Tecnicas" />
+        android:title="@string/tecnico" />
     <item
         android:id="@+id/regre"
-        android:title="Regresar" />
+        android:title="@string/regre" />
 </menu>

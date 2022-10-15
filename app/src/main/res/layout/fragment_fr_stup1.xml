@@ -29,7 +29,7 @@
         android:layout_width="348dp"
         android:layout_height="114dp"
         android:gravity="center"
-        android:text="Puedes registrar tus inconvenientes presentados de acuerdo al departamento que desees, ya sea al tecnico o administrativo."
+        android:text="@string/txvb01"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

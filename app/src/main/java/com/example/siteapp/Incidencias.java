@@ -1,9 +1,5 @@
 package com.example.siteapp;
 
-import android.view.View;
-
-import androidx.annotation.NonNull;
-
 public class Incidencias {
     String tipo;
     String comentario;
@@ -13,8 +9,9 @@ public class Incidencias {
     String idIncidencias;
     String cedula;
     String departamento;
+    String lp;
 
-    public Incidencias(String idIncidencias,String tipo,String comentario ,String hora ,String estado, String Id,String cedula, String departamento) {
+    public Incidencias(String idIncidencias,String tipo,String comentario ,String hora ,String estado, String Id,String cedula, String departamento, String lp) {
 
         this.tipo=tipo;
         this.comentario=comentario;
@@ -24,6 +21,7 @@ public class Incidencias {
         this.idIncidencias=idIncidencias;
         this.cedula=cedula;
         this.departamento=departamento;
+        this.lp=lp;
 
 
     }

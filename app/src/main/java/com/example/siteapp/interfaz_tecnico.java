@@ -38,7 +38,6 @@ import java.util.Map;
 public class interfaz_tecnico extends General {
 
     private ActivityInterfazTecnicoBinding v6;
-    int count= 0;
     MenuItem menuItem;
     Context ct;
     TextView notification;
@@ -141,11 +140,13 @@ public class interfaz_tecnico extends General {
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                             showNotification();
+                            notification.setText(null);
                             //Runtime.getRuntime().gc();
                             //System.gc();
 
                         } else {
                             showNewNotification();
+                            notification.setText(null);
 
                         }
                         nov();
@@ -352,6 +353,36 @@ public class interfaz_tecnico extends General {
             super.onCancelled();
             cancel(true);
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 
 }

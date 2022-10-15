@@ -1,10 +1,8 @@
 package com.example.siteapp;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +36,8 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
         holder.cierre.setText(items.get(position).cierre);
         holder.tipo.setText(items.get(position).tipo);
         holder.fecha.setText(items.get(position).fecha);
-        holder.idd.setText(items.get(position).idd);
+        holder.idd.setText( "#"+items.get(position).idd);
+        holder.idtec.setText(items.get(position).idtec);
 
         /***/
         /***/
@@ -64,6 +63,7 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
         TextView tipo;
         TextView fecha;
         TextView idd;
+        TextView idtec;
 
 
 
@@ -76,6 +76,7 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
             tipo=itemView.findViewById(R.id.resumeng);
             fecha=itemView.findViewById(R.id.fechag);
             idd=itemView.findViewById(R.id.idd);
+            idtec=itemView.findViewById(R.id.idtec);
 
             /*cv.setOnClickListener(new View.OnClickListener() {
                 @Override

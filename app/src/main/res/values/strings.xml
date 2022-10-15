@@ -1,47 +1,63 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">SITEAPP</string>
-    <string name="ip">http://192.168.101.6:8080</string>
+<resources>
 
+    <!-- Nombre del aplicativo // direccion del hosting  -->
+    <string name="app_name">SITEAPP</string>
+    <string name="ip">http://192.168.101.3:8080</string>
+
+    <!-- interfaz login -->
     <string name="txv1"> Bienvenido Anonymus ^w^ </string>
     <string name="txv2"> Atencion al Cliente </string>
     <string name="txp1"> Usuario </string>
     <string name="txp2"> Contraseña </string>
     <string name="btn1"> Iniciar Sesion </string>
+    <string name="checkBox"> Guardar Sesion </string>
 
+    <!-- interfaz inciedencias usuarios-->
+    <string name="txvl"> Estado del Proceso </string>
+
+    <!-- interfaz dependiente -->
+    <string name="txv30"> Menu Anonymust ^w^  </string>
+    <string name="txtdep1"> Tecnico / Usuario </string>
+    <string name="btndep"> INTERFAZ TECNICO </string>
+    <string name="btndep1"> INTERFAZ USUARIO </string>
+
+    <!-- botones usados generalmente -->
+    <string name="salirusuario"> Salir </string>
+    <string name="btnNex"> Go </string>
+    <string name="btns"> ok </string>
+    <string name="write"> Crear PDF </string>
+
+    <!-- Interfaz usuario -->
     <string name="txv3"> Departamentos Atencion Usuario  ^w^  </string>
     <string name="btn2"> Departamento Administrativo </string>
     <string name="btn3"> Departamento Tecnico </string>
+    <string name="botonmostrarusuario"> Mostrar Incidencias </string>
+    <string name="sugerencias"> Buzon de sugerencias </string>
 
+    <!-- interfaz envio sugerencias -->
     <string name="textsugerencia"> Bienvenido - Buzon de Sugerencias Anonymus ^w^ </string>
     <string name="textosugerencia"> Sugerencia ^w^ </string>
-    <string name="sugerencias"> Buzon de sugerencias </string>
     <string name="botonsugerencia"> Enviar Sugerencia </string>
     <string name="textosuge"> Asunto ? </string>
-    <string name="botonmostrarusuario"> Mostrar Incidencias </string>
     <string name="botonregresarsugerencia"> Regresar </string>
 
+    <!-- interfaz detalles sugerencias -->
+    <string name="txs1"> Detalle / Sugerencia </string>
+    <string name="tvs2"> Asunto: </string>
+
+    <!-- interfaz detalles notificacion -->
+    <string name="txn1"> Detalle / Notificacion </string>
+    <string name="tvn2"> Asunto: </string>
+
+    <!-- interfaz envio de notificacion -->
     <string name="textnotificacion"> Bienvenido Buzon de Notificaciones Anonymus ^w^ </string>
     <string name="textonotificacion"> Notificacion ^w^ </string>
     <string name="textosunto"> Asunto ? </string>
     <string name="notificaciones"> Bandeja de sugerencias </string>
     <string name="botonnotificaciones"> Enviar Notificacion </string>
     <string name="botonregresarnotificacion"> Regresar </string>
-    <string name="botonenvionotificacion"> Buzon de notificacion </string>
 
-
-    <string name="txv30"> Menu Anonymust ^w^  </string>
-    <string name="btn30"> Departamento AD </string>
-    <string name="btn40"> Departamento TEC </string>
-    <string name="btn22"> Salir </string>
-    <string name="txvin1"> Tecnico / Usuario </string>
-    <string name="btnin"> Mis incidencias </string>
-    <string name="btnin1"> Registrar usuarios </string>
-    <string name="btnin2"> Repertorio / incidencias </string>
-    <string name="btnin3"> Grafico / incidencias </string>
-    <string name="btnin4"> Buzon / Sugerencia  </string>
-    <string name="btnin5"> Buzon / Notificacion </string>
-
-
+    <!-- intefaz departamento tecnico -->
     <string name="txv4tec"> Departamento Tecnico: Seleccione su requerimiento ^w^  </string>
     <string name="txp4tec"> Comentario </string>
     <string name="btn4tec"> Registrar Ticket </string>
@@ -49,7 +65,7 @@
     <string name="btn6tec"> Regresar </string>
     <string name="btn7tec"> Salir </string>
 
-
+    <!-- interfaz departamento administrativo -->
     <string name="txv4adm"> Departamento Administrativo: Seleccione su requerimiento ^w^  </string>
     <string name="txp4adm"> Comentario </string>
     <string name="btn4adm"> Registrar Ticket </string>
@@ -57,13 +73,14 @@
     <string name="btn6adm"> Regresar </string>
     <string name="btn7adm"> Salir </string>
 
-
+    <!-- interfaz tecnico -->
     <string name="txv5"> Nivel Tecnico Anonymus^w^  </string>
     <string name="btn6"> Registrar Usuario </string>
     <string name="btn7"> Mostrar Incidencias </string>
     <string name="btn8"> Ver Graficos Incidencias </string>
+    <string name="botonenvionotificacion"> Buzon de notificacion </string>
 
-
+    <!-- interfaz registrar y consultar  usuario -->
     <string name="txp6"> Nombre Titular </string>
     <string name="txp7"> Cedula </string>
     <string name="txp8"> Contrasena </string>
@@ -76,28 +93,83 @@
     <string name="btn10"> Consultar con C.I </string>
     <string name="btn11"> Modificar </string>
     <string name="btn12"> Regresar </string>
-    <string name="btn13"> Salir </string>
+    <string name="switch1"> Habilitar edicion </string>
+    <string name="Detallecc"> INFORMACION DEL ABONADO </string>
+    <string name="txvv5"> CONTRASENA: </string>
+    <string name="tx13"> Referencia/Ubicacion </string>
 
 
-    <string name="btn14">  </string>
-    <string name="btn15"> Salir </string>
-    <string name="btn16"> Sesion Tecnico </string>
+    <!-- interfaz graficos Aps y Nodos-->
+    <string name="btngrc"> VISUALIZAR </string>
+    <string name="txtN"> NODO </string>
+    <string name="txtap"> AP </string>
+
+    <!-- interfaz buzon notificaciones -->
+    <string name="tvn1"> Buzon de notificaciones </string>
+
+    <!-- interfaz buzon Aviso /sugerencia-->
+    <string name="tvs1"> Buzon de sugerencias </string>
+
+    <!-- interfaz panel mostrar incidencias y graficas  -->
+    <string name="textu"> Incidencias Reportadas </string>
+    <string name="textView"> Reporte Grafico de Incidentes </string>
+
+    <!-- interfaz panel del onboarding  -->
+    <string name="txtb"> SISTEMA DE REGISTRO Y GESTION DE INCIDENCIAS  </string>
+    <string name="ontec"> Go Tecnico  </string>
+    <string name="onUs"> Go Usuario  </string>
+
+    <!-- interfaz estado -->
+    <string name="resoluciong"> AGREGAR RESOLUCION  </string>
+    <string name="btnstate"> AGREGAR RESOLUCION  </string>
+
+    <!-- interfaz mostrar incidencias detalles tecnicos  -->
+    <string name="Detallec"> Detalle!. </string>
+    <string name="txvv3"> NOMBRE: </string>
+    <string name="txvv4"> CEDULA: </string>
+    <string name="txvv6"> TELEFONO: </string>
+    <string name="txvv7"> DIRECCION: </string>
+    <string name="txvv8"> NODO: </string>
+    <string name="txvv9"> AP: </string>
+    <string name="textView10"> ESTADO: </string>
+    <string name="textView11"> COMENTARIO: </string>
 
 
-    <string name="txv14"> Ver Incidencias </string>
+    <!-- botones de los menu -->
+    <string name="cerrar"> Cerrar sesion </string>
+    <string name="notify"> Notificacion </string>
+    <string name="admin"> Incidencias Administrativas </string>
+    <string name="tecnico"> Incidencias Tecnicas </string>
+    <string name="regre"> Regresar </string>
+    <string name="guia"> Ver Guia </string>
+    <string name="nod"> Graficos - Nodo </string>
+    <string name="ap"> Graficos - Ap </string>
 
-    <string name="btn20"> Salir </string>
-    <string name="btn21"> Salir </string>
-    <string name="incidencias_administrativas"> Incidencias_Administrativas </string>
-    <string name="incidencias_tecnicas"> Incidencias_Tecnicas </string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Fragments -->
     <string name="frlb">Panel Grafico de Incidencias...</string>
     <string name="frBlank">Panel de Incidencias...</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="btn_frag"> BUSCAR </string>
+    <string name="btn_frag_ad"> BUSCAR  </string>
+
+    <!-- Fragments de procesos -->
+    <string name="txvb04"> Recibiras notificaciones para darte a conocer sobre incidentes presentados en tu servicio de internet </string>
+    <string name="txvb03"> Puedes realizar sugerencias las cuales serviran para mejorar el servicio. </string>
+    <string name="txvb02"> Puedes consultar tus inconvenientes registrados asi como la etapa en la que encuentran tambien puedes cancelarlos si deseas. </string>
+    <string name="txvb01"> Puedes registrar tus inconvenientes presentados de acuerdo al departamento que desees, ya sea al tecnico o administrativo. </string>
+
+    <string name="txvbo04"> Puedes enviar notitifaciones sobre incidenctes y recibir sugerencias </string>
+    <string name="txvbo03"> Puedes visualizar el comportamiento de las incidencias por medio de graficas. </string>
+    <string name="txvbo02"> Puedes visualizar las incidencias hechas por los usuarios de acuerdo a tus requerimientos y asignarles un estado  </string>
     <string name="txvbo01">Puedes registrar usuarios, consultar y modificar su informacion.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main2">Main2</string>
+
+    <!-- listas de los recycler view -->
+    <string name="asunto"> Notificacion </string>
+    <string name="estado"> estado </string>
+    <string name="fecha"> fecha </string>
+    <string name="tipo"> tipo </string>
+    <string name="comentario"> #_incidencia </string>
+    <string name="refactor"> estado </string>
 
 
 </resources>

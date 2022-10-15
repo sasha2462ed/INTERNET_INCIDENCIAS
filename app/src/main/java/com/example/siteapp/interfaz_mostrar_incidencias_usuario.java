@@ -1,10 +1,5 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,7 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasAdministrativasBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasUsuarioBinding;
 
 public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
@@ -106,5 +105,33 @@ public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
 
             return super.onOptionsItemSelected(item);
         }
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
     }

@@ -13,6 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="194dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
@@ -30,6 +31,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="130dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
@@ -47,6 +49,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
@@ -61,6 +64,10 @@
         android:id="@+id/txv3"
         android:layout_width="217dp"
         android:layout_height="104dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/txv3"
         android:textSize="20sp"
@@ -78,6 +85,7 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
         android:src="@drawable/ic_post_add_black_24dp"
@@ -94,12 +102,13 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:layout_marginTop="266dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="264dp"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
         android:src="@drawable/ic_output_black_24dp"
         app:layout_constraintEnd_toStartOf="@+id/btn2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txv3"
         tools:ignore="MissingConstraints" />
@@ -110,7 +119,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="@string/btn2"
@@ -118,6 +127,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/btn3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono15"
         app:layout_constraintTop_toBottomOf="@+id/txv3" />
 
     <Button
@@ -126,11 +136,12 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/btn3"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono3"
         app:layout_constraintTop_toBottomOf="@+id/btn2" />
 
     <Button
@@ -139,10 +150,11 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/sugerencias"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono5"
         app:layout_constraintTop_toBottomOf="@+id/botonmostrarusuario" />
 
     <Button
@@ -151,10 +163,11 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:text="SALIR"
+        android:layout_marginEnd="8dp"
+        android:text="@string/salirusuario"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono22"
         app:layout_constraintTop_toBottomOf="@+id/sugerencias" />
 
     <Button
@@ -163,10 +176,11 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/botonmostrarusuario"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono4"
         app:layout_constraintTop_toBottomOf="@+id/btn3" />
 
 

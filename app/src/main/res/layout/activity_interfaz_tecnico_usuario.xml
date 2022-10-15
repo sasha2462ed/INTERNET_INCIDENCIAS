@@ -83,12 +83,10 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/txp10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txp9" />
 
@@ -103,8 +101,21 @@
         android:gravity="center"
         android:hint="@string/txp12"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/icono506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txp10" />
+
+    <EditText
+        android:id="@+id/tx13"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:hint="@string/tx13"
+        app:layout_constraintEnd_toStartOf="@+id/icono89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txp12" />
 
     <ImageView
         android:id="@+id/icono506"
@@ -113,11 +124,29 @@
         android:layout_gravity="center"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:paddingLeft="13dp"
         android:paddingRight="13dp"
         android:src="@drawable/ic_baseline_info_24"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txp12"
         app:layout_constraintTop_toBottomOf="@+id/txp10"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/icono89"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tx13"
+        app:layout_constraintTop_toBottomOf="@+id/icono506"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -126,13 +155,12 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:gravity="center|center_horizontal"
         android:text="@string/btn9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txp12" />
+        app:layout_constraintTop_toBottomOf="@+id/tx13" />
 
     <Button
         android:id="@+id/btn12"
@@ -155,9 +183,23 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/btn13"
+        android:text="@string/salirusuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn12" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,38 +1,64 @@
 package com.example.siteapp;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+//import static com.example.siteapp.R.id.imageView;
 
-import android.content.Context;
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityInterfazTecnicoUsuarioBinding;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class interfaz_tecnico_usuario extends AppCompatActivity {
     private ActivityInterfazTecnicoUsuarioBinding v5;
+
+    private static final int Read_Permission = 101;
+    ActivityResultLauncher<Intent> mTakePhoto;
+    Bitmap bitmap;
+    Uri imageUri;
+    GridView gvImagenes;
+
+    List<Uri> listaImagenes = new ArrayList<>();
+    List<String> listaBase64Imagenes = new ArrayList<>();
+
+    GridViewAdapter baseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +67,83 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
         v5 = ActivityInterfazTecnicoUsuarioBinding.inflate(getLayoutInflater());
         View view = v5.getRoot();
         setContentView(view);
+
+
+        mTakePhoto = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+
+                        if(result.getResultCode() == RESULT_OK && null  != result.getData()){
+                            Uri filePath = result.getData().getData();
+                            try {
+                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
+
+                                AlertDialog.Builder camara = new AlertDialog.Builder(interfaz_tecnico_usuario.this);
+
+                                LayoutInflater camara_imagen = LayoutInflater.from(getApplicationContext());
+                                final View vista = camara_imagen.inflate(R.layout.dialog_camara, null);
+
+                                camara.setPositiveButton("Guardar imagen", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        Toast.makeText(getApplicationContext(), "Imagen guardada correctamente", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }) .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        dialog.cancel();
+
+                                    }
+                                });
+
+                                AlertDialog image = camara.create();
+                                camara.setCancelable(false);
+                                image.setTitle("Imagen");
+                                image.setView(vista);
+                                image.show();
+                                ImageView imageView = image.findViewById(R.id.imageView);
+                                Objects.requireNonNull(imageView).setImageBitmap(bitmap);
+                                if (imageView != null) {
+                                    imageView.setImageBitmap(bitmap);
+                                }
+
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }
+                });
+
+
+                v5.icono89.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if(ContextCompat.checkSelfPermission(getApplicationContext(),  Manifest.permission.READ_EXTERNAL_STORAGE)
+                                != PackageManager.PERMISSION_GRANTED){
+                            ActivityCompat.requestPermissions(interfaz_tecnico_usuario.this,
+                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},Read_Permission);
+                            return;
+
+                        }
+                        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType("image/*");
+
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2){
+                            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                        }
+
+                        mTakePhoto.launch(intent);
+
+                    }
+                });
+
 
 
         v5.icono506.setOnClickListener(new View.OnClickListener() {
@@ -174,9 +277,14 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
 
                                     }
                                     else {
+                                        if (v5.tx13.getText().toString().trim().isEmpty()) {
+                                            Toast.makeText(getApplicationContext(), "Campo referencia vacio", Toast.LENGTH_SHORT).show();
 
-                                        String ip = getString(R.string.ip);
-                                        insertarproducto(ip+"/conexion_php/insertar_usuario.php");
+                                        }else {
+
+                                            String ip = getString(R.string.ip);
+                                            insertarproducto(ip + "/conexion_php/insertar_usuario.php");
+                                        }
 
                                     }
                                 }
@@ -232,6 +340,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                     v5.txp9.getText().clear();
                     v5.txp10.getText().clear();
                     v5.txp12.getText().clear();
+                    v5.tx13.getText().clear();
 
                 } else if(response.toString().trim().equals("2")){
 
@@ -256,6 +365,9 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams () throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String, String>();
+                String imagen = getStringImagen(bitmap);
+                String ip = getString(R.string.ip);
+                parametros.put("ip",ip);
                 //parametros.put("id".toString().toString());
                 parametros.put("nombre",v5.txp6.getText().toString().trim());
                 parametros.put("cedula",v5.txp7.getText().toString().trim());
@@ -263,11 +375,78 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                 parametros.put("telefono",v5.txp9.getText().toString().trim());
                 parametros.put("direccion",v5.txp10.getText().toString().trim());
                 parametros.put("ap",v5.txp12.getText().toString().trim());
+                parametros.put("ubicacion",v5.tx13.getText().toString().trim());
+                parametros.put("referencia",imagen);
                 return parametros;
             }
         };
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+        private  String getStringImagen(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes,Base64.DEFAULT);
+        return encodedImage;
+    }
+//    public void subirImagenes() {
+//
+//        listaBase64Imagenes.clear();
+//
+//        for(int i = 0 ; i < listaImagenes.size() ; i++) {
+//            try {
+//                InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
+//                Bitmap bitmap = BitmapFactory.decodeStream(is);
+//
+//                String cadena = convertirUriToBase64(bitmap);
+//
+//                //enviarImagenes("nomIma"+i, cadena);
+//
+//                bitmap.recycle();
+//
+//            } catch (IOException e) { }
+//
+//        }
+//    }
+//
+//    private String convertirUriToBase64(Bitmap bitmap) {
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+//        byte[] bytes = baos.toByteArray();
+//        String encode = Base64.encodeToString(bytes, Base64.DEFAULT);
+//
+//        return encode;
+//    }
 
 }

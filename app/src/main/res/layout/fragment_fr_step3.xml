@@ -29,7 +29,7 @@
         android:layout_width="282dp"
         android:layout_height="100dp"
         android:gravity="center"
-        android:text="Puedes visualizar el comportamiento de las incidencias por medio de graficas."
+        android:text="@string/txvbo03"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

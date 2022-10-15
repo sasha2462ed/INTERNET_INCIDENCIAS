@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/cerrar"
-        android:title="Cerrar sesion" />
+        android:title="@string/cerrar" />
 
     <item
         android:id="@+id/notify"
+        android:actionLayout="@layout/notificacion_badgee"
         android:icon="@drawable/ic_launcher_asignament_noti"
-        android:title="Item"
-        app:showAsAction="always"
-        android:actionLayout="@layout/notificacion_badgee"/>
+        android:title="@string/notify"
+        app:showAsAction="always" />
 
 
 

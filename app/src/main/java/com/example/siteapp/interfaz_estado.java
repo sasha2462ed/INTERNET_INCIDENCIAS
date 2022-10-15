@@ -1,15 +1,8 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,25 +11,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
 import com.example.siteapp.databinding.ActivityInterfazEstadoBinding;
-import com.jjoe64.graphview.ValueDependentColor;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,7 +45,11 @@ public class interfaz_estado extends AppCompatActivity {
     String tipo;
     int state;
     String stt;
+    Context ct;
 
+    String KEY_IMAGE="foto";
+    Bitmap bitmap;
+    int pick_IMAGE_REQUEST=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +70,7 @@ public class interfaz_estado extends AppCompatActivity {
         tipo = getIntent().getStringExtra("tipo");
         Log.i("result", "Datagestion: " + idCliente);
         Log.i("result", "Datagestion: " + idIncidencia);
-
+        ct=view.getContext();
 
         ////////////********************///////////////////////////////////////////
         String ip = getString(R.string.ip);
@@ -198,6 +190,9 @@ public class interfaz_estado extends AppCompatActivity {
                                                 protected Map<String, String> getParams() throws AuthFailureError {
                                                     Map<String, String> parametros = new HashMap<String, String>();
                                                     //parametros.put("id".toString().toString());
+                                                    SharedPreferences admin=ct.getSharedPreferences("x",MODE_PRIVATE);
+                                                    String id=admin.getString("id","");
+                                                    parametros.put("id_tec", id);
                                                     parametros.put("id_user", idCliente );
                                                     parametros.put("id_inc", idIncidencia);
                                                     parametros.put("cierre", v30.resoluciong.getText().toString().trim());
@@ -262,7 +257,7 @@ public class interfaz_estado extends AppCompatActivity {
          /****************************************/
 
         ip = getString(R.string.ip);
-        String URL3 = ip+"/conexion_php/detalle_gestionn.php";
+        String URL3 = ip+"/conexion_php/detalle_gestion_fn.php";
 
         StringRequest stringRequest1 = new StringRequest(Request.Method.POST,URL3, new Response.Listener<String>() {
             @Override
@@ -281,7 +276,8 @@ public class interfaz_estado extends AppCompatActivity {
                                             gestion.getString("cierre").toString(),
                                             gestion.getString("tipo").toString(),
                                             gestion.getString("fecha").toString(),
-                                    gestion.getString("idd").toString()
+                                    gestion.getString("idd").toString() ,
+                                    gestion.getString("idtec").toString()
 
 
 
@@ -392,4 +388,84 @@ public class interfaz_estado extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+//    public  String getStringImagen(Bitmap bmp){
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//        byte[] imageBytes = baos.toByteArray();
+//        String encodedImage = Base64.encodeToString(imageBytes,Base64.DEFAULT);
+//        return encodedImage;
+//    }
+//
+//    public void uploadImage(){
+//
+//        String ip = getString(R.string.ip);
+//        String URL03 = ip+"/conexion_php/detalle_gestion_fn.php";
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL03, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.i("result", error.toString());
+//
+//            }
+//
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> parametros = new HashMap<String, String>();
+//                String imagen = getStringImagen(bitmap);
+//                parametros.put("tipo", departamento);
+//                // ojo con ese tipo y departamento es para el php de gestion de cierre
+//                parametros.put("KEY_IMAGE", imagen);
+//                //parametros.put("tipo", tipo);
+//                return parametros;
+//                ///
+//            }
+//        };
+//        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
+//
+//
+//    }
+//
+//    private void showFileChooser(){
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Seleccione imagen"),pick_IMAGE_REQUEST);
+//    }
 }

@@ -30,7 +30,7 @@
         android:layout_height="87dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Puedes enviar notitifaciones sobre incidenctes y recibir sugerencias"
+        android:text="@string/txvbo04"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

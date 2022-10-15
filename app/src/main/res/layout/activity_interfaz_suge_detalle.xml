@@ -8,11 +8,13 @@
 
     <TextView
         android:id="@+id/txs1"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center|left"
-        android:text="Detalle / Sugerencia"
+        android:text="@string/txs1"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,10 +26,10 @@
         android:id="@+id/tvs2"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:gravity="center|left"
-        android:text="Asunto:"
+        android:text="@string/tvs2"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +37,9 @@
 
     <TextView
         android:id="@+id/tvs3"
-        android:layout_width="284dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:gravity="center|left"
@@ -49,16 +52,16 @@
 
     <TextView
         android:id="@+id/tvs4"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txs1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvs2" />
 
     <Button
         android:id="@+id/btns"
@@ -67,7 +70,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="48dp"
-        android:text="ok"
+        android:text="@string/btns"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

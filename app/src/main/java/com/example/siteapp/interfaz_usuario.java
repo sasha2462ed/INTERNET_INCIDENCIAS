@@ -1,11 +1,5 @@
 package com.example.siteapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -26,27 +20,25 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.siteapp.databinding.ActivityInterfazUsuarioBinding;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class interfaz_usuario extends AppCompatActivity {
     private ActivityInterfazUsuarioBinding v2;
     String trampa = "0";
-    int count ;
     Context ct;
     MenuItem menuItem;
     TextView notification;
@@ -150,8 +142,7 @@ public class interfaz_usuario extends AppCompatActivity {
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                         showNotification();
-                        //Runtime.getRuntime().gc();
-                        //System.gc();
+
 
                     } else {
                         showNewNotification();
@@ -227,7 +218,6 @@ public class interfaz_usuario extends AppCompatActivity {
         MenuInflater inflador=getMenuInflater();
         inflador.inflate(R.menu.cerrar,menu);
         menuItem = menu.findItem(R.id.notify);
-
         return super.onCreateOptionsMenu(menu);
     }
     @Override
@@ -329,7 +319,7 @@ public class interfaz_usuario extends AppCompatActivity {
     /////////***********////////    /
     public void hilo (){
         try{
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             inc();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -369,4 +359,34 @@ public class interfaz_usuario extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
 }

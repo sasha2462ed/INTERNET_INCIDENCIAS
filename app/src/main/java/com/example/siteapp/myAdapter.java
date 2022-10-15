@@ -37,31 +37,56 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
     @Override
     public void onBindViewHolder(@NonNull myAdapter.ContenetViews holder, int position) {
 
-        String comentario=items.get(position).comentario;
+        String comentario=(items.get(position).comentario);
         String cedula=items.get(position).cedula;
         String departamento=items.get(position).departamento;
+
+
         holder.tipo.setText(items.get(position).tipo);
-        holder.idIncidencias.setText(items.get(position).idIncidencias);
+        holder.idIncidencias.setText("#"+items.get(position).idIncidencias);
         holder.fecha.setText(items.get(position).hora);
         holder.estado.setText(items.get(position).estado);
         holder.idClient.setText(items.get(position).idUser);
+        String lp = items.get(position).lp;
+        String pl=items.get(position).idIncidencias;
 
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences admin=v.getContext().getSharedPreferences("x", Context.MODE_PRIVATE);
+                String tip_usuario=admin.getString("tip_usuario","");
 
-                    Intent intent=new Intent(v.getContext(),interfaz_mostrar_incidencias_tecnicas_nivel_usuario.class);
-                    intent.putExtra("idClient",holder.idClient.getText().toString());
-                    intent.putExtra("idIncidencia",holder.idIncidencias.getText().toString());
-                    intent.putExtra("cedula",cedula);
-                    intent.putExtra("departamento", departamento);
-                    intent.putExtra("estado",holder.estado.getText().toString());
-                    intent.putExtra("comentario",comentario);
-                    intent.putExtra("tipo",holder.tipo.getText().toString());
-                    v.getContext().startActivity(intent);
+                    switch (tip_usuario.toString()) {
+                        case "C":
 
-            }
-        });
+                            Intent intent=new Intent(v.getContext(),interfaz_incidencias_usuario.class);
+                            intent.putExtra("idClient",holder.idClient.getText().toString());
+                            intent.putExtra("idIncidencia",pl.toString());
+                            intent.putExtra("tipo",holder.tipo.getText().toString());
+                            v.getContext().startActivity(intent);
+
+                            break;
+                        case "T":
+                            intent = new Intent(v.getContext(), interfaz_mostrar_incidencias_tecnicas_nivel_usuario.class);
+                            intent.putExtra("idClient", holder.idClient.getText().toString());
+                            intent.putExtra("idIncidencia", pl.toString());
+                            intent.putExtra("cedula", cedula);
+                            intent.putExtra("departamento", departamento);
+                            intent.putExtra("estado", holder.estado.getText().toString());
+                            intent.putExtra("comentario", comentario);
+                            intent.putExtra("tipo", holder.tipo.getText().toString());
+                            v.getContext().startActivity(intent);
+
+                            break;
+
+                    }
+                }
+            });
+
+
+
+
+
 
     }
 

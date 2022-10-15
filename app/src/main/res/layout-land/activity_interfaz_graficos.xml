@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="VISUALIZAR"
+        android:text="@string/btngrc"
         app:layout_constraintStart_toEndOf="@+id/months"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Crear PDF"
+        android:text="@string/write"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

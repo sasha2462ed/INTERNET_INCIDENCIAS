@@ -30,7 +30,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center|left"
-                android:text="Buzon de notificaciones"
+                android:text="@string/tvn1"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
