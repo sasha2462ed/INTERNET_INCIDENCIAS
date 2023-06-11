@@ -1,8 +1,6 @@
 package com.example.siteapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,7 +21,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -45,7 +42,6 @@ import java.util.Arrays;
 public class interfaz_graficos extends AppCompatActivity {
 
     ActivityInterfazGraficosBinding layout;
-    RequestQueue requestQueue;
     private Spinner months;
     int mesIndice=0;
     final String[] valor = {""};
@@ -139,6 +135,8 @@ public class interfaz_graficos extends AppCompatActivity {
 
                             for (int cont = 0; cont < barras.length(); cont++) {
                                 cordenadas[cont] = new DataPoint(cont, y[cont]);
+
+                                Log.i("mayorArray", Arrays.toString(cordenadas));
                             }
                             graph.removeAllSeries();
 
@@ -303,8 +301,6 @@ public class interfaz_graficos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
-        String tip_usuario=admin.getString("tip_usuario","");
 
         switch (item.getItemId())
         {
@@ -324,15 +320,19 @@ public class interfaz_graficos extends AppCompatActivity {
 
                 break;
 
+            case R.id.graphAp:
+
+                intent = new Intent(getApplicationContext(), interfaz_pieChart_incidencias.class);
+                startActivity(intent);
+
+                break;
+
 
             case R.id.salir:
 
 
-                    intent = new Intent(getApplicationContext(), interfaz_mostrar_graficas.class);
-                    startActivity(intent);
-
-
-
+                intent = new Intent(getApplicationContext(), interfaz_mostrar_graficas.class);
+                startActivity(intent);
 
                 break;
 
@@ -372,33 +372,5 @@ public class interfaz_graficos extends AppCompatActivity {
 
  */
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

@@ -3,6 +3,7 @@ package com.example.siteapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,9 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
                 SharedPreferences admin=v.getContext().getSharedPreferences("x", Context.MODE_PRIVATE);
                 String tip_usuario=admin.getString("tip_usuario","");
 
+                String ip=admin.getString("ip","");
+                Log.i("resulhp", "Array: " + ip.toString());
+
                     switch (tip_usuario.toString()) {
                         case "C":
 
@@ -66,6 +70,20 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ContenetViews> {
                             v.getContext().startActivity(intent);
 
                             break;
+                        case "D":
+
+                            intent = new Intent(v.getContext(), interfaz_mostrar_incidencias_tecnicas_nivel_usuario.class);
+                            intent.putExtra("idClient", holder.idClient.getText().toString());
+                            intent.putExtra("idIncidencia", pl.toString());
+                            intent.putExtra("cedula", cedula);
+                            intent.putExtra("departamento", departamento);
+                            intent.putExtra("estado", holder.estado.getText().toString());
+                            intent.putExtra("comentario", comentario);
+                            intent.putExtra("tipo", holder.tipo.getText().toString());
+                            v.getContext().startActivity(intent);
+
+                            break;
+
                         case "T":
                             intent = new Intent(v.getContext(), interfaz_mostrar_incidencias_tecnicas_nivel_usuario.class);
                             intent.putExtra("idClient", holder.idClient.getText().toString());

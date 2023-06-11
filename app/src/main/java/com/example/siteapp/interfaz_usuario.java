@@ -33,6 +33,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.siteapp.databinding.ActivityInterfazUsuarioBinding;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,11 +56,12 @@ public class interfaz_usuario extends AppCompatActivity {
         v2 = ActivityInterfazUsuarioBinding.inflate(getLayoutInflater());
         View view = v2.getRoot();
         setContentView(view);
-
-
         ct=view.getContext();
         time time = new time();
         time.execute();
+
+        validarUsuario();
+
 
         ///****************//////
         ////**********///////////
@@ -85,6 +89,7 @@ public class interfaz_usuario extends AppCompatActivity {
             public void onClick(View v) {
                 finishAffinity();
                 System.exit(0);
+                onStop();
             }
         });
 
@@ -361,32 +366,81 @@ public class interfaz_usuario extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    private void validarUsuario(){
 
-    }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+
+        String ip = getString(R.string.ip);
+        String URL = ip+"/conexion_php/hash.php";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(!response.isEmpty()) {
+                    try {
+                        JSONObject objUser= new JSONObject(response);
+                        //Intent activity=null;
+                        Log.i("result","Datares: "+response);
+                        SharedPreferences admin=ct.getSharedPreferences("x",ct.MODE_PRIVATE);
+                        SharedPreferences.Editor data=admin.edit();
+
+                        data.putString("nombre",objUser.getString("nombre"));
+                        data.putString("cedula",objUser.getString("cedula"));
+                        data.putString("tip_usuario",objUser.getString("tip_usuario"));
+                        data.putString("id",objUser.getString("id"));
+                        data.putString("ap",objUser.getString("ap"));
+                        data.putString("ip",ip.toString());
+                        data.putString("id_groupInc",objUser.getString("group_inc"));
+                        data.commit();
+                        data.apply();
+
+
+
+                    } catch (JSONException e) {
+                        Log.i("Error",e.getMessage());
+                    }
+
+                }else{
+
+                }
+
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+
+        }){
+            @Override
+            protected Map<String, String> getParams () throws AuthFailureError {
+                Map<String,String> parametros = new HashMap<String, String>();
+                SharedPreferences admin=ct.getSharedPreferences("x",ct.MODE_PRIVATE);
+                String cedula=admin.getString("cedula","");
+                String contrasena=admin.getString("contrasena","");
+                Log.i("result","Datac: "+cedula);
+                Log.i("result","Datacc: "+contrasena);
+                parametros.put("cedula",cedula);
+                parametros.put("contrasena",contrasena);
+                return parametros;
+            }
+        };
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
+
 
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+        finishAffinity(); // se comporta bien
+        Toast.makeText(getApplicationContext(),"aqui stop", Toast.LENGTH_SHORT).show();
+        //finish();  // se comporta mas o menos el detalle me reingresa en otra actividd
 
     }
 }

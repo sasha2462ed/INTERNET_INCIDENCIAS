@@ -1,10 +1,7 @@
 package com.example.siteapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,17 +9,12 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.siteapp.databinding.ActivityInterfazMostrarIncidenciasUsuarioBinding;
 
 public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
 
     ActivityInterfazMostrarIncidenciasUsuarioBinding layout;
-    RecyclerView lista;
-
-    String trampa;
-
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -44,33 +36,26 @@ public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
         @Override
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-            trampa = getIntent().getStringExtra("trampa");
 
 
-            SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
-            String tip_usuario=admin.getString("tip_usuario","");
-            Log.i("result","Data: "+tip_usuario);
-            Log.i("result","dependiente: "+trampa);
-
-            switch (item.getItemId())
-            {
+            switch (item.getItemId()) {
 
                 case R.id.admin:
 
 
-                        frlnAdu fr3=new frlnAdu();
-                        FragmentTransaction mFragmentAdmin = getSupportFragmentManager().beginTransaction();
-                        mFragmentAdmin.replace(layout.containerF.getId(),fr3);
-                        mFragmentAdmin.commit();
+                    frlnAdu fr3 = new frlnAdu();
+                    FragmentTransaction mFragmentAdmin = getSupportFragmentManager().beginTransaction();
+                    mFragmentAdmin.replace(layout.containerF.getId(), fr3);
+                    mFragmentAdmin.commit();
 
 
                     break;
                 case R.id.tecnico:
 
-                        frlnTecu fr4 = new frlnTecu();
-                        FragmentTransaction mFragmentTec = getSupportFragmentManager().beginTransaction();
-                        mFragmentTec.replace(layout.containerF.getId(),fr4);
-                        mFragmentTec.commit();
+                    frlnTecu fr4 = new frlnTecu();
+                    FragmentTransaction mFragmentTec = getSupportFragmentManager().beginTransaction();
+                    mFragmentTec.replace(layout.containerF.getId(), fr4);
+                    mFragmentTec.commit();
 
 
                     break;
@@ -78,26 +63,10 @@ public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
 
                 case R.id.regre:
 
-                    if(tip_usuario.equals("C")){
 
-                        Intent intent = new Intent( getApplicationContext(),interfaz_usuario.class);
+                        Intent intent = new Intent(getApplicationContext(), interfaz_usuario.class);
                         startActivity(intent);
 
-                    }
-
-                    else if (tip_usuario.equals("T")) {
-
-                        Intent intent = new Intent( getApplicationContext(),interfaz_tecnico.class);
-                        startActivity(intent);
-
-
-                    } else {
-
-                        Intent intent = new Intent( getApplicationContext(),interfaz_dependiente.class);
-                        startActivity(intent);
-
-
-                    }
 
                     break;
 
@@ -106,32 +75,8 @@ public class interfaz_mostrar_incidencias_usuario extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     @Override
-    protected void onStart() {
-        super.onStart();
-
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), interfaz_usuario.class);
+        startActivity(intent);
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
-    }
+}

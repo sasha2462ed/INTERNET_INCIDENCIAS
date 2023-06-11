@@ -1,286 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".interfaz_mostrar_incidencias_tecnicas_nivel_usuario">
 
-
     <TextView
         android:id="@+id/estado"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|right"
-        android:text="@string/textView11"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvm8"
-        app:layout_constraintVertical_bias="0.022"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv3"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv3"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv4"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv4"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv3"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv7"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv7"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv6"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv8"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv8"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv7"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv9"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv9"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv8"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/textView10"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv9"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/txvv6"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:gravity="center|right"
-        android:text="@string/txvv6"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvv4"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <ImageView
-        android:id="@+id/maps"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="2dp"
-        android:rotation="90"
-        android:src="@drawable/ic_baseline_navigation_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvmc5"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc4"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/btnestad"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="2dp"
-        android:src="@drawable/ic_baseline_cancel_24"
-        app:layout_constraintEnd_toEndOf="@+id/btnestado"
-        app:layout_constraintStart_toEndOf="@+id/tvm8"
-        app:layout_constraintTop_toTopOf="@+id/btnestado" />
-
-    <TextView
-        android:id="@+id/tvm9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/tvm8"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvmc2"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txvv6"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc1"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <ImageView
-        android:id="@+id/btnestado"
-        android:layout_width="51dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="16dp"
-        android:paddingLeft="1dp"
-        android:paddingRight="2dp"
-        android:src="@drawable/ic_touch_app_black_48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvm8"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc7" />
-
-    <TextView
-        android:id="@+id/tvmc4"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txvv6"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc2"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvmc6"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txvv8"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc5"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvmc1"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txvv3"
-        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvmc5"
-        android:layout_width="190dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/maps"
-        app:layout_constraintStart_toEndOf="@+id/txvv8"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc4"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvm8"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnestado"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc7"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
-        android:id="@+id/tvmc7"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center|left"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/tvmc6"
-        tools:ignore="HardcodedText,RtlHardcoded" />
-
-    <TextView
         android:id="@+id/Detallecc"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/Detallec"
@@ -288,10 +35,411 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
+    <TextView
+        android:id="@+id/txvv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Detallecc"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv3"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txvv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvv3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv4"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv3"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvv4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv6"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv4"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv0080"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvv6"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv0080"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv6"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+    <TextView
+        android:id="@+id/txvv8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvv0080"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv8"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv0080"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc5"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv08"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc5"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvv8"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="13dp"
+        android:gravity="center|right|top"
+        android:text="@string/textView10"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvv8"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/txvv7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView10"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center|right|top"
+        android:text="@string/txvv7"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc05"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|top"
+        android:text="@string/textView11"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc05"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Detallecc"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txvv3"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv3"
+        app:layout_constraintTop_toBottomOf="@+id/Detallecc"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txvv4"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv6"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc1"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txvv6"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv6"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc2"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+    <TextView
+        android:id="@+id/tvmc006"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txvv0080"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txvv0080"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc4"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvmc6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc006"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/txvv0080"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txvv8"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc006"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvm8"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc6"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/btnestad"
+        android:layout_toEndOf="@+id/textView10"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnestado"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc6"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/btnestad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc6"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="2dp"
+        android:src="@drawable/ic_baseline_cancel_24"
+        app:layout_constraintEnd_toEndOf="@+id/btnestado"
+        app:layout_constraintStart_toEndOf="@+id/tvm8"
+        app:layout_constraintTop_toTopOf="@+id/btnestado" />
+
+    <ImageView
+        android:id="@+id/btnestado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc6"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="2dp"
+        android:src="@drawable/ic_touch_app_black_48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvm8"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc6" />
+
+
+    <TextView
+        android:id="@+id/tvmc5"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/textView10"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/maps"
+        android:layout_toEndOf="@+id/txvv7"
+        android:gravity="center|top|left"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/maps"
+        app:layout_constraintStart_toEndOf="@+id/txvv7"
+        app:layout_constraintTop_toBottomOf="@+id/tvm8"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/maps"
+        android:layout_width="50dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/btnestad"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="2dp"
+        android:rotation="90"
+        android:src="@drawable/ic_baseline_navigation_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvmc5"
+        app:layout_constraintTop_toBottomOf="@+id/tvm8"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tvmc05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvmc5"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/REF"
+        android:layout_toEndOf="@+id/txvv08"
+        android:gravity="center|top|left"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/REF"
+        app:layout_constraintStart_toEndOf="@+id/txvv08"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc5"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <ImageView
+        android:id="@+id/REF"
+        android:layout_width="50dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/tvmc5"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:src="@drawable/ic_baseline_photo_camera_back_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvmc05"
+        app:layout_constraintTop_toBottomOf="@+id/tvmc5"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvm9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toStartOf="@+id/REFF"
+        android:gravity="center|top"
+        android:hint="@string/tvm9"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/REFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+    <ImageView
+        android:id="@+id/REFF"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:src="@drawable/ic_baseline_preview_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:ignore="MissingConstraints" />
+
+
+</RelativeLayout>

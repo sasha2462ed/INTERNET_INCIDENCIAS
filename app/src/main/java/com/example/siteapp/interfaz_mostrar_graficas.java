@@ -4,9 +4,7 @@ import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,8 +55,6 @@ public class interfaz_mostrar_graficas extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
-        String tip_usuario=admin.getString("tip_usuario","");
 
         switch (item.getItemId())
         {
@@ -78,31 +74,17 @@ public class interfaz_mostrar_graficas extends AppCompatActivity {
 
                 break;
 
+            case R.id.graphAp:
+
+                intent = new Intent(getApplicationContext(), interfaz_pieChart_incidencias.class);
+                startActivity(intent);
+
+                break;
 
             case R.id.salir:
 
-                if(tip_usuario.equals("C")){
-
-                    intent = new Intent(getApplicationContext(), interfaz_usuario.class);
-                    startActivity(intent);
-
-                }
-
-                else if (tip_usuario.equals("T")) {
-
-                    intent = new Intent(getApplicationContext(), interfaz_tecnico.class);
-                    startActivity(intent);
-
-
-                } else {
-
-                    intent = new Intent(getApplicationContext(), interfaz_dependiente.class);
-                    startActivity(intent);
-
-
-                }
-
-                break;
+                intent = new Intent(getApplicationContext(), interfaz_dependiente.class);
+                startActivity(intent);
 
 
         }
@@ -139,33 +121,5 @@ public class interfaz_mostrar_graficas extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

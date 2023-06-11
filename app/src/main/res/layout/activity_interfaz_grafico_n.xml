@@ -57,7 +57,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/txtN"
+        android:id="@+id/v05"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/spinnergrfN"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtN" />
+        app:layout_constraintTop_toBottomOf="@+id/v05" />
 
     <Button
         android:id="@+id/write"
@@ -115,10 +115,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
             android:layout_marginBottom="8dp">
 
         </com.jjoe64.graphview.GraphView>

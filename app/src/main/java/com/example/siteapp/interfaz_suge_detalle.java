@@ -57,7 +57,7 @@ public class interfaz_suge_detalle extends AppCompatActivity {
                         }else{
                         }
 
-                            Intent intent = new Intent( getApplicationContext(),interfaz_aviso.class);
+                            Intent intent = new Intent( getApplicationContext(),interfaz_avisoss.class);
                             startActivity(intent);
 
                     }
@@ -88,37 +88,8 @@ public class interfaz_suge_detalle extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent( getApplicationContext(),interfaz_aviso.class);
+        Intent intent = new Intent( getApplicationContext(),interfaz_avisoss.class);
         startActivity(intent);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

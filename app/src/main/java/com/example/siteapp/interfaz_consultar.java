@@ -115,6 +115,9 @@ public class interfaz_consultar extends AppCompatActivity {
         v02.tvc6.setEnabled(false);
         v02.tvc7.setEnabled(false);
         v02.tx131.setEnabled(false);
+        v02.tvc006.setEnabled(false);
+        v02.tvc0061.setEnabled(false);
+
 
 
 
@@ -142,6 +145,8 @@ public class interfaz_consultar extends AppCompatActivity {
                             v02.tvc6.setText(jsonObject.getString("nodo"));
                             v02.tvc7.setText(jsonObject.getString("ap"));
                             v02.tx131.setText(jsonObject.getString("ubicacion"));
+                            v02.tvc0061.setText(jsonObject.getString("ip"));
+                            v02.tvc006.setText(jsonObject.getString("cod_color"));
 
                             String so = jsonObject.getString("referencia").toString();
                             Log.i("responseimagen", "Array: " + so.toString());
@@ -176,6 +181,8 @@ public class interfaz_consultar extends AppCompatActivity {
                                         //v02.tvc6.setEnabled(true);
                                         v02.tvc7.setEnabled(true);
                                         v02.tx131.setEnabled(true);
+                                        v02.tvc006.setEnabled(true);
+                                        v02.tvc0061.setEnabled(true);
 
                                     }else{
                                         v02.tvc1.setEnabled(false);
@@ -186,6 +193,8 @@ public class interfaz_consultar extends AppCompatActivity {
                                         //v02.tvc6.setEnabled(false);
                                         v02.tvc7.setEnabled(false);
                                         v02.tx131.setEnabled(false);
+                                        v02.tvc006.setEnabled(false);
+                                        v02.tvc0061.setEnabled(false);
                                     }
 
 
@@ -272,7 +281,10 @@ public class interfaz_consultar extends AppCompatActivity {
                         parametros.put("contrasena",v02.tvc3.getText().toString().trim());
                         parametros.put("telefono",v02.tvc4.getText().toString().trim());
                         parametros.put("direccion",v02.tvc5.getText().toString().trim());
+                        parametros.put("ubicacion",v02.tx131.getText().toString().trim());
                         parametros.put("ap",v02.tvc7.getText().toString().trim());
+                        parametros.put("ip",v02.tvc0061.getText().toString().trim());
+                        parametros.put("cod_color",v02.tvc006.getText().toString().trim());
                         return parametros;
                     }
                 };
@@ -296,6 +308,7 @@ public class interfaz_consultar extends AppCompatActivity {
                 JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL2, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        JSONArray str = null;
                         JSONArray strs = null;
                         JSONArray strss = null;
 
@@ -304,6 +317,7 @@ public class interfaz_consultar extends AppCompatActivity {
 
                             strss = response.getJSONArray(0);
                             strs = response.getJSONArray(1);
+                            str = response.getJSONArray(2);
 
 
                             String op = strss.toString();
@@ -322,10 +336,19 @@ public class interfaz_consultar extends AppCompatActivity {
                             Log.i("v", "Array: " + Arrays.toString(v));
 
 
+                            String mn = str.toString();
+                            mn = str.toString().replace(",", " ");
+                            mn = mn.replace("[", "");
+                            mn = mn.replace("]", "");
+                            mn = mn.replace("\"", "");
+                            String[] w = mn.split(" ");
+                            Log.i("w", "Array: " + Arrays.toString(w));
+
+
                             String[] hp = new String[strs.length()];
                             int i ;
                             for ( i = 0; i < hp.length; i++) {
-                                hp[i] = Arrays.toString(new String[]{z[i] + " --> " + v[i]});
+                                hp[i] = Arrays.toString(new String[]{z[i] + " --> " + w[i]  + " --> " +v[i]});
                                 hp[i] = hp[i].replace("[", "");
                                 hp[i] = hp[i].replace("]", "");
 

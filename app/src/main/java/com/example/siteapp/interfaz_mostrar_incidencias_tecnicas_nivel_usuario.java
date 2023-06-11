@@ -1,5 +1,6 @@
 package com.example.siteapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -112,6 +113,7 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
         String URL=ip+"/conexion_php/detalle.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(String response) {
                 Log.i("result",response.toString());
@@ -126,10 +128,45 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
                         //v29.tvmc3.setText(objUser.getString("contrasena"));
                         v29.tvmc4.setText(objUser.getString("telefono"));
                         v29.tvmc5.setText(objUser.getString("direccion"));
-                        v29.tvmc6.setText(objUser.getString("nodo"));
-                        v29.tvmc7.setText(objUser.getString("ap"));
+                        v29.tvmc6.setText(objUser.getString("nodo")+" -- --> "+objUser.getString("ap"));
+                        //v29.tvmc7.setText(objUser.getString("ap"));
                         v29.tvm9.setText(comentario);
                         v29.tvm8.setText(objUser.getString("estado"));
+                        v29.tvmc05.setText(objUser.getString("ubicacion"));
+                        v29.tvmc006.setText(objUser.getString("ip")+" -- --> "+objUser.getString("cod_color"));
+                        String so = objUser.getString("referencia").toString();
+                        String su = objUser.getString("indicio").toString();
+
+
+
+                        if (!so.isEmpty()) {
+                            v29.REF.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //cargarimagen(so);
+                                    Intent intent=new Intent(getApplicationContext(),interfaz_gestion_image.class);
+                                    intent.putExtra("imagen",so.toString());
+                                    startActivity(intent);
+                                }
+                            });
+
+                        }
+
+
+                        if (!su.isEmpty()) {
+                            v29.REFF.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //cargarimagen(so);
+                                    Intent intent=new Intent(getApplicationContext(),interfaz_gestion_image.class);
+                                    intent.putExtra("imagen",su.toString());
+                                    startActivity(intent);
+                                }
+                            });
+
+                        }
+
+
 
 
                                 v29.maps.setOnClickListener(new View.OnClickListener() {
@@ -263,9 +300,6 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
-        String tip_usuario=admin.getString("tip_usuario","");
-
         switch (item.getItemId())
         {
 
@@ -276,64 +310,12 @@ public class interfaz_mostrar_incidencias_tecnicas_nivel_usuario extends AppComp
                 System.exit(0);
 
                 break;
-/*
-            case R.id.regresar:
 
-                if(tip_usuario.equals("C")){
-
-                    Intent intent = new Intent( getApplicationContext(),interfaz_mostrar_incidencias_usuario.class);
-                    startActivity(intent);
-
-                }
-
-                else if (tip_usuario.equals("T")){
-
-                    Intent intent = new Intent( getApplicationContext(),interfaz_mostrar_incidencias_nivel_tecnico.class);
-                    startActivity(intent);
-
-
-                }else {
-
-                    Intent intent = new Intent( getApplicationContext(),interfaz_mostrar_incidencias_nivel_tecnico.class);
-                    startActivity(intent);
-                }
-
-                break;
-
- */
 
             }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

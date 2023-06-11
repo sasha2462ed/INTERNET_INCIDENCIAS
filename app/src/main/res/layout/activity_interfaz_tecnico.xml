@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,151 +7,16 @@
     tools:context=".interfaz_tecnico">
 
 
-    <ImageView
-        android:id="@+id/icono10"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="276dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:src="@drawable/ic_output_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn21"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv5"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/icono9"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="212dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:src="@drawable/ic_notification_add_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/botonenvionotificacion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv5"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/icono8"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="144dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:src="@drawable/ic_analytics_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv5"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/icono6"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:src="@drawable/ic_description_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv5"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btn6"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/btn6"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icono7"
-        app:layout_constraintTop_toBottomOf="@+id/txv5" />
-
-
-    <ImageView
-        android:id="@+id/icono7"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:src="@drawable/ic_person_add_black_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv5"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btn7"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/btn7"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icono6"
-        app:layout_constraintTop_toBottomOf="@+id/btn6" />
-
-    <Button
-        android:id="@+id/btn8"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/btn8"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icono8"
-        app:layout_constraintTop_toBottomOf="@+id/btn7" />
-
-    <Button
-        android:id="@+id/btn21"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/salirusuario"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/icono10"
-        app:layout_constraintTop_toBottomOf="@+id/botonenvionotificacion" />
-
     <TextView
         android:id="@+id/txv5"
-        android:layout_width="218dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="6dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/txv5"
@@ -166,19 +31,178 @@
         app:layout_constraintVertical_bias="0.121" />
 
     <Button
-        android:id="@+id/botonenvionotificacion"
+        android:id="@+id/btn6"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/txv5"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/icono7"
+        android:text="@string/btn6"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono7"
+        app:layout_constraintTop_toBottomOf="@+id/txv5" />
+
+    <ImageView
+        android:id="@+id/icono7"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/txv5"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/ic_person_add_black_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv5"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/btn7"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn6"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/icono6"
+        android:text="@string/btn7"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono6"
+        app:layout_constraintTop_toBottomOf="@+id/btn6" />
+
+    <ImageView
+        android:id="@+id/icono6"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/icono7"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-7dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/ic_description_black_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv5"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn8"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn7"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/icono8"
+        android:text="@string/btn8"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono8"
+        app:layout_constraintTop_toBottomOf="@+id/btn7" />
+
+    <ImageView
+        android:id="@+id/icono8"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/icono6"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-3dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/ic_analytics_black_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv5"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/botonenvionotificacion"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn8"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/icono9"
         android:text="@string/botonenvionotificacion"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icono9"
         app:layout_constraintTop_toBottomOf="@+id/btn8" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/icono9"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/icono8"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-3dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/ic_notification_add_black_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/botonenvionotificacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv5"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/btn21"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/botonenvionotificacion"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/icono10"
+        android:text="@string/salirusuario"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icono10"
+        app:layout_constraintTop_toBottomOf="@+id/botonenvionotificacion" />
+
+    <ImageView
+        android:id="@+id/icono10"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/icono9"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-7dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:src="@drawable/ic_output_black_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txv5"
+        tools:ignore="MissingConstraints" />
+
+</RelativeLayout>
 
 
 

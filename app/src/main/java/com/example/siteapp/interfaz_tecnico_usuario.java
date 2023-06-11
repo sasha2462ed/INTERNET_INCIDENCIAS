@@ -15,7 +15,6 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,10 +38,8 @@ import com.example.siteapp.databinding.ActivityInterfazTecnicoUsuarioBinding;
 import org.json.JSONArray;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -52,13 +49,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
     private static final int Read_Permission = 101;
     ActivityResultLauncher<Intent> mTakePhoto;
     Bitmap bitmap;
-    Uri imageUri;
-    GridView gvImagenes;
 
-    List<Uri> listaImagenes = new ArrayList<>();
-    List<String> listaBase64Imagenes = new ArrayList<>();
-
-    GridViewAdapter baseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +79,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
-                                        Toast.makeText(getApplicationContext(), "Imagen guardada correctamente", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Imagen Guardada", Toast.LENGTH_SHORT).show();
 
                                     }
                                 }) .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -156,6 +147,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                 JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL2, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        JSONArray str = null;
                         JSONArray strs = null;
                         JSONArray strss = null;
 
@@ -164,6 +156,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
 
                             strss = response.getJSONArray(0);
                             strs = response.getJSONArray(1);
+                            str = response.getJSONArray(2);
 
 
                             String op = strss.toString();
@@ -182,10 +175,19 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                             Log.i("v", "Array: " + Arrays.toString(v));
 
 
+                            String mn = str.toString();
+                            mn = str.toString().replace(",", " ");
+                            mn = mn.replace("[", "");
+                            mn = mn.replace("]", "");
+                            mn = mn.replace("\"", "");
+                            String[] w = mn.split(" ");
+                            Log.i("w", "Array: " + Arrays.toString(w));
+
+
                             String[] hp = new String[strs.length()];
                             int i ;
                             for ( i = 0; i < hp.length; i++) {
-                                hp[i] = Arrays.toString(new String[]{z[i] + " --> " + v[i]});
+                                hp[i] = Arrays.toString(new String[]{z[i] + " --> " + w[i]  + " --> " +v[i]});
                                 hp[i] = hp[i].replace("[", "");
                                 hp[i] = hp[i].replace("]", "");
 
@@ -214,7 +216,7 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
 
                             AlertDialog inf = info.create();
                             info.setCancelable(false);
-                            inf.setTitle("ID-->APs");
+                            inf.setTitle("ID-->Nodo-->APs");
 
                             inf.show();
 
@@ -281,9 +283,14 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Campo referencia vacio", Toast.LENGTH_SHORT).show();
 
                                         }else {
+                                            if (v5.txp0100.getText().toString().trim().isEmpty()) {
+                                                Toast.makeText(getApplicationContext(), "Campo ip vacio", Toast.LENGTH_SHORT).show();
 
-                                            String ip = getString(R.string.ip);
-                                            insertarproducto(ip + "/conexion_php/insertar_usuario.php");
+                                            } else {
+
+                                                String ip = getString(R.string.ip);
+                                                insertarproducto(ip + "/conexion_php/insertar_usuario.php");
+                                            }
                                         }
 
                                     }
@@ -317,15 +324,15 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
             }
         });
 
-        v5.btn13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finishAffinity();
-                System.exit(0);
-            }
-        });
-
-    }
+//        v5.btn13.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finishAffinity();
+//                System.exit(0);
+//            }
+//        });
+//
+}
 
     private void insertarproducto (String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
@@ -341,6 +348,11 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                     v5.txp10.getText().clear();
                     v5.txp12.getText().clear();
                     v5.tx13.getText().clear();
+                    v5.txp0100.getText().clear();
+                    v5.txp0110.getText().clear();
+
+
+
 
                 } else if(response.toString().trim().equals("2")){
 
@@ -370,48 +382,24 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
                 parametros.put("ip",ip);
                 //parametros.put("id".toString().toString());
                 parametros.put("nombre",v5.txp6.getText().toString().trim());
+                parametros.put("tip_usuario","C");
                 parametros.put("cedula",v5.txp7.getText().toString().trim());
                 parametros.put("contrasena",v5.txp8.getText().toString().trim());
                 parametros.put("telefono",v5.txp9.getText().toString().trim());
                 parametros.put("direccion",v5.txp10.getText().toString().trim());
                 parametros.put("ap",v5.txp12.getText().toString().trim());
                 parametros.put("ubicacion",v5.tx13.getText().toString().trim());
+                parametros.put("Ip",v5.txp0100.getText().toString().trim());
+                parametros.put("cod_color",v5.txp0110.getText().toString().trim());
                 parametros.put("referencia",imagen);
+                parametros.put("group_inc","");
                 return parametros;
             }
         };
         VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 
         private  String getStringImagen(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -420,33 +408,10 @@ public class interfaz_tecnico_usuario extends AppCompatActivity {
         String encodedImage = Base64.encodeToString(imageBytes,Base64.DEFAULT);
         return encodedImage;
     }
-//    public void subirImagenes() {
-//
-//        listaBase64Imagenes.clear();
-//
-//        for(int i = 0 ; i < listaImagenes.size() ; i++) {
-//            try {
-//                InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
-//                Bitmap bitmap = BitmapFactory.decodeStream(is);
-//
-//                String cadena = convertirUriToBase64(bitmap);
-//
-//                //enviarImagenes("nomIma"+i, cadena);
-//
-//                bitmap.recycle();
-//
-//            } catch (IOException e) { }
-//
-//        }
-//    }
-//
-//    private String convertirUriToBase64(Bitmap bitmap) {
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-//        byte[] bytes = baos.toByteArray();
-//        String encode = Base64.encodeToString(bytes, Base64.DEFAULT);
-//
-//        return encode;
-//    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), interfaz_tecnico.class);
+        startActivity(intent);
+    }
 }

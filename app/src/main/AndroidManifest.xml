@@ -22,9 +22,43 @@
         android:theme="@style/Theme.SITEAPP"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".interfaz_incidencias_usuario"
+            android:name=".interfaz_pieChart_incidencias"
             android:exported="true" />
-        <!-- <service -->
+        <activity
+            android:name=".interfaz_incidenciasGrupales"
+            android:exported="true" />
+        <activity
+            android:name=".interfz_crearGroup"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_group_tec"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_escalable_adm"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_group_adm"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_inc_adm"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_tec_adm"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_avisoss"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_aviso"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".interfaz_gestion_image"
+            android:exported="true" />
+        <activity
+            android:name=".interfaz_incidencias_usuario"
+            android:exported="true" /> <!-- <service -->
         <!-- android:name=".miservicio1" -->
         <!-- android:enabled="true" -->
         <!-- android:exported="true"></service> -->
@@ -91,11 +125,6 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".interfaz_noti_detalle"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".interfaz_aviso"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />

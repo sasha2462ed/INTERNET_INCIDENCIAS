@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class interfaz_notificaciones extends AppCompatActivity {
 
     private ActivityInterfazNotificacionesBinding layout;
@@ -68,12 +69,12 @@ public class interfaz_notificaciones extends AppCompatActivity {
 
                             itemRec.add(new list_notificacion(
 
-                                    notificacion.getString("asunto").toString(),
-                                    notificacion.getString("fecha").toString(),
-                                    notificacion.getString("estado").toString(),
-                                    notificacion.getString("comentario").toString(),
-                                    notificacion.getString("idNoti").toString(),
-                                    notificacion.getString("origen").toString()
+                                            notificacion.getString("asunto").toString(),
+                                            notificacion.getString("fecha").toString(),
+                                            notificacion.getString("estado").toString(),
+                                            notificacion.getString("comentario").toString(),
+                                            notificacion.getString("idNoti").toString(),
+                                            notificacion.getString("origen").toString()
 
                                     )
                             );

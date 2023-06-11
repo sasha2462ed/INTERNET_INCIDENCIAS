@@ -1,6 +1,5 @@
 package com.example.siteapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -24,8 +22,7 @@ import java.util.Map;
 public class interfaz_sugerencia extends AppCompatActivity {
 
     private ActivityInterfazSugerenciaBinding v9;
-    RequestQueue requestQueue;
-    String trampa;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +31,6 @@ public class interfaz_sugerencia extends AppCompatActivity {
         View view = v9.getRoot();
         setContentView(view);
 
-        trampa = getIntent().getStringExtra("trampa");
 
         v9.botonsugerencia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,23 +44,10 @@ public class interfaz_sugerencia extends AppCompatActivity {
         v9.botonregresarsugerencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences admin=getBaseContext().getSharedPreferences("x", Context.MODE_PRIVATE);
-                String tip_usuario=admin.getString("tip_usuario","");
-
-                if (tip_usuario.equals("C")){
 
                     Intent intent = new Intent( getApplicationContext(),interfaz_usuario.class);
                     startActivity(intent);
 
-                }
-
-                else if (tip_usuario.equals("D")){
-
-                    Intent intent = new Intent( getApplicationContext(),interfaz_dependiente.class);
-                    startActivity(intent);
-
-
-                }
             }
         });
     }
@@ -112,32 +95,8 @@ public class interfaz_sugerencia extends AppCompatActivity {
 
     }
     @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), interfaz_usuario.class);
+        startActivity(intent);
     }
 }

@@ -21,7 +21,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.siteapp.databinding.ActivityInterfazAvisoBinding;
+import com.example.siteapp.databinding.ActivityInterfazAvisossBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,16 +31,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class interfaz_aviso extends AppCompatActivity {
-    private ActivityInterfazAvisoBinding layout;
+public class interfaz_avisoss extends AppCompatActivity {
+
+    private ActivityInterfazAvisossBinding layout;
 
     Context ct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_interfaz_aviso);
-        layout= ActivityInterfazAvisoBinding.inflate(getLayoutInflater());
+        //setContentView(R.layout.activity_interfaz_avisoss);
+        layout= ActivityInterfazAvisossBinding.inflate(getLayoutInflater());
         View view = layout.getRoot();
         setContentView(view);
 
@@ -272,4 +273,6 @@ public class interfaz_aviso extends AppCompatActivity {
         super.onDestroy();
 
     }
+
+
 }

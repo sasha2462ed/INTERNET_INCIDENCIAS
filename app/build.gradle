@@ -57,4 +57,12 @@ dependencies {
     implementation 'com.jjoe64:graphview:4.2.2'
     //implementation pdf
 
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    // To use constraintlayout in compose
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+
+
+    //implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }

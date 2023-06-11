@@ -2,7 +2,7 @@
 
     <!-- Nombre del aplicativo // direccion del hosting  -->
     <string name="app_name">SITEAPP</string>
-    <string name="ip">http://192.168.101.3:8080</string>
+    <string name="ip">http://192.168.101.4:8080</string>
 
     <!-- interfaz login -->
     <string name="txv1"> Bienvenido Anonymus ^w^ </string>
@@ -26,6 +26,7 @@
     <string name="btnNex"> Go </string>
     <string name="btns"> ok </string>
     <string name="write"> Crear PDF </string>
+    <string name="Regreso"> Regresar</string>
 
     <!-- Interfaz usuario -->
     <string name="txv3"> Departamentos Atencion Usuario  ^w^  </string>
@@ -77,7 +78,9 @@
     <string name="txv5"> Nivel Tecnico Anonymus^w^  </string>
     <string name="btn6"> Registrar Usuario </string>
     <string name="btn7"> Mostrar Incidencias </string>
-    <string name="btn8"> Ver Graficos Incidencias </string>
+
+    <!--    <string name="btn8"> Ver Graficos Incidencias </string>-->
+    <string name="btn8"> Grupos Incidencias </string>
     <string name="botonenvionotificacion"> Buzon de notificacion </string>
 
     <!-- interfaz registrar y consultar  usuario -->
@@ -86,6 +89,9 @@
     <string name="txp8"> Contrasena </string>
     <string name="txp9"> telefono </string>
     <string name="txp10"> Direccion </string>
+    <string name="txp0100"> Ip </string>
+    <string name="txvv008"><![CDATA[Ip —> Cod Color:]]></string>
+    <string name="txp0110"> Codigo/Color </string>
     <string name="txp11"> Nodo </string>
     <string name="txp12"> Ap (Anotar solo ID) </string>
     <string name="txp13"> Otro </string>
@@ -96,7 +102,8 @@
     <string name="switch1"> Habilitar edicion </string>
     <string name="Detallecc"> INFORMACION DEL ABONADO </string>
     <string name="txvv5"> CONTRASENA: </string>
-    <string name="tx13"> Referencia/Ubicacion </string>
+    <string name="tx13"> Referencia/Ubicacion: </string>
+    <string name="tvm9"><![CDATA[ <—Sin comentarios—> ]]></string>
 
 
     <!-- interfaz graficos Aps y Nodos-->
@@ -122,6 +129,25 @@
     <!-- interfaz estado -->
     <string name="resoluciong"> AGREGAR RESOLUCION  </string>
     <string name="btnstate"> AGREGAR RESOLUCION  </string>
+    <string name="btnescale"> ESCALAR </string>
+
+    <!-- interfaz crear grupo tecnicos - interfaz_group_tec -->
+    <string name="v15"> ASIGNAR GRUPOS - INCIDENCIAS…!! </string>
+    <string name="v16"> NOMBRE: </string>
+    <string name="v17"> CEDULA: </string>
+    <string name="v18"> CEDULA: </string>
+    <string name="v19"> CEDULA: </string>
+
+
+    <!-- interfaz dependiente  "menu administrador" -->
+    <string name="v01"> Bienvenido menu Administrador UwU  </string>
+    <string name="v02"> Registrar Tecnico </string>
+    <string name="v03"> Registrar incidencias  </string>
+    <string name="v04"> Ver incidencias  </string>
+    <string name="v05"> Indicencias </string>
+    <string name="v06"> CEDULA - ABONADO </string>
+    <string name="v07"> INCIDENCIAS - NODO </string>
+    <string name="v08"> Consultar Incidencias </string>
 
     <!-- interfaz mostrar incidencias detalles tecnicos  -->
     <string name="Detallec"> Detalle!. </string>
@@ -129,11 +155,29 @@
     <string name="txvv4"> CEDULA: </string>
     <string name="txvv6"> TELEFONO: </string>
     <string name="txvv7"> DIRECCION: </string>
-    <string name="txvv8"> NODO: </string>
+    <string name="txvv8"><![CDATA[ NODO —> AP: ]]></string>
     <string name="txvv9"> AP: </string>
     <string name="textView10"> ESTADO: </string>
-    <string name="textView11"> COMENTARIO: </string>
+    <string name="textView11"> COMENTARIO. </string>
+    <string name="txvv08"> REFERENCIA: </string>
+    <string name="txvv0080"><![CDATA[IP —> Cod Color:]]></string>
 
+    <!-- interfaz crear grupo "usuario" -->
+    <string name="t01"> Grupos - Incidencias !! </string>
+    <string name="t02"> VINCULAR AL GRUPO </string>
+    <string name="t03"> CEDULA: </string>
+
+    <!-- interfaz escalable administrador -->
+    <string name="v09"> Incidencias Escaladas…!! </string>
+    <string name="v10"> NOMBRE: </string>
+    <string name="v11"> CEDULA: </string>
+
+    <!-- interfaz incidencias grupales -->
+    <string name="v12"> INCIDENCIAS.!! </string>
+
+    <!-- botones de las imagenes en interfaz gestion image -->
+
+    <string name="btnvr01"> Ok </string>
 
     <!-- botones de los menu -->
     <string name="cerrar"> Cerrar sesion </string>
@@ -144,6 +188,13 @@
     <string name="guia"> Ver Guia </string>
     <string name="nod"> Graficos - Nodo </string>
     <string name="ap"> Graficos - Ap </string>
+    <string name="graphAp"> Pastel - Ap </string>
+
+
+    <string name="id_adm1"> Incidencias - Escaladas </string>
+    <string name="id_adm2"> Grupos - Trabajo </string>
+    <string name="id_adm3"> Graficas - Incidencias  </string>
+    <string name="id_adm4"> Regresar </string>
 
 
     <!-- Fragments -->
@@ -151,6 +202,9 @@
     <string name="frBlank">Panel de Incidencias...</string>
     <string name="btn_frag"> BUSCAR </string>
     <string name="btn_frag_ad"> BUSCAR  </string>
+    <string name="hello_blank_fragment">Panel Administrador...</string>
+    <string name="btnGroup">Incidencias - Grupales</string>
+
 
     <!-- Fragments de procesos -->
     <string name="txvb04"> Recibiras notificaciones para darte a conocer sobre incidentes presentados en tu servicio de internet </string>

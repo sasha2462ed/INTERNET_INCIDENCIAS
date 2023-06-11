@@ -25,7 +25,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -53,7 +52,6 @@ public class interfaz_graficoN extends AppCompatActivity {
     private Spinner spinnergrfap;
     String statenod;
     String stateap;
-    RequestQueue requestQueue;
     ActivityInterfazGraficoNBinding layout;
     int ga;
     int go;
@@ -446,15 +444,17 @@ public class interfaz_graficoN extends AppCompatActivity {
 
                 break;
 
+            case R.id.graphAp:
+
+                intent = new Intent(getApplicationContext(), interfaz_pieChart_incidencias.class);
+                startActivity(intent);
+
+                break;
 
             case R.id.salir:
 
-
-
-                    intent = new Intent(getApplicationContext(), interfaz_mostrar_graficas.class);
-                    startActivity(intent);
-
-
+                intent = new Intent(getApplicationContext(), interfaz_mostrar_graficas.class);
+                startActivity(intent);
 
                 break;
 
@@ -493,33 +493,5 @@ public class interfaz_graficoN extends AppCompatActivity {
     }
 
  */
-@Override
-protected void onStart() {
-    super.onStart();
 
-}
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

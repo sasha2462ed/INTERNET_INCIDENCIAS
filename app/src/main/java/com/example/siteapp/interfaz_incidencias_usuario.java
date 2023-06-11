@@ -30,10 +30,6 @@ public class interfaz_incidencias_usuario extends AppCompatActivity {
     String idCliente;
     String idIncidencia;
 
-    String cedula;
-    String departamento;
-    String tipo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +41,14 @@ public class interfaz_incidencias_usuario extends AppCompatActivity {
 
 
 
-        RecyclerView lisst=v030.listg;
+        RecyclerView list=v030.list;
         ArrayList<Gestion> itemRec05;
         itemRec05=new ArrayList();
 
         String ip = getString(R.string.ip);
-        String URL3 = ip+"/conexion_php/detalle_gestionn.php";
+        String URL = ip+"/conexion_php/detalle_gestionn.php";
 
-        StringRequest stringRequest1 = new StringRequest(Request.Method.POST,URL3, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -70,7 +66,8 @@ public class interfaz_incidencias_usuario extends AppCompatActivity {
                                             gestion.getString("tipo").toString(),
                                             gestion.getString("fecha").toString(),
                                             gestion.getString("idd").toString(),
-                                    gestion.getString("idtec").toString()
+                                    gestion.getString("idtec").toString(),
+                                    gestion.getString("referencia").toString()
 
 
 
@@ -79,9 +76,9 @@ public class interfaz_incidencias_usuario extends AppCompatActivity {
                         }
 
 
-                        lisst.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         RecyclerView.Adapter<myGestion.Contenet> adapter504= new myGestion(itemRec05);
-                        lisst.setAdapter(adapter504);
+                        list.setAdapter(adapter504);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -108,7 +105,7 @@ public class interfaz_incidencias_usuario extends AppCompatActivity {
                 ///
             }
         };
-        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest1);
+        VolleySingleton.getIntanciaVolley(getApplicationContext()).addToRequestQueue(stringRequest);
 
 
 

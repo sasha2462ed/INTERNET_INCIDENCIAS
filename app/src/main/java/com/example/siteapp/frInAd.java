@@ -1,5 +1,7 @@
 package com.example.siteapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,8 +40,8 @@ import java.util.Map;
 public class frInAd extends Fragment {
 
     FragmentFrInAdBinding layout;
-    private Spinner spinner_estado_ad;
-    String state_frag1;
+    private Spinner spinner_estado;
+    String state_frag;
     int ga;
 
     public frInAd() {
@@ -70,15 +72,28 @@ public class frInAd extends Fragment {
         layout=FragmentFrInAdBinding.inflate(inflater,container,false);
         View v=layout.getRoot();
         //View vista= inflater.inflate(R.layout.fragment_fr_in_tec, container, false);
+
+
+        listAdm();
+
         String ip = getString(R.string.ip);
-        RecyclerView list=layout.lista;
-        ArrayList<Incidencias> itemRec;
 
-        itemRec=new ArrayList();
-        /*******************************/
 
-        /****************************************/
+        layout.btnGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String URL =ip+"/conexion_php/buscar_incidenciastec_uni.php";
+                IncGroup(ga, URL);
 
+            }
+        });
+
+
+        return v;
+    }
+
+    public void listAdm (){
+        String ip = getString(R.string.ip);
         String URL=ip+"/conexion_php/item_estados.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL, new Response.Listener<String>() {
@@ -101,93 +116,29 @@ public class frInAd extends Fragment {
                         nods.put(name.get(i).toString(), id.get(i).toString());
                     }
 
-                    spinner_estado_ad = layout.spinnerEstadoAd;
+                    spinner_estado = layout.spinnerEstado;
                     ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(getContext(), R.layout.spinner_item_estado, opciones);
-                    spinner_estado_ad.setAdapter(adapter5);
-                    Log.i("result","Data: "+state_frag1);
+                    spinner_estado.setAdapter(adapter5);
+                    Log.i("result","Data: "+state_frag);
 
 
-                    spinner_estado_ad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    spinner_estado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            state_frag1 = spinner_estado_ad.getItemAtPosition(position).toString();
+                            state_frag = spinner_estado.getItemAtPosition(position).toString();
                             //Log.i("result2",statenod);
 
 
                             try {
-                                ga = Integer.parseInt(String.valueOf(nods.getString(state_frag1)));
+                                ga = Integer.parseInt(String.valueOf(nods.getString(state_frag)));
                                 Log.i("result5", String.valueOf(ga));
 
-                                layout.btnFragAd.setOnClickListener(new View.OnClickListener() {
+                                layout.btnFrag.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        String ip = getString(R.string.ip);
-                                String URL =ip+"/conexion_php/buscar_incidenciastec.php";
 
-                                StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
-                                    @Override
-                                    public void onResponse(String response) {
-                                        if(!response.isEmpty()) {
-                                            try {
-                                                JSONArray object= null;
-
-                                                object = new JSONArray(response);
-                                                Log.i("result","Data: "+response);
-                                                itemRec.clear();
-                                                for(int i=0;i<object.length();i++) {
-                                                    JSONObject indicencia = object.getJSONObject(i);
-
-                                                    itemRec.add(new Incidencias(
-                                                                    indicencia.getString("idIncidencias"),
-                                                                    indicencia.getString("tipo").toString(),
-                                                                    indicencia.getString("comentario").toString(),
-                                                                    indicencia.getString("hora").toString(),
-                                                                    indicencia.getString("estado").toString(),
-                                                                    indicencia.getString("id").toString(),
-                                                                    indicencia.getString("cedula").toString(),
-                                                            indicencia.getString("departamento").toString() ,
-                                                            indicencia.getString("lp").toString()
-                                                            )
-                                                    );
-                                                }
-
-                                                list.setLayoutManager(new LinearLayoutManager(requireContext()));
-                                                RecyclerView.Adapter adapter= new myAdapter(itemRec);
-                                                adapter.notifyDataSetChanged();
-                                                list.setAdapter(adapter);
-
-                                            }
-
-                                            catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-
-                                        }else{
-                                            Toast.makeText(requireContext(), "Sin incidencias que mostrar", Toast.LENGTH_SHORT).show();
-
-                                        }
-                                    }
-                                }, new Response.ErrorListener(){
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        //Toast.makeText(MainActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
-
-                                    }
-
-                                }){
-                                    @Override
-                                    protected Map<String, String> getParams () throws AuthFailureError {
-                                        Map<String,String> parametros = new HashMap<String, String>();
-
-                                        parametros.put("departamento", String.valueOf(2));
-                                        parametros.put("estado", String.valueOf(ga));
-
-
-                                        return parametros;
-                                    }
-                                };
-                                        VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
-
+                                        String URL =ip+"/conexion_php/buscar_incidenciastec.php";
+                                        IncGroup(ga,URL);
 
                                     }
                                 });
@@ -225,12 +176,95 @@ public class frInAd extends Fragment {
             }
         };
         VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
-        /****************************************/
 
-///////////////////*******************///////////////////////////////////////////////
-
-        /********************************/
-        return v;
+        return;
 
     }
+
+
+     public void IncGroup (int ga,String URL){
+
+         RecyclerView list=layout.lista;
+         ArrayList<Incidencias> itemRec;
+
+         itemRec=new ArrayList();
+         String ip = getString(R.string.ip);
+
+
+         StringRequest stringRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response) {
+                 if(!response.isEmpty()) {
+                     try {
+                         JSONArray object= null;
+
+                         object = new JSONArray(response);
+                         Log.i("result","Data: "+response);
+                         itemRec.clear();
+                         for(int i=0;i<object.length();i++) {
+                             JSONObject indicencia = object.getJSONObject(i);
+
+                             itemRec.add(new Incidencias(
+                                             indicencia.getString("idIncidencias"),
+                                             indicencia.getString("tipo").toString(),
+                                             indicencia.getString("comentario").toString(),
+                                             indicencia.getString("hora").toString(),
+                                             indicencia.getString("estado").toString(),
+                                             indicencia.getString("id").toString(),
+                                             indicencia.getString("cedula").toString(),
+                                             indicencia.getString("departamento").toString() ,
+                                             indicencia.getString("lp").toString()
+                                     )
+                             );
+                         }
+
+                         list.setLayoutManager(new LinearLayoutManager(requireContext()));
+                         RecyclerView.Adapter adapter= new myAdapter(itemRec);
+                         adapter.notifyDataSetChanged();
+                         list.setAdapter(adapter);
+
+                     }
+
+                     catch (JSONException e) {
+                         e.printStackTrace();
+                     }
+
+                 }else{
+                     Toast.makeText(requireContext(), "Sin incidencias que mostrar", Toast.LENGTH_SHORT).show();
+                     itemRec.clear();
+                     list.setLayoutManager(new LinearLayoutManager(requireContext()));
+                     RecyclerView.Adapter adapter= new myAdapter(itemRec);
+                     adapter.notifyDataSetChanged();
+                     list.setAdapter(adapter);
+                 }
+             }
+         }, new Response.ErrorListener(){
+             @Override
+             public void onErrorResponse(VolleyError error) {
+                 //Toast.makeText(MainActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
+
+             }
+
+         }){
+             @Override
+             protected Map<String, String> getParams () throws AuthFailureError {
+                 Map<String,String> parametros = new HashMap<String, String>();
+
+                 SharedPreferences admin=requireContext().getSharedPreferences("x", Context.MODE_PRIVATE);
+                 SharedPreferences.Editor data=admin.edit();
+                 data.apply();
+                 String id_groupInc=admin.getString("id_groupInc","");
+                 parametros.put("id_group", id_groupInc);
+                 parametros.put("departamento", String.valueOf(2));
+                 parametros.put("estado", String.valueOf(ga));
+
+
+
+
+                 return parametros;
+             }
+         };
+         VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(stringRequest);
+     }
+
 }

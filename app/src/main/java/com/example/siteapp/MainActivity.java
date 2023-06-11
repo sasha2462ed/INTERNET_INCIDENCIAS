@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Context ct;
     CheckBox sesion;
     SharedPreferences app;
+    String ip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
         View view = v1.getRoot();
         setContentView(view);
 
+        new General();
+
         app=getApplicationContext().getSharedPreferences("myApp",MODE_PRIVATE);
         sesion=v1.checkBox;
         ct=view.getContext();
         SharedPreferences admin=getApplicationContext().getSharedPreferences("x",MODE_PRIVATE);
         boolean login=admin.getBoolean("estado",false);
         String tip_usuario=admin.getString("tip_usuario","");
-
+        ip = getString(R.string.ip);
 
         v1.vien1.setVisibility(View.INVISIBLE);
 
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+                //v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 v1.vien.setVisibility(View.VISIBLE);
                 v1.vien1.setVisibility(View.INVISIBLE);
 
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 v1.txp2.setInputType(InputType.TYPE_CLASS_TEXT);
-                v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER);
+                //v1.txp2.setInputType(InputType.TYPE_CLASS_NUMBER);
                 v1.vien.setVisibility(View.INVISIBLE);
                 v1.vien1.setVisibility(View.VISIBLE);
 
@@ -129,6 +132,9 @@ public class MainActivity extends AppCompatActivity {
                         data.putString("tip_usuario",objUser.getString("tip_usuario"));
                         data.putString("id",objUser.getString("id"));
                         data.putString("ap",objUser.getString("ap"));
+                        data.putString("ip",ip.toString());
+                        data.putString("contrasena",objUser.getString("contrasena"));
+                        data.putString("id_groupInc",objUser.getString("group_inc"));
                         data.apply();
 
                         iniSesion(objUser.getString("tip_usuario"));
@@ -172,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             activity= new Intent(getBaseContext(), interfaz_usuario.class);
 
         } else if (type.equals("D")){
-            activity= new Intent(getBaseContext(), interfaz_dependientes.class);
+            activity= new Intent(getBaseContext(), interfaz_dependiente.class);
         }
 
         startActivity(activity);
@@ -220,34 +226,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
 }

@@ -1,8 +1,11 @@
 package com.example.siteapp;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +17,6 @@ import java.util.ArrayList;
 public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
 
     ArrayList<Gestion> items;
-
 
     public myGestion(ArrayList<Gestion> items) {
 
@@ -33,17 +35,30 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
 
     @Override
     public void onBindViewHolder(@NonNull myGestion.Contenet holder, int position) {
+
+
         holder.cierre.setText(items.get(position).cierre);
         holder.tipo.setText(items.get(position).tipo);
         holder.fecha.setText(items.get(position).fecha);
         holder.idd.setText( "#"+items.get(position).idd);
         holder.idtec.setText(items.get(position).idtec);
+        String imagen = (items.get(position).referencia);
+        Log.i("imagennn","Data: "+imagen);
 
-        /***/
-        /***/
 
+        if (!imagen.isEmpty()) {
+            holder.icono055.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(v.getContext(),interfaz_gestion_image.class);
+                    intent.putExtra("imagen",imagen.toString());
+                    v.getContext().startActivity(intent);
 
-        /**/
+                }
+            });
+
+        }
+
     }
 
     @Override
@@ -64,6 +79,7 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
         TextView fecha;
         TextView idd;
         TextView idtec;
+        ImageView icono055;
 
 
 
@@ -73,10 +89,11 @@ public class myGestion extends RecyclerView.Adapter<myGestion.Contenet> {
 
             cv=itemView.findViewById(R.id.cv);
             cierre=itemView.findViewById(R.id.cierreg);
-            tipo=itemView.findViewById(R.id.resumeng);
+            tipo=itemView.findViewById(R.id.group);
             fecha=itemView.findViewById(R.id.fechag);
             idd=itemView.findViewById(R.id.idd);
             idtec=itemView.findViewById(R.id.idtec);
+            icono055=itemView.findViewById(R.id.icono055);
 
             /*cv.setOnClickListener(new View.OnClickListener() {
                 @Override

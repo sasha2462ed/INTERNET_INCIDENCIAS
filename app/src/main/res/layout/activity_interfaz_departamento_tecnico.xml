@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".interfaz_departamento_tecnico">
 
+
     <TextView
         android:id="@+id/txv4tec"
-        android:layout_width="315dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
@@ -23,10 +28,13 @@
 
     <ListView
         android:id="@+id/lv1"
-        android:layout_width="378dp"
+        android:layout_width="match_parent"
         android:layout_height="165dp"
+        android:layout_below="@+id/txv4tec"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,25 +45,48 @@
 
     <EditText
         android:id="@+id/txp4tec"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:layout_below="@+id/lv1"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@+id/icono89"
         android:ems="10"
+        android:gravity="center"
         android:hint="@string/txp4tec"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintEnd_toStartOf="@+id/icono89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv1" />
 
+    <ImageView
+        android:id="@+id/icono89"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/lv1"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txp4tec"
+        app:layout_constraintTop_toBottomOf="@+id/lv1"
+        tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/btn4tec"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_below="@+id/txp4tec"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:text="@string/btn4tec"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,26 +94,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txp4tec" />
 
+
     <Button
         android:id="@+id/btn6tec"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_below="@+id/btn4tec"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/btn6tec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn4tec" />
 
-    <Button
-        android:id="@+id/btn7tec"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/btn7tec"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn6tec" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

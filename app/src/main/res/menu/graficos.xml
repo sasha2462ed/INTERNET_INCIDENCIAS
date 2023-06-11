@@ -8,6 +8,9 @@
         android:id="@+id/ap"
         android:title="@string/ap" />
     <item
+        android:id="@+id/graphAp"
+        android:title="@string/graphAp" />
+    <item
         android:id="@+id/salir"
         android:title="@string/regre" />
 </menu>
